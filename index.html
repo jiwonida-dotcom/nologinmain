@@ -206,9 +206,9 @@ ul.r-l li b{font-weight:800}
     <p class="r-lead">비로그인 상태로 진입하는 메인 페이지(nologinMain)의 개선 목표와 요구사항을 정의하고, 동작 프로토타입으로 검증합니다. <b>본 리포트는 초기화 상태</b>이며 자료 분석과 함께 채워집니다.</p>
     <div class="r-meta">
       <dl class="r-m"><dt>대상 화면</dt><dd>nologinMain <em>S-00</em></dd></dl>
-      <dl class="r-m todo"><dt>개선 범위</dt><dd>정의 전</dd></dl>
+      <dl class="r-m"><dt>개선 범위</dt><dd>메인 전면 개편 <em>초안</em></dd></dl>
       <dl class="r-m todo"><dt>분석 기간</dt><dd>자료 수령 후 확정</dd></dl>
-      <dl class="r-m todo"><dt>근거</dt><dd>미수집</dd></dl>
+      <dl class="r-m"><dt>근거</dt><dd>관측 · Figma <em>데이터 미수집</em></dd></dl>
       <dl class="r-m"><dt>확정 상태</dt><dd id="r-count">확정 0 · 미확정 0 · 협의 0</dd></dl>
       <dl class="r-m"><dt>디바이스 기준</dt><dd>모바일 <em>394px</em></dd></dl>
     </div>
@@ -274,58 +274,150 @@ ul.r-l li b{font-weight:800}
 
 <!-- ═══════════════════════════════ 02 개선목표 ═══════════════════════════════ -->
 <section id="rt-goal" class="r-view">
-  <div class="r-top"><h1><span class="no">02</span>개선목표</h1><p>이 탭은 <b>왜 개편하는가</b>를 다룹니다 — 현황 계측, 페인포인트(P-nn), 개선 원칙(G-nn), 목표 지표(M-nn). 개별 요구사항이 충돌할 때 판단하는 <b>상위 기준</b>이 여기에 있습니다. 구체적 확정 사항(C-nn)은 <b>03 요구사항 정의서</b>가 단일 출처입니다.</p></div>
+  <div class="r-top"><h1><span class="no">02</span>개선목표</h1><p><b>왜 개편하는가.</b> 현행 UI 관측 → 개편 UI 대조 → 배경 · 목표 · 방향. 확정 사항(C-nn)은 <b>03 요구사항 정의서</b>가 단일 출처. 분석 데이터 미수집 — <b>우선순위 · 지표 현재값 전부 잠정</b>, 개편 의도(G)는 사용자 확인 전 [추론].</p></div>
 
   <div class="r-grid r-g3">
-    <div class="r-kpi todo"><div class="v">—</div><div class="l">메인 진입 세션 (기간 미정)</div></div>
-    <div class="r-kpi todo"><div class="v">—</div><div class="l">모바일 비중</div></div>
-    <div class="r-kpi todo"><div class="v">—</div><div class="l">핵심 이탈 지표 (선정 전)</div></div>
-    <div class="r-kpi todo"><div class="v">—</div><div class="l">Dead / Rage Click</div></div>
-    <div class="r-kpi todo"><div class="v">—</div><div class="l">스크롤 심도</div></div>
-    <div class="r-kpi todo"><div class="v">—</div><div class="l">주요 CTA 클릭률</div></div>
+    <div class="r-kpi main"><div class="v">3,581<small style="font-size:13px;font-weight:700;color:var(--muted)">px</small></div><div class="l">AS-IS 총 높이 · 약 4.4화면 [관측]</div></div>
+    <div class="r-kpi warn"><div class="v">2중</div><div class="l">진입 레이어 — 전면 팝업 + 토스트, 닫기 시 재진입 재노출 [관측]</div></div>
+    <div class="r-kpi warn"><div class="v">3종</div><div class="l">요금제 탐색 장치 분산 — 롤링 픽커 · 혜택 리스트 · 데이터량 선택 (1,291px) [관측]</div></div>
+    <div class="r-kpi warn"><div class="v">0</div><div class="l">본문 내 가입 직행 CTA — 신청서 링크는 전체메뉴 안에만 [관측]</div></div>
+    <div class="r-kpi"><div class="v">3종</div><div class="l">동시 자동 움직임 — 배너 회전 14장 · 롤링 픽커 · 팝업 [관측]</div></div>
+    <div class="r-kpi todo"><div class="v">—</div><div class="l">진입 세션 · 이탈 · Dead Click — 미수집 (O-08)</div></div>
   </div>
 
   <div class="r-sec" style="margin-top:34px">
-    <h2><span class="no">1</span>개선 배경 · 현황</h2>
-    <p class="d">메인 페이지가 가입 여정에서 맡는 역할과, 지금 그 역할을 어떻게 수행하고 있는지를 <b>관측과 데이터</b>로 기술합니다. 근거 등급 태그를 반드시 붙입니다.</p>
-    <div class="r-sub"><span class="g">가</span>전제 · 트래픽</div>
+    <h2><span class="no">1</span>개선 배경</h2>
+    <p class="d">전제(C-01~04) · 현행 UI 관측 · 문제 후보 · 개편 UI 대조.</p>
+
+    <div class="r-sub"><span class="g">가</span>전제</div>
     <table class="r-t">
-      <thead><tr><th>ID</th><th>항목</th><th>근거</th><th>내용 · 설계 시사점</th></tr></thead>
-      <tbody><tr><td class="empty" colspan="4">자료 분석 후 작성 — 대상 · 진입 경로 · 진입 규모 · 디바이스 · 핵심 행동 신호 · 개선 범위</td></tr></tbody>
+      <thead><tr><th>ID</th><th>항목</th><th>근거</th><th>내용</th></tr></thead>
+      <tbody>
+        <tr><td class="id"><span class="cid">C-01</span></td><td>대상</td><td><span class="ev agr">합의</span></td><td>https://www.uplusumobile.com/nologrevisit</td></tr>
+        <tr><td class="id"><span class="cid">C-02</span></td><td>노출 조건</td><td><span class="ev agr">합의</span></td><td>쿠키 기준 로그인 이력 없음 → 메인 접근 시 일반 메인 대신 노출. <code>/</code> 진입 시 자동 이동 <span class="ev obs">관측</span></td></tr>
+        <tr><td class="id"><span class="cid">C-03</span></td><td>타겟 · 역할</td><td><span class="ev agr">합의</span></td><td>신규 가입 가능성 높은 고객. 가입 유도 콘텐츠 중심</td></tr>
+        <tr><td class="id"><span class="cid">C-04</span></td><td>디바이스</td><td><span class="ev agr">합의</span></td><td>모바일 전용</td></tr>
+        <tr><td class="id"><span class="cid n">—</span></td><td>진입 규모 · 기간</td><td>—</td><td>미수집 <span class="cid d">O-08</span></td></tr>
+      </tbody>
     </table>
-    <div class="r-sub"><span class="g">나</span>개선 전 현황 — 문제 근거</div>
+
+    <div class="r-sub"><span class="g">나</span>현행 UI (AS-IS) — 2026-09-17 · 모바일 375px · 총 3,581px</div>
     <table class="r-t">
-      <thead><tr><th>ID</th><th>영역</th><th>근거</th><th>현황</th><th>결과</th></tr></thead>
-      <tbody><tr><td class="empty" colspan="5">실제 화면 워크스루 후 작성</td></tr></tbody>
+      <thead><tr><th>#</th><th>영역</th><th>높이</th><th>구성</th></tr></thead>
+      <tbody>
+        <tr><td class="id">0</td><td>진입 레이어</td><td>전면</td><td>이벤트 팝업(오늘 하루 그만 보기 · 닫기) + 인기Top10 토스트. 닫기만 누르면 재진입 시 재노출</td></tr>
+        <tr><td class="id">1</td><td>퀵링크</td><td>62</td><td>요금제 찾기 · 셀프개통 · 휴대폰 · 이벤트</td></tr>
+        <tr><td class="id">2</td><td>이벤트 배너</td><td>177</td><td>14장 자동 회전 + 전체보기</td></tr>
+        <tr><td class="id">3</td><td>나에게 맞는 요금제 + 실시간 혜택</td><td>732</td><td>세로 자동 롤링 픽커 4 + 혜택 리스트 7 + 더보기</td></tr>
+        <tr><td class="id">4</td><td>휴대폰 추천</td><td>440</td><td>탭 3 + 가로 카드</td></tr>
+        <tr><td class="id">5</td><td>데이터량 선택</td><td>559</td><td>5단계(7GB 15,900원 ~ 초저가 3,300원) → 전용 랜딩</td></tr>
+        <tr><td class="id">6</td><td>혜택 · 서비스</td><td>345</td><td>인터넷 결합 · 가족 결합 · 우리 결합 · 친구 추천 (아이콘 링크)</td></tr>
+        <tr><td class="id">7</td><td>고객센터</td><td>161</td><td>1:1 문의 · FAQ · 챗봇 · 활용방법 (링크)</td></tr>
+        <tr><td class="id">8</td><td>배너</td><td>125</td><td>사용후기 · APP</td></tr>
+      </tbody>
     </table>
-    <div class="r-sub" style="font-size:13px">개선 전 실제 화면 — 운영 중인 nologinMain 캡처</div>
-    <div class="r-todo">캡처 미첨부 — assets/captures/ 에 넣고 base64로 임베딩 (캡션 · alt 필수)</div>
+    <div class="r-sub" style="font-size:13px">개선 전 실제 화면 캡처</div>
+    <div class="r-todo">캡처 미첨부 — 브라우저 패널 캡처 실패. 사용자 제공 또는 Chrome 확장 연결 후 추가</div>
+
+    <div class="r-sub"><span class="g">다</span>현행 문제 후보 (P-nn) — 우선순위 잠정, 데이터 후 확정</div>
+    <table class="r-t">
+      <thead><tr><th>ID</th><th>우선순위</th><th>문제</th><th>근거</th><th>해소 (TO-BE)</th></tr></thead>
+      <tbody>
+        <tr id="def-P-01"><td class="id"><span class="cid n">P-01</span></td><td><span class="cid d">잠정 High</span></td><td>진입 즉시 <b>전면 팝업 + 토스트 2중 노출</b>. 첫 화면 가림, 닫기 조작 선행, 재진입 시 반복</td><td><span class="ev obs">관측</span></td><td>개편안에 부재 <span class="cid d">O-01</span></td></tr>
+        <tr id="def-P-02"><td class="id"><span class="cid n">P-02</span></td><td><span class="cid d">잠정 High</span></td><td><b>본문 내 가입 직행 CTA 부재</b>. 요금제 목록→상세→신청 3단계. 신청서 링크는 전체메뉴 안에만</td><td><span class="ev obs">관측</span></td><td>타임딜 · 요금제 카드 → 신청 경로 (요구사항에서 확정)</td></tr>
+        <tr id="def-P-03"><td class="id"><span class="cid n">P-03</span></td><td><span class="cid d">잠정 High</span></td><td><b>요금제 탐색 장치 3종 분산</b> — 롤링 픽커 4 · 혜택 리스트 7 · 데이터량 5단계. 동일 목적 중복, 1,291px</td><td><span class="ev obs">관측</span></td><td>카테고리 칩 4 + 카드 1개 장치 <span class="cid n">G-03</span></td></tr>
+        <tr id="def-P-04"><td class="id"><span class="cid n">P-04</span></td><td>잠정 Medium</td><td><b>자동 움직임 3종 동시</b> — 배너 회전 14장 · 롤링 픽커 · 팝업 슬라이드. 주의 분산 · 오조작 위험</td><td><span class="ev obs">관측</span> 오조작 <span class="ev inf">추론</span></td><td>롤링 · 팝업 제거 <span class="cid n">G-07</span>, 배너 회전 <span class="cid d">O-04</span></td></tr>
+        <tr id="def-P-05"><td class="id"><span class="cid n">P-05</span></td><td>잠정 Medium</td><td>요금제 진입 링크에 <b>명칭만</b>. 가격 · 제공량 · 혜택은 상세 진입 후 확인</td><td><span class="ev obs">관측</span></td><td>카드 내 정가 · 할인가 · 제공량 · 혜택 <span class="cid n">G-04</span></td></tr>
+        <tr id="def-P-06"><td class="id"><span class="cid n">P-06</span></td><td>잠정 Medium</td><td>최상단 배너 14장이 <b>이벤트 중심</b>. 가입 유도 콘텐츠 우선(C-03)과 불일치</td><td><span class="ev obs">관측</span> 불일치 <span class="ev inf">추론</span></td><td>요금제 오퍼 배너 6장 <span class="cid n">G-01</span></td></tr>
+        <tr id="def-P-07"><td class="id"><span class="cid n">P-07</span></td><td>잠정 Low</td><td>쿠키 없는 기존 고객의 <b>로그인 진입점</b> — 전체메뉴 안에만</td><td><span class="ev obs">관측</span></td><td>로그인 블록 <span class="cid n">G-05</span> <span class="cid d">O-05</span></td></tr>
+        <tr id="def-P-08"><td class="id"><span class="cid n">P-08</span></td><td>잠정 Low</td><td>결합 · 고객센터 항목이 <b>명칭만</b>. 가치 정보 부재</td><td><span class="ev obs">관측</span></td><td>카드 · 리스트에 가치 문구 <span class="cid n">G-04</span></td></tr>
+      </tbody>
+    </table>
+    <div class="r-note" style="margin-top:14px"><b>우선순위 규칙</b> — Critical: 전 사용자 매회 구조적 마찰(재현) · High: 데이터로 규모 확인된 이탈 요인 · Medium: 조건부 마찰. <b>[추론] 단독 근거 항목은 Critical 불가.</b> 데이터(O-08) 수령 후 확정.</div>
+
+    <div class="r-sub"><span class="g">라</span>개편 UI (TO-BE) — Figma · 콘텐츠 폭 470 · 총 4,872px</div>
+    <table class="r-t">
+      <thead><tr><th>순서</th><th>AS-IS</th><th>TO-BE</th><th>변화</th></tr></thead>
+      <tbody>
+        <tr><td>진입</td><td>전면 팝업 + 토스트</td><td>없음</td><td>제거 <span class="cid d">O-01</span></td></tr>
+        <tr><td>네비</td><td>퀵링크 4</td><td>홈 탭 4: 홈 · 요금제 · 휴대폰 · 유픽폰</td><td>링크 → 탭. 셀프개통 · 이벤트 제외, 유픽폰 추가 <span class="cid d">O-06</span></td></tr>
+        <tr><td>배너</td><td>이벤트 14장 자동 회전</td><td>「이번달 한정 BEST 요금제 7종 · 42만원 혜택 · 91GB+ 32,990원 → 체감가 0원」 6장 + 인디케이터 + 전체보기</td><td>이벤트 → 요금제 오퍼. 14→6장 <span class="cid d">O-04</span></td></tr>
+        <tr><td>신규</td><td>—</td><td>로그인 블록: 「로그인하고 가입정보를 확인하세요」 + 로그인하기 + 이용 중인 요금제 · 이용 내역</td><td>기존 고객 분기 <span class="cid d">O-05</span></td></tr>
+        <tr><td>핵심 오퍼</td><td>롤링 픽커 + 혜택 리스트 (732px)</td><td><b>타임딜 (1,453px)</b>: 카운트다운 · 참여 인원 · 기간 한정 · 12GB+ 18,300→0원 · N페이 18만 + 프레딧 12만 · 이벤트 코드 복사 · 대상 요금제 4종(전부 0원) + 접힌 딜 2</td><td>나열 → 단일 오퍼 집중. 긴급성 · 사회적 증거 · 행동 장치 <span class="cid d">O-03</span></td></tr>
+        <tr><td>탐색</td><td>데이터량 5단계</td><td>카테고리 칩 4(인기 · 데이터 · 최저가 · 제휴혜택 TOP) + 가로 카드(배지 · 스펙 · 정가 취소선 → 할인가 · 기본제공 · 혜택) + 전체보기 + 도트</td><td>사용량 질문 → 카테고리 브라우징 <span class="cid d">O-02</span></td></tr>
+        <tr><td>휴대폰</td><td>탭 3 + 카드</td><td>카드(한정판매 · S급 · BEST 배지 · 5G · 월 납부금액(예상) · 할부+요금제) + 전체보기 + 도트</td><td>탭 제거, 정보 강화</td></tr>
+        <tr><td>결합 · 혜택</td><td>아이콘 링크 4</td><td>카드 4 + 가치 문구(인터넷+IPTV · 최대 50% 환급 · 추가 데이터 20GB · 1만P + 1% 적립)</td><td>설명 추가</td></tr>
+        <tr><td>고객센터</td><td>링크 4</td><td>리스트 4 + 설명 + 배지(인기 · 24h · 가이드)</td><td>설명 추가</td></tr>
+        <tr><td>후기 · APP</td><td>배너 2</td><td>카드 2 + 설명</td><td>유지</td></tr>
+        <tr><td>푸터</td><td>(관측 밖)</td><td>회사 링크 · 맨 위로 · 전화 · 약관 · 사업자 정보 · 브랜드 대상</td><td>—</td></tr>
+      </tbody>
+    </table>
   </div>
 
   <div class="r-sec">
-    <h2><span class="no">2</span>핵심 문제 · 개선 원칙</h2>
-    <p class="d">페인포인트는 우선순위(Critical / High / Medium)와 근거를 함께 적고, 해소 설계 열에는 <b>03 탭의 C-nn ID만 참조</b>합니다.</p>
+    <h2><span class="no">2</span>개선 목표 (T-nn)</h2>
+    <p class="d">무엇을 이룰 것인가. 문제(P)와 지표(M) 연결.</p>
     <table class="r-t">
-      <thead><tr><th>ID</th><th>우선순위</th><th>페인포인트</th><th>근거</th><th>해소 설계</th><th>판정</th></tr></thead>
-      <tbody><tr><td class="empty" colspan="6">P-01 ~ 미정의</td></tr></tbody>
-    </table>
-    <div class="r-note" style="margin-top:14px"><b>우선순위 기준</b> — Critical: 모든 사용자가 매번 겪는 구조적 마찰(워크스루로 재현) · High: 데이터로 규모가 확인된 이탈 요인 · Medium: 조건부 마찰. <b>[추론]이 유일한 근거인 Critical은 두지 않는다.</b></div>
-
-    <div class="r-sub">개선 원칙 (G-nn)</div>
-    <p class="d">개별 확정 사항이 서로 충돌할 때 <b>어느 쪽을 따를지 판단하는 상위 기준</b>입니다.</p>
-    <table class="r-t">
-      <thead><tr><th>ID</th><th>원칙</th><th>내용</th></tr></thead>
-      <tbody><tr><td class="empty" colspan="3">G-01 ~ 미정의</td></tr></tbody>
+      <thead><tr><th>ID</th><th>목표</th><th>내용</th><th>관련 P</th><th>지표</th></tr></thead>
+      <tbody>
+        <tr id="def-T-01"><td class="id"><span class="cid">T-01</span></td><td><b>가입 전환</b></td><td>메인에서 요금제 오퍼 인지 → 신청 진입 단축. 정보 제공 → 전환 유도로 페이지 역할 전환</td><td>P-02 · P-05 · P-06</td><td>M-01 · M-02</td></tr>
+        <tr id="def-T-02"><td class="id"><span class="cid">T-02</span></td><td><b>탐색 효율</b></td><td>요금제 발견 장치 단일화. 진입 방해(팝업) · 자동 움직임 제거</td><td>P-01 · P-03 · P-04</td><td>M-03 · M-04</td></tr>
+        <tr id="def-T-03"><td class="id"><span class="cid">T-03</span></td><td><b>기존 고객 회수</b></td><td>쿠키 없는 기존 고객의 로그인 복귀 경로</td><td>P-07</td><td>M-05</td></tr>
+      </tbody>
     </table>
   </div>
 
   <div class="r-sec">
-    <h2><span class="no">3</span>목표 지표 · 측정 기준</h2>
-    <p class="d">개선 효과를 판정하는 기준선입니다. 기존 지표와 <b>동일 조건 비교가 가능한지</b>를 먼저 명시하고, 불가하면 신규 기준선을 둡니다.</p>
+    <h2><span class="no">3</span>개선 방향 (G-nn) — 설계 원칙</h2>
+    <p class="d">어떻게 이룰 것인가. 요구사항 충돌 시 판단 기준. Figma 구성에서 역산 — 전부 <span class="ev inf">추론</span>, 확인 후 [합의] 승격.</p>
     <table class="r-t">
-      <thead><tr><th>ID</th><th>지표</th><th>현재값</th><th>목표값</th><th>측정 방법 · 도구</th></tr></thead>
-      <tbody><tr><td class="empty" colspan="5">M-01 ~ 미정의</td></tr></tbody>
+      <thead><tr><th>ID</th><th>원칙</th><th>내용</th><th>TO-BE 반영</th></tr></thead>
+      <tbody>
+        <tr id="def-G-01"><td class="id"><span class="cid n">G-01</span></td><td>가입 오퍼 최우선</td><td>첫 화면부터 요금제 오퍼. 이벤트 · 안내는 후순위</td><td>배너 → 타임딜 (첫 2.5화면)</td></tr>
+        <tr id="def-G-02"><td class="id"><span class="cid n">G-02</span></td><td>전환 유도 장치</td><td>긴급성(타이머 · 기간) · 사회적 증거(참여 인원) · 즉시 행동(코드 복사)</td><td>타임딜</td></tr>
+        <tr id="def-G-03"><td class="id"><span class="cid n">G-03</span></td><td>탐색 장치 단일화</td><td>요금제 발견 경로 1개. 동일 목적 장치 중복 금지</td><td>카테고리 칩 + 카드</td></tr>
+        <tr id="def-G-04"><td class="id"><span class="cid n">G-04</span></td><td>카드 내 판단 완결</td><td>가격 · 제공량 · 혜택을 카드에서 노출. 상세 진입 전 비교 가능</td><td>요금제 · 휴대폰 · 결합 카드</td></tr>
+        <tr id="def-G-05"><td class="id"><span class="cid n">G-05</span></td><td>기존 고객 분기</td><td>비로그인 이력 페이지에도 로그인 복귀 경로</td><td>로그인 블록</td></tr>
+        <tr id="def-G-06"><td class="id"><span class="cid n">G-06</span></td><td>섹션 패턴 통일</td><td>제목 2행 + 전체보기 + 가로 카드 + 도트</td><td>요금제 · 휴대폰 · 결합 · 고객센터</td></tr>
+        <tr id="def-G-07"><td class="id"><span class="cid n">G-07</span></td><td>자동 움직임 최소화</td><td>사용자 조작 없는 화면 변화 금지. 진입 가림 레이어 금지</td><td>팝업 · 토스트 · 롤링 제거 (배너 회전 <span class="cid d">O-04</span>)</td></tr>
+      </tbody>
     </table>
+  </div>
+
+  <div class="r-sec">
+    <h2><span class="no">4</span>목표 지표 · 측정 기준 (M-nn)</h2>
+    <p class="d">현재값 미수집 <span class="cid d">O-08</span>. 도구 · 기간 확정 후 기입.</p>
+    <table class="r-t">
+      <thead><tr><th>ID</th><th>지표</th><th>현재값</th><th>목표값</th><th>측정</th><th>비교 가능성</th></tr></thead>
+      <tbody>
+        <tr><td class="id"><span class="cid">M-01</span></td><td>메인 → 신청서 진입률 (<code>/onsale/joinIsMember</code> 도달 / 메인 세션)</td><td>—</td><td>—</td><td>GA · Clarity</td><td>구조 변경 → 신규 기준선</td></tr>
+        <tr><td class="id"><span class="cid">M-02</span></td><td>오퍼 CTA 클릭률 (타임딜 · 배너 · 요금제 카드)</td><td>—</td><td>—</td><td>GA 이벤트</td><td>신규</td></tr>
+        <tr><td class="id"><span class="cid">M-03</span></td><td>메인 이탈률 · 평균 체류</td><td>—</td><td>—</td><td>GA · Clarity</td><td>AS-IS 대비 비교 가능</td></tr>
+        <tr><td class="id"><span class="cid">M-04</span></td><td>Dead Click · Rage Click 건수</td><td>—</td><td>—</td><td>Clarity</td><td>AS-IS 대비 비교 가능</td></tr>
+        <tr><td class="id"><span class="cid">M-05</span></td><td>로그인 블록 클릭률 · 로그인 전환</td><td>—</td><td>—</td><td>GA 이벤트</td><td>신규</td></tr>
+        <tr><td class="id"><span class="cid">M-06</span></td><td>스크롤 심도 (타임딜 · 요금제 · 휴대폰 도달률)</td><td>—</td><td>—</td><td>Clarity</td><td>AS-IS 대비 비교 가능</td></tr>
+        <tr><td class="id"><span class="cid n">참조</span></td><td>AS-IS 진입 팝업 닫기율 · 오늘 하루 그만 보기 비율</td><td>—</td><td>—</td><td>GA</td><td>개편 동기 근거</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="r-sec">
+    <h2><span class="no">5</span>미확정 (O-nn) — 확정 전 설계 착수 불가</h2>
+    <p class="d">Owner 전건 HEO. 단일 출처는 03 탭 Baseline, 여기서는 목록만.</p>
+    <table class="r-t">
+      <thead><tr><th>ID</th><th>항목</th><th>배경 · 막히는 것</th></tr></thead>
+      <tbody>
+        <tr><td class="id"><span class="cid d">O-01</span></td><td>진입 팝업 · 토스트</td><td>제거인지 운영 배너 시스템(범위 밖)인지. P-01 해소 여부</td></tr>
+        <tr><td class="id"><span class="cid d">O-02</span></td><td>데이터량 5단계 선택</td><td>제거인지 요금제 탭 이동인지. <code>nologPpnSearchBann</code> 랜딩 폐기 여부</td></tr>
+        <tr><td class="id"><span class="cid d">O-03</span></td><td>타임딜 데이터</td><td>타이머 · 참여 인원 · 이벤트 코드 — 실데이터 연동 / 운영자 입력. 데이터 규칙 · 백오피스 범위</td></tr>
+        <tr><td class="id"><span class="cid d">O-04</span></td><td>배너 자동 회전</td><td>6장 자동 회전 여부. G-07 적용 범위</td></tr>
+        <tr><td class="id"><span class="cid d">O-05</span></td><td>로그인 블록</td><td>비로그인 이력 페이지 배치 이유 · 오퍼 사이 위치 의도</td></tr>
+        <tr><td class="id"><span class="cid d">O-06</span></td><td>홈 탭 4</td><td>셀프개통 · 이벤트 제외 의도. 탭 전환 = 페이지 이동 / 화면 내 전환</td></tr>
+        <tr><td class="id"><span class="cid d">O-07</span></td><td>Figma 추가 프레임</td><td>요금제 · 휴대폰 탭, 상태 변형, 주석 유무</td></tr>
+        <tr><td class="id"><span class="cid d">O-08</span></td><td>분석 데이터</td><td>Clarity · GA 제공 시점. P 우선순위 · M 현재값 확정 조건</td></tr>
+      </tbody>
+    </table>
+    <div class="r-warn" style="margin-top:14px"><b>[추론] 목록</b> — P-04 오조작(이전 프로젝트 C-11 동일 패턴) · P-06 불일치(C-03 대비 배너 구성) · G-01~G-07 전체(Figma 역산). 반박 예상 지점.</div>
   </div>
 </section>
 
@@ -340,13 +432,27 @@ ul.r-l li b{font-weight:800}
     <div class="r-sub"><span class="g">C</span>확정 사항 (<span id="cnt-c">0</span>건)</div>
     <table class="r-t" id="tbl-c">
       <thead><tr><th>ID</th><th>영역</th><th>항목</th><th>근거</th><th>확정 내용</th></tr></thead>
-      <tbody><tr><td class="empty" colspan="5">C-01 ~ 미정의</td></tr></tbody>
+      <tbody>
+        <tr id="def-C-01"><td class="id"><span class="cid">C-01</span></td><td>전제</td><td>대상 URL</td><td><span class="ev agr">합의</span> HEO 09-17</td><td>https://www.uplusumobile.com/nologrevisit — 비로그인 이력 고객용 별도 메인</td></tr>
+        <tr id="def-C-02"><td class="id"><span class="cid">C-02</span></td><td>전제</td><td>노출 조건</td><td><span class="ev agr">합의</span> HEO 09-17</td><td>쿠키 기준 로그인 이력 없음 → 메인 접근 시 일반 메인 대신 노출</td></tr>
+        <tr id="def-C-03"><td class="id"><span class="cid">C-03</span></td><td>전제</td><td>타겟 · 목적</td><td><span class="ev agr">합의</span> HEO 09-17</td><td>신규 가입 가능성 높은 고객 → 가입 유도 콘텐츠 중심 별도 콘텐츠 · UI</td></tr>
+        <tr id="def-C-04"><td class="id"><span class="cid">C-04</span></td><td>전제</td><td>디바이스</td><td><span class="ev agr">합의</span> HEO 09-17</td><td>모바일 전용</td></tr>
+      </tbody>
     </table>
 
     <div class="r-sub"><span class="g">O</span>미확정 사항 (<span id="cnt-o">0</span>건)</div>
     <table class="r-t" id="tbl-o">
       <thead><tr><th>ID</th><th>항목</th><th>Owner</th><th>배경 · 확정 전까지 막히는 것</th><th>상태</th></tr></thead>
-      <tbody><tr><td class="empty" colspan="5">O-01 ~ 미정의 — 암묵 가정을 발견하면 반드시 여기에 올린다</td></tr></tbody>
+      <tbody>
+        <tr id="def-O-01"><td class="id"><span class="cid d">O-01</span></td><td>진입 팝업 · 토스트</td><td>HEO</td><td>제거인지 운영 배너 시스템(범위 밖)인지. P-01 해소 여부</td><td><span class="cid d">미확정</span></td></tr>
+        <tr id="def-O-02"><td class="id"><span class="cid d">O-02</span></td><td>데이터량 5단계 선택</td><td>HEO</td><td>제거인지 요금제 탭 이동인지. nologPpnSearchBann 랜딩 폐기 여부</td><td><span class="cid d">미확정</span></td></tr>
+        <tr id="def-O-03"><td class="id"><span class="cid d">O-03</span></td><td>타임딜 데이터</td><td>HEO</td><td>타이머 · 참여 인원 · 이벤트 코드 — 실데이터 연동 / 운영자 입력. 데이터 규칙 · 백오피스 범위</td><td><span class="cid d">미확정</span></td></tr>
+        <tr id="def-O-04"><td class="id"><span class="cid d">O-04</span></td><td>배너 자동 회전</td><td>HEO</td><td>6장 자동 회전 여부. G-07 적용 범위</td><td><span class="cid d">미확정</span></td></tr>
+        <tr id="def-O-05"><td class="id"><span class="cid d">O-05</span></td><td>로그인 블록</td><td>HEO</td><td>비로그인 이력 페이지 배치 이유 · 오퍼 사이 위치 의도</td><td><span class="cid d">미확정</span></td></tr>
+        <tr id="def-O-06"><td class="id"><span class="cid d">O-06</span></td><td>홈 탭 4</td><td>HEO</td><td>셀프개통 · 이벤트 제외 의도. 탭 전환 = 페이지 이동 / 화면 내 전환</td><td><span class="cid d">미확정</span></td></tr>
+        <tr id="def-O-07"><td class="id"><span class="cid d">O-07</span></td><td>Figma 추가 프레임</td><td>HEO</td><td>요금제 · 휴대폰 탭, 상태 변형, 주석 유무</td><td><span class="cid d">미확정</span></td></tr>
+        <tr id="def-O-08"><td class="id"><span class="cid d">O-08</span></td><td>분석 데이터</td><td>HEO</td><td>Clarity · GA 제공 시점. P 우선순위 · M 현재값 확정 조건</td><td><span class="cid d">미확정</span></td></tr>
+      </tbody>
     </table>
 
     <div class="r-sub"><span class="g">D</span>개발 협의 항목 (<span id="cnt-d">0</span>건)</div>
