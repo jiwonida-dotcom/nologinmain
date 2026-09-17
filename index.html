@@ -218,6 +218,8 @@ ul.r-l li b{font-weight:800}
 
 /* 프레임 확대 — 기기 394→446px, zoom .7725→.87 (가독성, Figma 비율 유지) */
 #ph1.phone{width:446px}
+/* 기기 프레임 목업 헤더 제거 — 프로토타입 TOP 과 중복 */
+#ph1 .ph-head{display:none}
 
 /* ============================================================
    PROTO — nologinMain 홈
@@ -506,6 +508,48 @@ ul.r-l li b{font-weight:800}
 .np-award span{display:block;font-size:14px;color:#8b92b8;line-height:20px;padding-top:2px}
 .np-copy{padding:0 20px 16px;font-size:14px;color:#555c7a;line-height:20px;background:#1e2132}
 
+/* ── 요금제 탭 : Figma [MO] NoLogin Main-요금제 (40007051:15914)
+   TITLE COPY 18/28 SB · Filter(STEP1 chip 14/24 SB · STEP2 h40) · PlaneCard 470 리스트
+   폰트는 프로젝트 하한 14px 적용 (배지 Figma 12 → 14) ── */
+#np-plantab{display:flex;flex-direction:column;gap:0}
+.np-ptit{margin:0 0 30px;font-size:18px;font-weight:600;line-height:28px;letter-spacing:-.45px;color:#1e2939;white-space:nowrap}
+.np-ptit span{color:#6a7282}
+.np-ptit span b{font-weight:600;color:#7c4dff}
+
+.np-filter{display:flex;flex-direction:column;gap:10px;justify-content:center;padding-bottom:20px}
+.np-filter .s1{display:flex;gap:8px;align-items:center;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.np-filter .s1::-webkit-scrollbar{display:none}
+.np-filter .s1 button{flex-shrink:0;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:99px;border:1px solid #d1d5dc;background:#fff;color:#4a5565;font-size:14px;font-weight:600;line-height:24px;letter-spacing:-.35px;white-space:nowrap}
+.np-filter .s1 button[aria-selected="true"]{background:#7b5cf5;border-color:#7b5cf5;color:#fff}
+.np-filter .s1 button i{font-style:normal;line-height:24px}
+.np-filter .s2{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #f3f4f6;background:#fff}
+.np-filter .s2 .rl{width:40px;height:40px;border:1px solid #d1d5dc;border-radius:10px;display:flex;align-items:center;justify-content:center;background:#fff}
+.np-filter .s2 .rt{display:flex;gap:8px}
+.np-filter .s2 .rt button{height:40px;border:1px solid #a7afb6;border-radius:10px;background:#fff;color:#424242;font-size:14px;font-weight:600;line-height:24px;letter-spacing:-.35px;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:0 10px;white-space:nowrap}
+.np-filter .s2 button:active{background:#f5f4ff}
+.np-filter .s2 svg{width:20px;height:20px;flex-shrink:0;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.np-filter .s2 .rl svg{stroke:#7b5cf5}
+.np-filter .s2 .rt svg{stroke:#424242}
+
+/* PlaneCard 리스트형 : 470 · p20 · gap10 · r16 */
+.np-plist{display:flex;flex-direction:column;gap:10px;padding-top:12px}
+.np-pcard{width:100%;background:#fff;border:1px solid #e8e8e8;border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:10px;filter:drop-shadow(0 1px 1.5px rgba(0,0,0,.1)) drop-shadow(0 1px 1px rgba(0,0,0,.1));cursor:pointer;text-align:left}
+.np-pcard .bd{display:flex;gap:6px;flex-wrap:wrap;width:100%}
+.np-pcard .bd span{padding:2px 8px;border-radius:4px;border:1px solid;font-size:14px;font-weight:400;line-height:20px;letter-spacing:-.3px;white-space:nowrap}
+.np-pcard .bd .best{background:#ffedd4;border-color:#ffd6a8;color:#f54900}
+.np-pcard .bd .emt{background:#fef9c2;border-color:#fff085;color:#a65f00}
+.np-pcard .bd .new{background:#e6f5ff;border-color:#b9e1fd;color:#1a99ff}
+.np-pcard .bd .npay{background:#d6fade;border-color:#48eb6d;color:#1bb25e}
+.np-pcard .bd .rnd{background:#fff7ed;border-color:#ffedd4;color:#ff6900}
+.np-pcard .bdy{display:flex;flex-direction:column;gap:6px;width:100%;color:#101828}
+.np-pcard .bdy .t{font-size:14px;font-weight:400;line-height:24px;letter-spacing:-.35px}
+.np-pcard .bdy .d{font-size:24px;font-weight:600;line-height:36px;letter-spacing:-.6px}
+.np-pcard .bdy .ln{display:flex;flex-direction:column;font-size:14px;font-weight:400;line-height:24px;letter-spacing:-.35px}
+.np-pcard .pr{height:56px;display:flex;flex-direction:column;align-items:flex-end;width:100%;font-weight:600;white-space:nowrap}
+.np-pcard .pr .o{font-size:14px;line-height:24px;letter-spacing:-.35px;color:#424242;text-decoration:line-through}
+.np-pcard .pr .n{font-size:24px;line-height:36px;letter-spacing:-.6px;color:#7c4dff}
+.np-pempty{padding:50px 20px;text-align:center;color:#9c9cab;font-size:15px;font-weight:600;line-height:1.7}
+
 /* ── 프로토 보조 ── */
 .np-toast{position:absolute;left:50%;bottom:24px;transform:translateX(-50%) translateY(8px);background:rgba(22,22,30,.92);color:#fff;font-size:14px;font-weight:600;padding:10px 16px;border-radius:99px;opacity:0;transition:opacity .2s,transform .2s;pointer-events:none;white-space:nowrap;z-index:5}
 .np-toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
@@ -730,6 +774,23 @@ ul.r-l li b{font-weight:800}
   </div>
 
   </div><!-- /np-home -->
+
+  <!-- ─── 요금제 탭 (Figma [MO] NoLogin Main-요금제 40007051:15914) ─── -->
+  <div id="np-plantab" style="display:none">
+    <h2 class="np-ptit">원하는 요금제를 찾아보세요<span id="np-pcnt">(총 <b>136</b>개)</span></h2>
+    <div class="np-filter">
+      <div class="s1" role="tablist" aria-label="요금제 유형" id="np-ftype"></div>
+      <div class="s2">
+        <button class="rl" aria-label="필터 초기화" onclick="npPlanReset()"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M16.8 10a6.8 6.8 0 1 1-2-4.8M17 2.6v4.2h-4.2"/></svg></button>
+        <div class="rt">
+          <button onclick="npToast('필터 시트 — 미정의 (O-09)')"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2 6h4M10 6h8M2 14h8M14 14h4"/><circle cx="8" cy="6" r="2"/><circle cx="12" cy="14" r="2"/></svg>필터</button>
+          <button onclick="npToast('정렬 시트 — 미정의 (O-09)')"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2 5h5.5l5 10H18M2 15h5.5l1.6-3.2M15.6 2.6 18 5l-2.4 2.4M15.6 12.6 18 15l-2.4 2.4"/></svg>추천순</button>
+        </div>
+      </div>
+    </div>
+    <div class="np-plist" id="np-plist"></div>
+  </div>
+
   <div id="np-other" class="np-tabph" style="display:none"></div>
 </div>
 <div class="np-toast" id="np-toast" role="status" aria-live="polite"></div>
@@ -1194,6 +1255,26 @@ var NP_DATA = {
       {bd:['imgImage7'], t:'PAY (71GB+/통화기본)', d:'91GB+3Mbps', o:'35,390', n:'0', bn:'샘플 · Npay 5천원×24개월'}]
   },
 
+  /* 요금제 탭 — 1·2번 카드 Figma 원문, 3~5번 샘플 (Figma 프레임 카드 5장) */
+  ptypes: ['전체','LTE','5G','🚌 매월 교통비 할인'],
+  ptab: [
+    {k:'LTE', tr:false, bd:[['BEST','best'],['emart24','emt'],['랜덤결합','rnd']],
+     t:'LTE (7GB+/통화기본)', d:'(7+10)GB+1Mbps',
+     ln:['통화 기본제공, 문자 기본제공','🎁 매월 이마트24 5천원 혜택 (24개월)'], o:'39,800', n:'15,900'},
+    {k:'LTE', tr:false, bd:[['BEST','best'],['윌야쿠르트','emt'],['NEW','new']],
+     t:'데이터플러스 (7GB+/통화기본)', d:'(7+10)GB+1Mbps',
+     ln:['통화 기본제공, 문자 기본제공'], o:'41,400', n:'17,500'},
+    {k:'5G', tr:false, bd:[['BEST','best'],['Npay','npay']],
+     t:'샘플 · 5G (71GB+/통화기본)', d:'(71+20)GB+3Mbps',
+     ln:['통화 기본제공, 문자 기본제공','🎁 Npay 5천원 혜택 (24개월)'], o:'52,000', n:'33,000'},
+    {k:'LTE', tr:true, bd:[['NEW','new'],['랜덤결합','rnd']],
+     t:'샘플 · LTE (15GB+/통화기본)', d:'15GB+3Mbps',
+     ln:['통화 기본제공, 문자 기본제공','🚌 매월 교통비 1만원 할인'], o:'30,900', n:'20,900'},
+    {k:'5G', tr:true, bd:[['emart24','emt']],
+     t:'샘플 · 5G (11GB+/통화기본)', d:'(11+5)GB+1Mbps',
+     ln:['통화 기본제공, 문자 기본제공','🚌 매월 교통비 5천원 할인'], o:'37,400', n:'24,900'}
+  ],
+
   /* 추천 휴대폰 — 1번 Figma 원문, 나머지 샘플 */
   phones: [
     {bd:[['한정팡매','k1'],['S급','k2'],['BEST','k3']], g:'5G', name:'(중고S급) Galaxy S26 Ultra', price:'53,000원', sub:'단말 할부금(24개월), LTE(7GB+/통화기본)'},
@@ -1204,7 +1285,7 @@ var NP_DATA = {
   ]
 };
 
-var NP = { tab:'home', banner:0, cat:'인기 TOP', plan:0, phone:0, timers:[] };
+var NP = { tab:'home', banner:0, cat:'인기 TOP', plan:0, phone:0, pf:'전체', timers:[] };
 
 function npEl(id){ return document.getElementById(id); }
 function npEsc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/'/g,'&#39;'); }
@@ -1220,12 +1301,14 @@ function npTab(id){
   NP.tab = id;
   var tabs = document.querySelectorAll('#np .np-menu [role=tab]');
   for(var i=0;i<tabs.length;i++) tabs[i].setAttribute('aria-selected', tabs[i].dataset.tab===id ? 'true' : 'false');
-  var home = npEl('np-home'), other = npEl('np-other');
-  if(id==='home'){ home.style.display='flex'; other.style.display='none'; }
+  var home = npEl('np-home'), other = npEl('np-other'), pt = npEl('np-plantab');
+  home.style.display = id==='home' ? 'flex' : 'none';
+  if(pt) pt.style.display = id==='plan' ? 'flex' : 'none';
+  if(id==='home' || id==='plan'){ other.style.display='none'; if(id==='plan') npPlanTab(); }
   else{
-    home.style.display='none'; other.style.display='block';
-    var nm = {plan:'요금제', phone:'휴대폰', upick:'유픽폰'}[id];
-    other.innerHTML = '<b>'+nm+' 탭</b>화면 미정의 — 탭 전환 방식 · 콘텐츠 미확정 (O-06)';
+    other.style.display='block';
+    var nm = {phone:'휴대폰', upick:'유픽폰'}[id];
+    other.innerHTML = '<b>'+nm+' 탭</b>화면 미정의 — 콘텐츠 미확정 (O-06)';
   }
   npTop();
 }
@@ -1434,9 +1517,57 @@ function npDotsOn(d, on){ if(!d) return; var c=d.children; for(var i=0;i<c.lengt
 function npBiz(){ var b = npEl('np-biz'); var open = b.dataset.open !== 'true'; b.dataset.open = open; b.querySelector('button').setAttribute('aria-expanded', open); }
 
 /* --- 초기화 · 리로드 --- */
+/* --- 요금제 탭 : 유형 필터 · 리스트 카드 (Figma 40007051:15914) --- */
+function npPlanTab(){
+  var f = npEl('np-ftype'); if(!f) return;
+  f.innerHTML = NP_DATA.ptypes.map(function(n){
+    var on = n===NP.pf;
+    return '<button role="tab" aria-selected="'+on+'" onclick="npPlanFilter(\''+n+'\')">'+
+           (on ? '<i aria-hidden="true">✓</i>' : '')+n+'</button>';
+  }).join('');
+  npPlanList();
+}
+function npPlanFilter(n){
+  NP.pf = n;
+  var bs = npEl('np-ftype').querySelectorAll('[role=tab]');
+  for(var i=0;i<bs.length;i++){
+    var on = bs[i].textContent.replace('✓','')===n;
+    bs[i].setAttribute('aria-selected', on ? 'true':'false');
+    bs[i].innerHTML = (on ? '<i aria-hidden="true">✓</i>' : '') + NP_DATA.ptypes[i];
+  }
+  npPlanList();
+}
+function npPlanReset(){
+  if(NP.pf==='전체'){ npToast('이미 전체 조건입니다'); return; }
+  npPlanFilter('전체'); npToast('필터 초기화');
+}
+function npPlanPick(){
+  var f = NP.pf;
+  return NP_DATA.ptab.filter(function(p){
+    if(f==='전체') return true;
+    if(f==='LTE' || f==='5G') return p.k===f;
+    return p.tr;
+  });
+}
+function npPlanList(){
+  var el = npEl('np-plist'), cnt = npEl('np-pcnt'); if(!el) return;
+  var list = npPlanPick();
+  cnt.innerHTML = NP.pf==='전체' ? '(총 <b>136</b>개)' : '(샘플 <b>'+list.length+'</b>개)';
+  if(!list.length){ el.innerHTML = '<div class="np-pempty">조건에 맞는 샘플 요금제가 없습니다</div>'; return; }
+  el.innerHTML = list.map(function(p){
+    var bd = p.bd.map(function(k){ return '<span class="'+k[1]+'">'+k[0]+'</span>'; }).join('');
+    var ln = p.ln.map(function(t){ return '<span>'+t+'</span>'; }).join('');
+    return '<div class="np-pcard" role="button" tabindex="0" onclick="npToast(\'요금제 상세 — '+npEsc(p.d)+' (프로토)\')">'+
+      '<div class="bd">'+bd+'</div>'+
+      '<div class="bdy"><span class="t">'+p.t+'</span><span class="d">'+p.d+'</span>'+
+        '<span class="ln">'+ln+'</span></div>'+
+      '<div class="pr"><span class="o">월 '+p.o+'원</span><span class="n">월 '+p.n+'원</span></div></div>';
+  }).join('');
+}
+
 function npInit(){
   NP.timers.forEach(clearInterval);
-  NP = { tab:'home', banner:0, cat:'인기 TOP', plan:0, phone:0, timers:[] };
+  NP = { tab:'home', banner:0, cat:'인기 TOP', plan:0, phone:0, pf:'전체', timers:[] };
   npTab('home'); npBanners(); npDeals(); npChips(); npPlanCards(); npPhones();
   var biz = npEl('np-biz'); if(biz){ biz.dataset.open='false'; biz.querySelector('button').setAttribute('aria-expanded','false'); }
   var s = npEl('np-slides'); if(s) s.scrollLeft = 0;
