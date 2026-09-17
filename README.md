@@ -14,6 +14,7 @@
 │   └── 02_요구사항_정의서.md       무엇을 만드는가 — 영역별 확정 사항(C) · 데이터 규칙 · 예외(EX)
 ├── index.html                     통합 리포트 (3탭: 01 프로토타입 · 02 개선목표 · 03 요구사항 정의서) — GitHub Pages 루트
 ├── .nojekyll                      Pages 빌드 우회
+├── font/PretendardVariable.woff2  페이지 공통 폰트 (index.html @font-face, 상대경로)
 └── assets/
     ├── captures/                  AS-IS 화면 캡처 (리포트에는 base64 임베딩)
     └── data/                      분석 자료 (Clarity 추출 · 시트 · 전달 문서)

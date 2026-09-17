@@ -10,6 +10,11 @@
    프로토타입 화면 CSS는 이 파일 하단 "PROTO" 블록에 별도로 작성한다.
    규칙: 리포트 크롬은 r- 접두사 / 프로토타입은 접두사 없음 (네임스페이스 분리)
    ============================================================ */
+@font-face{
+  font-family:"Pretendard Variable";
+  src:url("font/PretendardVariable.woff2") format("woff2-variations"),url("font/PretendardVariable.woff2") format("woff2");
+  font-weight:45 920; font-style:normal; font-display:swap;
+}
 :root{
   color-scheme:light;
   --bg:#F3F3F8; --bg-deep:#EBEBF2; --surface:#FFFFFF; --line:#ECECF2; --line-2:#DFDEE9;
@@ -27,7 +32,7 @@
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:"Pretendard","Apple SD Gothic Neo",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Malgun Gothic",sans-serif;background:linear-gradient(180deg,var(--bg) 0%,var(--bg-deep) 100%);min-height:100vh;color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{font-family:"Pretendard Variable","Pretendard","Apple SD Gothic Neo",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Malgun Gothic",sans-serif;background:linear-gradient(180deg,var(--bg) 0%,var(--bg-deep) 100%);min-height:100vh;color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 button{font-family:inherit;border:0;background:none;cursor:pointer;color:inherit}
 @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 
