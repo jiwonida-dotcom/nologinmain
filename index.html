@@ -550,6 +550,53 @@ ul.r-l li b{font-weight:800}
 .np-pcard .pr .n{font-size:24px;line-height:36px;letter-spacing:-.6px;color:#7c4dff}
 .np-pempty{padding:50px 20px;text-align:center;color:#9c9cab;font-size:15px;font-weight:600;line-height:1.7}
 
+
+/* ── 휴대폰 탭 : Figma [MO] NoLogin Main-휴대폰 (40007048:4637)
+   Filter STEP1 (전체 · 제조사▾ · 휴대폰 상태▾) · STEP2 hidden · TITLE COPY hidden
+   PhoneCard 470×294 · p20 · gap10 · r16 · 이미지 130
+   배지 Figma 12 → 프로젝트 하한 14px. 드롭다운 옵션은 Figma 미정의 → 카드 데이터 파생 샘플 ── */
+#np-phonetab{display:flex;flex-direction:column;gap:0}
+.np-mfilterwrap{display:flex;flex-direction:column;gap:10px;justify-content:center;padding-bottom:20px}
+.np-mfilter{display:flex;gap:8px;align-items:center;width:100%}
+.np .np-mfilter>button{flex-shrink:0;display:inline-flex;align-items:center;padding:8px 14px;border-radius:99px;border:1px solid #d1d5dc;background:#fff;color:#4a5565;font-size:14px;font-weight:600;line-height:24px;letter-spacing:-.35px;white-space:nowrap}
+.np .np-mfilter>button[aria-selected="true"]{background:#7b5cf5;border-color:#7b5cf5;color:#fff}
+.np-dd{position:relative;flex-shrink:0}
+.np .np-dd>button{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:99px;border:1px solid #d1d5dc;background:#fff;color:#4a5565;font-size:14px;font-weight:600;line-height:24px;letter-spacing:-.35px;white-space:nowrap}
+.np .np-dd>button[aria-selected="true"]{background:#7b5cf5;border-color:#7b5cf5;color:#fff}
+.np .np-dd>button svg{width:12px;height:7px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .15s}
+.np .np-dd>button[aria-expanded="true"] svg{transform:rotate(180deg)}
+.np-dd .pop{position:absolute;top:calc(100% + 6px);left:0;z-index:4;min-width:100%;background:#fff;border:1px solid #d1d5dc;border-radius:12px;padding:6px;box-shadow:0 6px 20px rgba(0,0,0,.14);display:none;flex-direction:column;gap:2px}
+.np-dd[data-open="true"] .pop{display:flex}
+.np .np-dd .pop button{display:block;width:100%;padding:8px 12px;border-radius:8px;background:#fff;color:#4a5565;font-size:14px;font-weight:600;line-height:24px;letter-spacing:-.35px;white-space:nowrap}
+.np .np-dd .pop button[aria-selected="true"]{background:#f5f4ff;color:#7b5cf5}
+
+.np-mlist{display:flex;flex-direction:column;gap:10px;padding-top:10px}
+.np-mcard{width:100%;background:#fff;border:1px solid #e8e8e8;border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:10px;filter:drop-shadow(0 1px 1.5px rgba(0,0,0,.1)) drop-shadow(0 1px 1px rgba(0,0,0,.1));cursor:pointer;text-align:left}
+.np-mcard .bd{display:flex;gap:6px;flex-wrap:wrap;width:100%}
+.np-mcard .bd span{padding:2px 8px;border:1px solid;border-radius:4px;font-size:14px;font-weight:400;line-height:20px;letter-spacing:-.3px;color:#f9fafb;white-space:nowrap}
+.np-mcard .bd .k-lim{background:#6355ff;border-color:#6355ff}
+.np-mcard .bd .k-pop{background:#e60076;border-color:#e60076}
+.np-mcard .bd .k-s{background:#444a62;border-color:#444a62}
+.np-mcard .bd .k-new{background:#2b7fff;border-color:#2b7fff}
+.np-mcard .bd .k-val{background:#00c950;border-color:#00c950}
+.np-mcard .mid{display:flex;gap:10px;align-items:center;width:100%}
+.np-mcard .im{padding:10px;flex-shrink:0;background:#fff}
+.np-mcard .im img{display:block;width:130px;height:130px;object-fit:cover;border-radius:8px}
+.np-mcard .info{flex:1;min-width:0;align-self:stretch;display:flex;flex-direction:column;gap:10px;padding:10px 0}
+.np-mcard .nm{display:flex;gap:10px;align-items:center;width:100%}
+.np-mcard .nm .g{flex-shrink:0;width:41px;border:1px solid #a7afb6;border-radius:10px;padding:2px 10px;font-size:14px;font-weight:600;line-height:24px;letter-spacing:-.35px;color:#000;text-align:center}
+.np-mcard .nm .t{flex:1;min-width:0;font-size:14px;font-weight:600;line-height:24px;letter-spacing:-.35px;color:#101828}
+.np-mcard .sp{width:100%;font-size:14px;font-weight:400;line-height:24px;letter-spacing:-.35px;color:#101828}
+.np-mcard .fee{width:100%;display:flex;flex-direction:column;font-size:14px;font-weight:400;line-height:24px;letter-spacing:-.35px;color:#101828}
+.np-mcard .fee div{display:flex;gap:10px;width:100%}
+.np-mcard .fee div span{flex:1;min-width:0}
+.np-mcard .fee div span+span{text-align:right}
+.np-mcard .pr{height:56px;display:flex;flex-direction:column;align-items:flex-end;width:100%;font-weight:600;white-space:nowrap}
+.np-mcard .pr .o{font-size:14px;line-height:24px;letter-spacing:-.35px;color:#424242;text-decoration:line-through}
+.np-mcard .pr .n{display:flex;align-items:baseline;gap:10px}
+.np-mcard .pr .n i{font-style:normal;font-size:18px;line-height:28px;letter-spacing:-.45px;color:#424242}
+.np-mcard .pr .n b{font-size:24px;line-height:36px;letter-spacing:-.6px;color:#7c4dff}
+
 /* ── 프로토 보조 ── */
 .np-toast{position:absolute;left:50%;bottom:24px;transform:translateX(-50%) translateY(8px);background:rgba(22,22,30,.92);color:#fff;font-size:14px;font-weight:600;padding:10px 16px;border-radius:99px;opacity:0;transition:opacity .2s,transform .2s;pointer-events:none;white-space:nowrap;z-index:5}
 .np-toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
@@ -789,6 +836,15 @@ ul.r-l li b{font-weight:800}
       </div>
     </div>
     <div class="np-plist" id="np-plist"></div>
+  </div>
+
+
+  <!-- ─── 휴대폰 탭 (Figma [MO] NoLogin Main-휴대폰 40007048:4637) ─── -->
+  <div id="np-phonetab" style="display:none">
+    <div class="np-mfilterwrap">
+      <div class="np-mfilter" id="np-mfilter" aria-label="휴대폰 필터"></div>
+    </div>
+    <div class="np-mlist" id="np-mlist"></div>
   </div>
 
   <div id="np-other" class="np-tabph" style="display:none"></div>
@@ -1282,10 +1338,24 @@ var NP_DATA = {
     {bd:[['BEST','k3']], g:'LTE', name:'갤럭시 버디3 128G', price:'24,900원', sub:'샘플 · 단말 0원, LTE(1GB+/통화기본)'},
     {bd:[['한정팡매','k1'],['S급','k2']], g:'5G', name:'(중고S급) 갤럭시 Z플립5 256G', price:'38,900원', sub:'샘플 · 단말 할부금(24개월), 5G(10GB/200분)'},
     {bd:[['S급','k2']], g:'5G', name:'(중고S급) 아이폰 14 128G', price:'33,500원', sub:'샘플 · 단말 할부금(24개월), LTE(7GB+/통화기본)'}
+  ],
+
+  /* 휴대폰 탭 — Figma 원문 카드 5장 (40007048:4637). mk(제조사) · ms(휴대폰 상태) 는 필터용 파생 샘플값 */
+  mtab: [
+    {mk:'삼성', ms:'새제품', bd:[['한정판매','k-lim'],['인기','k-pop']], g:'5G',
+     name:'갤럭시 버디3 128G', sp:'[휴대폰] LTE(1GB+/통화기본)', fee:'19,400원', inst:'0원', was:'24,900원', now:'19,400원'},
+    {mk:'애플', ms:'중고S급', bd:[['한정판매','k-lim'],['인기','k-pop'],['S급','k-s']], g:'5G',
+     name:'(중고폰S급) 아이폰13 미니 128G', sp:'[휴대폰] 5G (10GB/200분)', fee:'28,500원', inst:'17,270원', was:'', now:'28,500원'},
+    {mk:'삼성', ms:'새제품', bd:[['신규','k-new'],['갓성비','k-val']], g:'5G',
+     name:'갤럭시 A37 128G', sp:'[휴대폰] 5G (10GB/200분)', fee:'28,500원', inst:'6,640원', was:'', now:'35,140원'},
+    {mk:'삼성', ms:'미개통 전시폰', bd:[['한정판매','k-lim'],['신규','k-new'],['갓성비','k-val']], g:'5G',
+     name:'(미개통 전시폰) 갤럭시 Z플립7', sp:'[휴대폰] 5G (10GB/200분)', fee:'28,500원', inst:'28,110원', was:'', now:'56,610원'},
+    {mk:'삼성', ms:'새제품', bd:[['인기','k-pop'],['갓 성비','k-val']], g:'5G',
+     name:'갤럭시 S26 256G', sp:'[휴대폰] 5G (5GB/200분)', fee:'23,500원', inst:'39,850원', was:'39,800원', now:'63,350원'}
   ]
 };
 
-var NP = { tab:'home', banner:0, cat:'인기 TOP', plan:0, phone:0, pf:'전체', timers:[] };
+var NP = { tab:'home', banner:0, cat:'인기 TOP', plan:0, phone:0, pf:'전체', mk:null, ms:null, timers:[] };
 
 function npEl(id){ return document.getElementById(id); }
 function npEsc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/'/g,'&#39;'); }
@@ -1301,13 +1371,19 @@ function npTab(id){
   NP.tab = id;
   var tabs = document.querySelectorAll('#np .np-menu [role=tab]');
   for(var i=0;i<tabs.length;i++) tabs[i].setAttribute('aria-selected', tabs[i].dataset.tab===id ? 'true' : 'false');
-  var home = npEl('np-home'), other = npEl('np-other'), pt = npEl('np-plantab');
+  var home = npEl('np-home'), other = npEl('np-other'), pt = npEl('np-plantab'), mt = npEl('np-phonetab');
   home.style.display = id==='home' ? 'flex' : 'none';
   if(pt) pt.style.display = id==='plan' ? 'flex' : 'none';
-  if(id==='home' || id==='plan'){ other.style.display='none'; if(id==='plan') npPlanTab(); }
+  if(mt) mt.style.display = id==='phone' ? 'flex' : 'none';
+  npMClose();
+  if(id==='home' || id==='plan' || id==='phone'){
+    other.style.display='none';
+    if(id==='plan') npPlanTab();
+    if(id==='phone') npPhoneTab();
+  }
   else{
     other.style.display='block';
-    var nm = {phone:'휴대폰', upick:'유픽폰'}[id];
+    var nm = {upick:'유픽폰'}[id] || id;
     other.innerHTML = '<b>'+nm+' 탭</b>화면 미정의 — 콘텐츠 미확정 (O-06)';
   }
   npTop();
@@ -1565,12 +1641,89 @@ function npPlanList(){
   }).join('');
 }
 
+/* --- 휴대폰 탭 : 제조사 · 휴대폰 상태 드롭다운 · 리스트 카드 (Figma 40007048:4637)
+   Figma STEP1 은 드롭다운 트리거만 존재. 옵션 목록은 원문 미정의 → 카드 데이터 파생 샘플 --- */
+var NP_MOPT = { mk:['삼성','애플'], ms:['새제품','중고S급','미개통 전시폰'] };
+var NP_MLBL = { mk:'제조사', ms:'휴대폰 상태' };
+
+function npPhoneTab(){ npMFilter(); npPhoneList(); }
+function npMFilter(){
+  var f = npEl('np-mfilter'); if(!f) return;
+  var all = !NP.mk && !NP.ms;
+  var h = '<button type="button" aria-selected="'+all+'" onclick="npMAll()">전체</button>';
+  ['mk','ms'].forEach(function(k){
+    var v = NP[k];
+    var opt = NP_MOPT[k].map(function(o){
+      return '<button type="button" role="option" aria-selected="'+(o===v)+'" onclick="npMPick(\''+k+'\',\''+o+'\')">'+o+'</button>';
+    }).join('');
+    h += '<span class="np-dd" data-key="'+k+'" data-open="false">'+
+      '<button type="button" aria-haspopup="listbox" aria-expanded="false" aria-selected="'+(!!v)+'" onclick="npMOpen(\''+k+'\')">'+
+        (v ? npEsc(v) : NP_MLBL[k])+
+        '<svg viewBox="0 0 12 7" aria-hidden="true"><path d="M1 1l5 5 5-5"/></svg></button>'+
+      '<span class="pop" role="listbox" aria-label="'+NP_MLBL[k]+'">'+opt+
+        '<button type="button" role="option" aria-selected="'+(!v)+'" onclick="npMPick(\''+k+'\',\'\')">전체</button>'+
+      '</span></span>';
+  });
+  f.innerHTML = h;
+}
+function npMOpen(k){
+  var f = npEl('np-mfilter'); if(!f) return;
+  var dds = f.querySelectorAll('.np-dd');
+  for(var i=0;i<dds.length;i++){
+    var open = dds[i].dataset.key===k && dds[i].dataset.open!=='true';
+    dds[i].dataset.open = open;
+    dds[i].querySelector('button').setAttribute('aria-expanded', open);
+  }
+}
+function npMClose(){
+  var f = npEl('np-mfilter'); if(!f) return;
+  var dds = f.querySelectorAll('.np-dd');
+  for(var i=0;i<dds.length;i++){
+    dds[i].dataset.open = 'false';
+    dds[i].querySelector('button').setAttribute('aria-expanded','false');
+  }
+}
+function npMPick(k, v){ NP[k] = v || null; npMFilter(); npPhoneList(); }
+function npMAll(){
+  if(!NP.mk && !NP.ms){ npToast('이미 전체 조건입니다'); return; }
+  NP.mk = null; NP.ms = null; npMFilter(); npPhoneList(); npToast('필터 초기화');
+}
+function npPhonePick(){
+  return NP_DATA.mtab.filter(function(p){
+    return (!NP.mk || p.mk===NP.mk) && (!NP.ms || p.ms===NP.ms);
+  });
+}
+function npPhoneList(){
+  var el = npEl('np-mlist'); if(!el) return;
+  var list = npPhonePick();
+  if(!list.length){ el.innerHTML = '<div class="np-pempty">조건에 맞는 샘플 휴대폰이 없습니다</div>'; return; }
+  el.innerHTML = list.map(function(p){
+    var bd = p.bd.map(function(k){ return '<span class="'+k[1]+'">'+k[0]+'</span>'; }).join('');
+    return '<div class="np-mcard" role="button" tabindex="0" onclick="npToast(\'휴대폰 상세 — '+npEsc(p.name)+' (프로토)\')">'+
+      '<div class="bd">'+bd+'</div>'+
+      '<div class="mid">'+
+        '<div class="im"><img src="'+NP_IMG.imgImage2+'" alt="'+npEsc(p.name)+'"></div>'+
+        '<div class="info">'+
+          '<div class="nm"><span class="g">'+p.g+'</span><span class="t">'+p.name+'</span></div>'+
+          '<div class="sp">'+p.sp+'</div>'+
+          '<div class="fee"><div><span>통신요금</span><span>'+p.fee+'</span></div>'+
+            '<div><span>할부금</span><span>'+p.inst+'</span></div></div>'+
+        '</div></div>'+
+      '<div class="pr">'+(p.was ? '<span class="o">월 '+p.was+'</span>' : '')+
+        '<span class="n"><i>월 납부금액</i><b>'+p.now+'</b></span></div></div>';
+  }).join('');
+}
+
 function npInit(){
   NP.timers.forEach(clearInterval);
-  NP = { tab:'home', banner:0, cat:'인기 TOP', plan:0, phone:0, pf:'전체', timers:[] };
+  NP = { tab:'home', banner:0, cat:'인기 TOP', plan:0, phone:0, pf:'전체', mk:null, ms:null, timers:[] };
   npTab('home'); npBanners(); npDeals(); npChips(); npPlanCards(); npPhones();
   var biz = npEl('np-biz'); if(biz){ biz.dataset.open='false'; biz.querySelector('button').setAttribute('aria-expanded','false'); }
   var s = npEl('np-slides'); if(s) s.scrollLeft = 0;
+  if(!document._npdd){ document._npdd = true;
+    document.addEventListener('click', function(e){
+      if(!e.target.closest || !e.target.closest('.np-dd')) npMClose();
+    }, true); }
 }
 
 npInit();
