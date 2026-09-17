@@ -1,0 +1,380 @@
+{
+ "imgVector": {
+  "file": "figassets/imgVector.png",
+  "src": "338db943abf8548a8c3873e08dbf6b3b61fa1bc9.svg",
+  "w": 78,
+  "h": 48,
+  "scale": null
+ },
+ "imgImage2": {
+  "file": "figassets/imgImage2.png",
+  "src": "1a62653c1b67304c6cf169b635e0d46a5885061a.png",
+  "w": 536,
+  "h": 536,
+  "scale": null
+ },
+ "imgImage7": {
+  "file": "figassets/imgImage7.png",
+  "src": "6ad0468ede2260f36a5827379cc239281b5e9791.png",
+  "w": 220,
+  "h": 96,
+  "scale": null
+ },
+ "imgImage8": {
+  "file": "figassets/imgImage8.png",
+  "src": "6ed309c173f2c304d14f0e37ae5de7aa8e1f92e1.png",
+  "w": 238,
+  "h": 96,
+  "scale": null
+ },
+ "imgImage9": {
+  "file": "figassets/imgImage9.png",
+  "src": "8ca15c94f111da383a5e7130a267a94679899fca.png",
+  "w": 374,
+  "h": 96,
+  "scale": null
+ },
+ "imgPhoneIcon": {
+  "file": "figassets/imgPhoneIcon.png",
+  "src": "8a63729dd3d5ae2653b8be0140c31cc1e65fbf1f.svg",
+  "w": 78,
+  "h": 78,
+  "scale": null
+ },
+ "imgMessageIcon": {
+  "file": "figassets/imgMessageIcon.png",
+  "src": "2d4344653dd26b00b46c5f6303a20c0395b2d926.svg",
+  "w": 78,
+  "h": 78,
+  "scale": null
+ },
+ "imgVector1": {
+  "file": "figassets/imgVector1.png",
+  "src": "a0437b4d71375264988fbed9f99dbb4abc39351d.svg",
+  "w": 108,
+  "h": 108,
+  "scale": null
+ },
+ "imgIcon": {
+  "file": "figassets/imgIcon.png",
+  "src": "559264c2ee1049c818c0e70a040a793237f5ab9a.svg",
+  "w": 108,
+  "h": 108,
+  "scale": null
+ },
+ "imgDirectionDown": {
+  "file": "figassets/imgDirectionDown.png",
+  "src": "f3f61ef6b6beb237e22ca46946505cbe1e09611d.svg",
+  "w": 240,
+  "h": 240,
+  "scale": null
+ },
+ "imgClockIcon": {
+  "file": "figassets/imgClockIcon.png",
+  "src": "d99db0d506f85903735b475119a1e8d397280ad6.svg",
+  "w": 96,
+  "h": 96,
+  "scale": null
+ },
+ "imgAlertIcon": {
+  "file": "figassets/imgAlertIcon.png",
+  "src": "7c223a5faca51c89d445001ab79be9e7af7eef1b.svg",
+  "w": 108,
+  "h": 108,
+  "scale": null
+ },
+ "imgCopyIcon": {
+  "file": "figassets/imgCopyIcon.png",
+  "src": "309259981932f08de40d64e786e92e4666b82821.svg",
+  "w": 96,
+  "h": 96,
+  "scale": null
+ },
+ "imgHomeIcon": {
+  "file": "figassets/imgHomeIcon.png",
+  "src": "15410d00e4cb1d562de8152683b00d0fce9d1897.svg",
+  "w": 132,
+  "h": 132,
+  "scale": null
+ },
+ "imgImage6": {
+  "file": "figassets/imgImage6.png",
+  "src": "e34c4609ac5a8ab7e1769e6b4a20774ad789a573.png",
+  "w": 183,
+  "h": 53,
+  "scale": null
+ },
+ "imgImageUMobile91Gb": {
+  "file": "figassets/imgImageUMobile91Gb.png",
+  "src": "8ed601973e548f77674af6f3a55ea4257c63e959.png",
+  "w": 700,
+  "h": 700,
+  "scale": null
+ },
+ "imgIconData": {
+  "file": "figassets/imgIconData.png",
+  "src": "bf5252413a6adde206d8086bb998bfe86db771c9.svg",
+  "w": 120,
+  "h": 120,
+  "scale": null
+ },
+ "imgGroup": {
+  "file": "figassets/imgGroup.png",
+  "src": "705bbfc9ebefd52400515642856de2614d04158e.svg",
+  "w": 120,
+  "h": 72,
+  "scale": null
+ },
+ "imgFrame51": {
+  "file": "figassets/imgFrame51.png",
+  "src": "dad1af054c304f0b8717e53d0b1262041868e8e5.svg",
+  "w": 264,
+  "h": 264,
+  "scale": null
+ },
+ "imgFrame52": {
+  "file": "figassets/imgFrame52.png",
+  "src": "4314a89257278489ae7011809262ff6684e05968.svg",
+  "w": 264,
+  "h": 264,
+  "scale": null
+ },
+ "imgPlanIcon": {
+  "file": "figassets/imgPlanIcon.png",
+  "src": "1e87e826613730285de44e08260a4233484f4157.svg",
+  "w": 132,
+  "h": 132,
+  "scale": null
+ },
+ "imgPhoneIcon1": {
+  "file": "figassets/imgPhoneIcon1.png",
+  "src": "bb04d6d1db6a5a2c86ab516607ec8be4de5737cf.svg",
+  "w": 132,
+  "h": 132,
+  "scale": null
+ },
+ "imgUpickIcon": {
+  "file": "figassets/imgUpickIcon.png",
+  "src": "629c6eea49afa41dd8674cd10b619338a7209e94.svg",
+  "w": 132,
+  "h": 132,
+  "scale": null
+ },
+ "imgIcon1": {
+  "file": "figassets/imgIcon1.png",
+  "src": "391be2a4ad710ae6dcb5f8093c7a1d1d2914cd83.svg",
+  "w": 72,
+  "h": 72,
+  "scale": null
+ },
+ "imgIcon2": {
+  "file": "figassets/imgIcon2.png",
+  "src": "70ffa0df915916a23c5fd76097261ee73c6160e4.svg",
+  "w": 96,
+  "h": 96,
+  "scale": null
+ },
+ "imgApp": {
+  "file": "figassets/imgApp.png",
+  "src": "bc0ee36641b135ad982d667354ebcd68a1c9302e.svg",
+  "w": 144,
+  "h": 144,
+  "scale": null
+ },
+ "imgApp1": {
+  "file": "figassets/imgApp1.png",
+  "src": "f60c9a8073876433c78a7c664268c1b20f0a27bb.svg",
+  "w": 144,
+  "h": 144,
+  "scale": null
+ },
+ "imgVector2": {
+  "file": "figassets/imgVector2.png",
+  "src": "0e2cc89d6a578364e9eae1cdfc73a2da6dbc22e0.svg",
+  "w": 60,
+  "h": 48,
+  "scale": null
+ },
+ "imgIcon3": {
+  "file": "figassets/imgIcon3.png",
+  "src": "f86b1cfd5b1fa3f9ec279336412f97fd34c5d9fc.svg",
+  "w": 426,
+  "h": 360,
+  "scale": null
+ },
+ "imgIcon4": {
+  "file": "figassets/imgIcon4.png",
+  "src": "6ca8392e9b9bc0995dfabad890b7155fbb1d0957.svg",
+  "w": 426,
+  "h": 360,
+  "scale": null
+ },
+ "imgVector3": {
+  "file": "figassets/imgVector3.png",
+  "src": "171ffa587521e2649b6cd5791817503338dac60e.svg",
+  "w": 96,
+  "h": 96,
+  "scale": null
+ },
+ "imgVector4": {
+  "file": "figassets/imgVector4.png",
+  "src": "e184dc28fb3dce058314518477fb9a9993ac34ca.svg",
+  "w": 168,
+  "h": 78,
+  "scale": null
+ },
+ "imgVector5": {
+  "file": "figassets/imgVector5.png",
+  "src": "b7845ad201be39f114e88d935b6436f9825b7767.svg",
+  "w": 96,
+  "h": 96,
+  "scale": null
+ },
+ "imgVector6": {
+  "file": "figassets/imgVector6.png",
+  "src": "a9ccd882ca00bdae5dea117213236caedf043095.svg",
+  "w": 168,
+  "h": 78,
+  "scale": null
+ },
+ "imgVector7": {
+  "file": "figassets/imgVector7.png",
+  "src": "8a4d81873a9995c2d4f50caa90b436f197d6adf6.svg",
+  "w": 60,
+  "h": 24,
+  "scale": null
+ },
+ "imgVector8": {
+  "file": "figassets/imgVector8.png",
+  "src": "560b633884b9bd214d76c0c119446ecc7f35ae32.svg",
+  "w": 192,
+  "h": 72,
+  "scale": null
+ },
+ "imgVector9": {
+  "file": "figassets/imgVector9.png",
+  "src": "3427272cf5b6cc317ec211bb95fa7f8fd2920e02.svg",
+  "w": 228,
+  "h": 168,
+  "scale": null
+ },
+ "imgVector10": {
+  "file": "figassets/imgVector10.png",
+  "src": "eac4cc65e5176e015fabe6f03869ef052a6f520c.svg",
+  "w": 60,
+  "h": 48,
+  "scale": null
+ },
+ "imgVector11": {
+  "file": "figassets/imgVector11.png",
+  "src": "b49daff971ede60c2f7a16a1217e86284c562294.svg",
+  "w": 36,
+  "h": 36,
+  "scale": null
+ },
+ "imgVector12": {
+  "file": "figassets/imgVector12.png",
+  "src": "7aa3ff4293b8ffcd22a13bb4efb378629b862191.svg",
+  "w": 168,
+  "h": 168,
+  "scale": null
+ },
+ "imgVector13": {
+  "file": "figassets/imgVector13.png",
+  "src": "f34a90ba1670b26c2195e2a70e1bbdb9a7f322a6.svg",
+  "w": 132,
+  "h": 132,
+  "scale": null
+ },
+ "imgIcon5": {
+  "file": "figassets/imgIcon5.png",
+  "src": "896ddc7210a77d46f313ea7230002c15816e4287.svg",
+  "w": 144,
+  "h": 144,
+  "scale": null
+ },
+ "imgIcon6": {
+  "file": "figassets/imgIcon6.png",
+  "src": "6afe16753874a6b150ec98554e6287b9eef89f53.svg",
+  "w": 96,
+  "h": 96,
+  "scale": null
+ },
+ "imgIcon7": {
+  "file": "figassets/imgIcon7.png",
+  "src": "dc8e3d22b60d42b6f9d76cf278b3e894de3511d0.svg",
+  "w": 144,
+  "h": 144,
+  "scale": null
+ },
+ "imgIcon8": {
+  "file": "figassets/imgIcon8.png",
+  "src": "926cbfade17607e238b24911ad20e963d8723455.svg",
+  "w": 144,
+  "h": 144,
+  "scale": null
+ },
+ "imgIcon9": {
+  "file": "figassets/imgIcon9.png",
+  "src": "d8e323ce8452151a42bad6f6f2e3abf0a759adf8.svg",
+  "w": 144,
+  "h": 144,
+  "scale": null
+ },
+ "imgIcon10": {
+  "file": "figassets/imgIcon10.png",
+  "src": "dfd8fe9f2fd85a4aab889dca22bf4bce044b8472.svg",
+  "w": 96,
+  "h": 96,
+  "scale": null
+ },
+ "imgVector14": {
+  "file": "figassets/imgVector14.png",
+  "src": "303efcdee2cafda5818b1c5b1d233164888075c7.svg",
+  "w": 36,
+  "h": 60,
+  "scale": null
+ },
+ "imgIcon11": {
+  "file": "figassets/imgIcon11.png",
+  "src": "d6ba644334216bc33e9b65d3e1177ca7125fd645.svg",
+  "w": 96,
+  "h": 96,
+  "scale": null
+ },
+ "imgIcon12": {
+  "file": "figassets/imgIcon12.png",
+  "src": "bf611bd5a6e05cb924b92ebc3296d61c17ae40e4.svg",
+  "w": 72,
+  "h": 72,
+  "scale": null
+ },
+ "imgIcon13": {
+  "file": "figassets/imgIcon13.png",
+  "src": "013c940255157fdfb5b80d8472dd4d4df040ad38.svg",
+  "w": 84,
+  "h": 84,
+  "scale": null
+ },
+ "imgIcon14": {
+  "file": "figassets/imgIcon14.png",
+  "src": "0d5a270a9e767a47b9b39c79c74e12b8ace17bba.svg",
+  "w": 84,
+  "h": 84,
+  "scale": null
+ },
+ "imgIcon15": {
+  "file": "figassets/imgIcon15.png",
+  "src": "7c4997a2435fe177af4e770ac70e5fa69043f8da.svg",
+  "w": 84,
+  "h": 84,
+  "scale": null
+ },
+ "imgIcon16": {
+  "file": "figassets/imgIcon16.png",
+  "src": "55c7d2c4ba769100b088e198af1fb15533e3ecaa.svg",
+  "w": 120,
+  "h": 120,
+  "scale": null
+ }
+}
