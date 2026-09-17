@@ -256,7 +256,9 @@ ul.r-l li b{font-weight:800}
 .np-banner{position:relative;height:227.72px;border-radius:24px;overflow:hidden;box-shadow:0 8px 32px rgba(99,93,255,.18),0 2px 8px rgba(99,93,255,.1);background:linear-gradient(154.15deg,#eeeeff 0%,#e0dffe 60%,#d4d0fd 100%)}
 .np-banner .orb1{position:absolute;left:292px;top:-32px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(123,117,255,.22),rgba(123,117,255,0) 70%)}
 .np-banner .orb2{position:absolute;left:0;top:99.72px;width:128px;height:128px;border-radius:50%;background:radial-gradient(circle,rgba(123,117,255,.16),rgba(123,117,255,0) 70%)}
-.np-slides{position:absolute;left:0;top:0;width:100%;height:176px;display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.np-slides{position:absolute;left:0;top:0;width:100%;height:176px;display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;cursor:grab;user-select:none;-webkit-user-select:none}
+.np-slides.drag{cursor:grabbing}
+.np-slides img{-webkit-user-drag:none}
 .np-slides::-webkit-scrollbar{display:none}
 .np-slide{flex:0 0 100%;scroll-snap-align:start;padding:20px;display:flex;gap:12px;align-items:center}
 .np-slide .txt{flex:0 0 250px;width:250px;display:flex;flex-direction:column;gap:8px}
@@ -273,8 +275,9 @@ ul.r-l li b{font-weight:800}
 .np-slide .img img{width:118px;height:118px;object-fit:cover}
 .np-banner .foot{position:absolute;left:20px;top:176.22px;width:380px;display:flex;align-items:center;justify-content:space-between;height:32px}
 .np-dots{display:flex;gap:6px;align-items:center}
-.np-dots i{width:6px;height:6px;border-radius:99px;background:rgba(99,93,255,.25);transition:width .2s,background .2s}
-.np-dots i.on{width:18px;background:#635dff}
+.np-dots button{width:6px;height:6px;border-radius:99px;background:rgba(99,93,255,.25);padding:0;position:relative;transition:width .2s,background .2s}
+.np-dots button.on{width:18px;background:#635dff}
+.np-dots button:after{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:24px;height:24px}
 .np .np-more{display:inline-flex;align-items:center;gap:6px;padding:6px 16px;border-radius:99px;color:#fff;font-size:13px;font-weight:600;line-height:19.5px;letter-spacing:-.2px;background:linear-gradient(161.74deg,#7b75ff 0%,#5b4bff 100%);box-shadow:0 3px 6px rgba(91,75,255,.4)}
 .np .np-more img{width:12px;height:12px}
 
@@ -363,12 +366,15 @@ ul.r-l li b{font-weight:800}
 .np-chips::-webkit-scrollbar{display:none}
 .np-chips button{flex-shrink:0;height:34px;padding:7px 14px;border-radius:100px;font-size:12px;font-weight:500;line-height:18px;letter-spacing:-.2px;color:#424242;background:#fff;border:1px solid #e0dcff;white-space:nowrap}
 .np-chips button[aria-selected="true"]{background:#6355ff;border-color:#6355ff;color:#fff;font-weight:700;box-shadow:0 2px 4px rgba(99,85,255,.25)}
-.np-rail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:14px 16px 4px;margin:0 -16px;scrollbar-width:none}
+.np-rail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:14px 16px 4px;margin:0 -16px;scrollbar-width:none;cursor:grab;user-select:none;-webkit-user-select:none}
+.np-rail.drag{cursor:grabbing}
+.np-rail img{-webkit-user-drag:none}
 .np-rail::-webkit-scrollbar{display:none}
 .np-rail>*{scroll-snap-align:start;flex:0 0 300px}
 .np-pdots{display:flex;gap:8px;align-items:center;justify-content:center}
-.np-pdots i{width:6px;height:6px;border-radius:3px;background:#afaacf;transition:width .2s,background .2s}
-.np-pdots i.on{width:24px;background:#7c6fff}
+.np-pdots button{width:6px;height:6px;border-radius:3px;background:#afaacf;padding:0;position:relative;transition:width .2s,background .2s}
+.np-pdots button.on{width:24px;background:#7c6fff}
+.np-pdots button:after{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:28px;height:28px}
 
 /* ── PlanCard : w300 · pt18 pb14 px16 · gap10 (3그룹) ── */
 .np-plan{width:300px;background:#fff;border:2px solid #f0f0f5;border-radius:18px;padding:18px 16px 14px;display:flex;flex-direction:column;gap:10px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
@@ -551,7 +557,7 @@ ul.r-l li b{font-weight:800}
 <section id="rt-proto" class="r-view on">
   <div class="r-top"><h1><span class="no">01</span>프로토타입</h1><p>실제로 <b>동작하는 화면</b>입니다. 요구사항이 확정되면 여기서 조작으로 검증하고, 명세와 어긋나면 <b>이 화면이 기준</b>입니다. Figma 「[MO] NoLogin Main-홈」 컴포넌트 기준 구현. 섹션·카드 치수를 Figma 선언값과 1:1 대조해 반영.</p></div>
   <div class="refbar">
-    <span><b>자유 조작</b> — 퀵메뉴 스크롤 고정 · 배너 스와이프 · 타임딜 3건 펼치기 · 이벤트 코드 복사 · 카테고리 칩 · 요금제/휴대폰 5장 플리킹 · 사업자 정보 펼치기.</span>
+    <span><b>자유 조작</b> — 퀵메뉴 스크롤 고정 · <b>배너 · 요금제 · 휴대폰 드래그 플리킹</b>(마우스 드래그 · 관성 스냅 · 도트 클릭 · ← → 키) · 타임딜 펼치기 · 이벤트 코드 복사 · 카테고리 칩 · 사업자 정보 펼치기.</span>
     <span>Figma 실측 대조 <span class="kbd">카드 244 · 346 일치</span> 폰트 <span class="kbd">Pretendard 통일</span> 기본 상태 <span class="kbd">타임딜 접힘 · 사업자정보 닫힘</span> 배너 회전 <span class="kbd">수동 · O-04</span> 타임딜 수치 <span class="kbd">O-03</span> 홈 외 탭 <span class="kbd">미정의 · O-06</span></span>
   </div>
   <div class="navtabs">
@@ -1221,6 +1227,76 @@ function npTab(id){
   npTop();
 }
 
+
+/* --- 가로 플리킹 : 마우스 드래그 · 관성 스냅 · 키보드 · 도트 이동 ---
+   터치는 브라우저 기본 스크롤을 그대로 쓰고(pointerType mouse 만 가로챔),
+   데스크톱에서만 드래그를 보강한다. zoom 이 걸린 컨테이너라 이동량을 배율로 환산. */
+function npFlick(el, getStep, getCount, onIdx){
+  if(!el || el._flick) return; el._flick = 1;
+  var down=false, sx=0, sl=0, moved=0, lastX=0, lastT=0, v=0, sup=false;
+  function scale(){ var r=el.getBoundingClientRect(); return el.clientWidth ? (r.width/el.clientWidth) : 1; }
+  /* 레일은 좌측 패딩(16) 만큼 밀려서 정지하므로 인덱스 ↔ scrollLeft 환산에 반영 */
+  function pad(){ return parseFloat(getComputedStyle(el).paddingLeft) || 0; }
+  function idxOf(){
+    var step=getStep(), n=getCount();
+    if(el.scrollLeft >= el.scrollWidth - el.clientWidth - 2) return n-1;
+    return Math.round((el.scrollLeft - pad())/step);
+  }
+  el.npIdx = idxOf;
+  function snap(idx){
+    var n=getCount(), step=getStep();
+    idx = Math.max(0, Math.min(n-1, idx));
+    el.style.scrollSnapType='none';
+    el.scrollTo({left: pad() + idx*step, behavior:'smooth'});
+    setTimeout(function(){ el.style.scrollSnapType=''; }, 360);
+    if(onIdx) onIdx(idx);
+  }
+  el.npSnap = snap;
+  /* setPointerCapture 는 후속 click 을 레일로 리타겟해 카드 탭을 삼킨다 → document 리스너 사용 */
+  function npMove(e){
+    if(!down) return;
+    var k = scale() || 1, dx = (e.clientX - sx)/k;
+    moved = Math.max(moved, Math.abs(dx));
+    el.scrollLeft = sl - dx;
+    var now=Date.now(), dt=now-lastT;
+    if(dt>8){ v = ((e.clientX-lastX)/k)/dt; lastX=e.clientX; lastT=now; }
+    e.preventDefault();
+  }
+  function npEnd(){
+    document.removeEventListener('pointermove', npMove);
+    document.removeEventListener('pointerup', npEnd);
+    document.removeEventListener('pointercancel', npEnd);
+    if(!down) return; down=false;
+    el.classList.remove('drag'); el.style.scrollBehavior='';
+    var step=getStep(), pos=(el.scrollLeft - pad())/step;
+    var idx = Math.abs(v) > 0.35 ? (v<0 ? Math.ceil(pos) : Math.floor(pos)) : Math.round(pos);
+    snap(idx);
+    if(moved>6){ sup=true; setTimeout(function(){ sup=false; }, 320); }
+  }
+  el.addEventListener('pointerdown', function(e){
+    if(e.pointerType!=='mouse' || e.button!==0) return;
+    down=true; moved=0; sx=e.clientX; sl=el.scrollLeft; lastX=e.clientX; lastT=Date.now(); v=0;
+    el.classList.add('drag'); el.style.scrollSnapType='none'; el.style.scrollBehavior='auto';
+    document.addEventListener('pointermove', npMove);
+    document.addEventListener('pointerup', npEnd);
+    document.addEventListener('pointercancel', npEnd);
+  });
+  /* 드래그 직후의 클릭은 카드 상세로 새지 않게 캡처 단계에서 차단 */
+  el.addEventListener('click', function(e){ if(sup){ e.stopPropagation(); e.preventDefault(); } }, true);
+  el.addEventListener('dragstart', function(e){ e.preventDefault(); });
+  el.addEventListener('keydown', function(e){
+    var i=idxOf();
+    if(e.key==='ArrowRight') i++;
+    else if(e.key==='ArrowLeft') i--;
+    else if(e.key==='Home') i=0;
+    else if(e.key==='End') i=getCount()-1;
+    else return;
+    e.preventDefault(); snap(i);
+  });
+}
+function npGo(id, i){ var el=npEl(id); if(el && el.npSnap) el.npSnap(i); }
+var NP_STEP = 312; /* 카드 300 + gap 12 */
+
 /* --- 배너 --- */
 function npBanners(){
   var s = npEl('np-slides'), d = npEl('np-bdots'); if(!s) return;
@@ -1232,11 +1308,13 @@ function npBanners(){
       '<div class="g"><div class="p1">'+b.p1+'</div><div class="p2"><b>'+b.p2+'</b><small>'+b.p3+'</small></div></div></div>'+
       '<div class="img"><img src="'+NP_IMG.imgImageUMobile91Gb+'" alt="'+npEsc(b.h)+'"></div></div>';
   }).join('');
-  d.innerHTML = NP_DATA.banners.map(function(_,i){ return '<i'+(i===0?' class="on"':'')+'></i>'; }).join('');
+  npDots(d, NP_DATA.banners.length, 0, 'np-slides');
   s.onscroll = function(){
-    var i = Math.round(s.scrollLeft / s.clientWidth);
-    if(i!==NP.banner){ NP.banner=i; var ds=d.children; for(var k=0;k<ds.length;k++) ds[k].className = k===i?'on':''; }
+    var i = s.npIdx ? s.npIdx() : 0;
+    if(i!==NP.banner){ NP.banner=i; npDotsOn(d, i); }
   };
+  npFlick(s, function(){ return s.clientWidth; }, function(){ return NP_DATA.banners.length; },
+          function(i){ NP.banner=i; npDotsOn(d, i); });
 }
 
 /* --- 타임딜 --- */
@@ -1322,8 +1400,10 @@ function npPlanCards(){
         '<div class="bn">'+p.bn+'</div></div></div>';
   }).join('');
   r.scrollLeft = 0;
-  npDots(d, list.length, 0);
-  r.onscroll = function(){ var i = Math.round(r.scrollLeft/312); if(i!==NP.plan){ NP.plan=i; npDots(d, list.length, i); } };
+  npDots(d, list.length, 0, 'np-planrail');
+  r.onscroll = function(){ var i = r.npIdx ? r.npIdx() : 0; if(i!==NP.plan){ NP.plan=i; npDotsOn(d, i); } };
+  npFlick(r, function(){ return NP_STEP; }, function(){ return NP_DATA.plans[NP.cat].length; },
+          function(i){ NP.plan=i; npDotsOn(d, i); });
 }
 function npPhones(){
   var r = npEl('np-phonerail'), d = npEl('np-phdots'); if(!r) return;
@@ -1337,10 +1417,17 @@ function npPhones(){
           '<div class="sub">'+p.sub+'</div></div></div></div></div>';
   }).join('');
   r.scrollLeft = 0;
-  npDots(d, NP_DATA.phones.length, 0);
-  r.onscroll = function(){ var i = Math.round(r.scrollLeft/312); if(i!==NP.phone){ NP.phone=i; npDots(d, NP_DATA.phones.length, i); } };
+  npDots(d, NP_DATA.phones.length, 0, 'np-phonerail');
+  r.onscroll = function(){ var i = r.npIdx ? r.npIdx() : 0; if(i!==NP.phone){ NP.phone=i; npDotsOn(d, i); } };
+  npFlick(r, function(){ return NP_STEP; }, function(){ return NP_DATA.phones.length; },
+          function(i){ NP.phone=i; npDotsOn(d, i); });
 }
-function npDots(d, n, on){ if(!d) return; var h=''; for(var i=0;i<n;i++) h += '<i'+(i===on?' class="on"':'')+'></i>'; d.innerHTML = h; }
+function npDots(d, n, on, railId){
+  if(!d) return; var h='';
+  for(var i=0;i<n;i++) h += '<button type="button" aria-label="'+(i+1)+'번째 카드로 이동"'+(i===on?' class="on"':'')+' onclick="npGo(\''+railId+'\','+i+')"></button>';
+  d.innerHTML = h;
+}
+function npDotsOn(d, on){ if(!d) return; var c=d.children; for(var i=0;i<c.length;i++) c[i].className = (i===on?'on':''); }
 function npBiz(){ var b = npEl('np-biz'); var open = b.dataset.open !== 'true'; b.dataset.open = open; b.querySelector('button').setAttribute('aria-expanded', open); }
 
 /* --- 초기화 · 리로드 --- */
