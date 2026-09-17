@@ -584,7 +584,7 @@ ul.r-l li b{font-weight:800}
 .np-mcard .im img{display:block;width:130px;height:130px;object-fit:cover;border-radius:8px}
 .np-mcard .info{flex:1;min-width:0;align-self:stretch;display:flex;flex-direction:column;gap:10px;padding:10px 0}
 .np-mcard .nm{display:flex;gap:10px;align-items:center;width:100%}
-.np-mcard .nm .g{flex-shrink:0;width:41px;border:1px solid #a7afb6;border-radius:10px;padding:2px 10px;font-size:14px;font-weight:600;line-height:24px;letter-spacing:-.35px;color:#000;text-align:center}
+.np-mcard .nm .g{flex-shrink:0;min-width:41px;border:1px solid #a7afb6;border-radius:10px;padding:2px 10px;font-size:14px;font-weight:600;line-height:24px;letter-spacing:-.35px;color:#000;text-align:center}
 .np-mcard .nm .t{flex:1;min-width:0;font-size:14px;font-weight:600;line-height:24px;letter-spacing:-.35px;color:#101828}
 .np-mcard .sp{width:100%;font-size:14px;font-weight:400;line-height:24px;letter-spacing:-.35px;color:#101828}
 .np-mcard .fee{width:100%;display:flex;flex-direction:column;font-size:14px;font-weight:400;line-height:24px;letter-spacing:-.35px;color:#101828}
@@ -596,6 +596,56 @@ ul.r-l li b{font-weight:800}
 .np-mcard .pr .n{display:flex;align-items:baseline;gap:10px}
 .np-mcard .pr .n i{font-style:normal;font-size:18px;line-height:28px;letter-spacing:-.45px;color:#424242}
 .np-mcard .pr .n b{font-size:24px;line-height:36px;letter-spacing:-.6px;color:#7c4dff}
+
+
+/* ── 유픽폰 탭 : Figma [MO] NoLogin Main-유픽폰 (40007048:5390)
+   HERO 466×375 (Figma 단일 이미지 → HTML·CSS 재구성) · Filter STEP1 (칩 3 + 정렬) · UPickCard 470×192 리스트
+   TITLE COPY 는 Figma 에서 hidden → 미구현 ── */
+#np-upicktab{display:flex;flex-direction:column;gap:0}
+
+.np-uhero{position:relative;width:100%;height:375px;border-radius:16px;overflow:hidden;color:#fff;text-align:center;background:linear-gradient(180deg,#2a1155 0%,#3b1178 42%,#6d28d9 100%)}
+.np-uhero:before{content:'';position:absolute;left:50%;top:-50px;width:520px;height:340px;transform:translateX(-50%);background:radial-gradient(50% 50% at 50% 50%,rgba(150,105,255,.6),rgba(150,105,255,0) 70%);pointer-events:none}
+.np-uhero>*{position:relative;z-index:1}
+.np-uhero .cert{position:absolute;top:14px;right:14px;width:54px;height:54px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(255,255,255,.12);border:1px solid rgba(221,214,254,.5);clip-path:polygon(50% 0,93% 25%,93% 75%,50% 100%,7% 75%,7% 25%)}
+.np-uhero .cert b{font-size:11px;font-weight:700;line-height:15px;letter-spacing:-.3px;color:#ddd6fe}
+.np-uhero .cert i{font-size:11px;font-style:normal;font-weight:700;line-height:15px;letter-spacing:-.3px;color:#fff}
+.np-uhero .h{padding-top:76px;display:flex;flex-direction:column;gap:4px}
+.np-uhero .h b{font-size:30px;font-weight:800;line-height:40px;letter-spacing:-.9px}
+.np-uhero .s{margin:16px 0 0;font-size:15px;font-weight:500;line-height:24px;letter-spacing:-.38px;color:#d8caff}
+.np-uhero .cols{margin-top:20px;display:flex;align-items:stretch;justify-content:center}
+.np-uhero .cols>div{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:0 6px}
+.np-uhero .cols>div+div{border-left:1px solid rgba(221,214,254,.26)}
+.np-uhero .cols svg{width:30px;height:30px;margin-bottom:10px;fill:none;stroke:#ddd6fe;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.np-uhero .cols b{font-size:15px;font-weight:700;line-height:22px;letter-spacing:-.38px}
+.np-uhero .cols span{font-size:13px;font-weight:400;line-height:20px;letter-spacing:-.33px;color:#c4b5fd}
+.np-uhero .dev{position:absolute;left:50%;bottom:-26px;width:232px;height:56px;transform:translateX(-50%);border-radius:24px 24px 0 0;background:linear-gradient(180deg,#160c2e,#2a1a52);box-shadow:inset 0 1px 0 rgba(221,214,254,.4)}
+
+.np-ufilterwrap{display:flex;flex-direction:column;justify-content:center;padding:30px 0 20px}
+.np-ufilter{display:flex;gap:8px;align-items:center;width:100%}
+.np-ufilter .chips{flex:1;min-width:0;display:flex;gap:8px;align-items:center}
+.np .np-ufilter .chips button{flex-shrink:0;display:inline-flex;align-items:center;padding:8px 14px;border-radius:99px;border:1px solid #d1d5dc;background:#fff;color:#4a5565;font-size:14px;font-weight:600;line-height:24px;letter-spacing:-.35px;white-space:nowrap}
+.np .np-ufilter .chips button[aria-selected="true"]{background:#7b5cf5;border-color:#7b5cf5;color:#fff}
+.np .np-usort>button{height:40px;padding:0 10px;gap:10px;border:1px solid #a7afb6;border-radius:10px;background:#fff;color:#424242;font-size:14px;font-weight:600;line-height:24px;letter-spacing:-.35px}
+.np .np-usort>button[aria-selected="true"]{background:#fff;border-color:#a7afb6;color:#424242}
+.np .np-usort>button .ic{width:20px;height:20px;flex-shrink:0;fill:none;stroke:#424242;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.np-usort .pop{left:auto;right:0}
+
+.np-ulist{display:flex;flex-direction:column;gap:10px;padding-top:10px}
+.np-ucard{width:100%;background:#fff;border:1px solid #e8e8e8;border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:10px;filter:drop-shadow(0 1px 1.5px rgba(0,0,0,.1)) drop-shadow(0 1px 1px rgba(0,0,0,.1));cursor:pointer;text-align:left}
+.np-ucard .mid{display:flex;gap:10px;align-items:center;width:100%}
+.np-ucard .im{padding:10px;flex-shrink:0;background:#fff}
+.np-ucard .im img{display:block;width:130px;height:130px;object-fit:cover;border-radius:8px}
+.np-ucard .info{flex:1;min-width:0;display:flex;flex-direction:column;gap:10px;padding:10px 0}
+.np-ucard .nm{display:flex;gap:10px;align-items:center;width:100%}
+.np-ucard .nm .t{flex:1;min-width:0;font-size:14px;font-weight:600;line-height:24px;letter-spacing:-.35px;color:#101828}
+.np-ucard .nm .g{flex-shrink:0;min-width:41px;border:1px solid #a7afb6;border-radius:10px;padding:2px 10px;font-size:14px;font-weight:600;line-height:24px;letter-spacing:-.35px;color:#000;text-align:center}
+.np-ucard .fee{width:100%;display:flex;flex-direction:column}
+.np-ucard .fee div{display:flex;gap:10px;align-items:center;width:100%;font-size:14px;font-weight:400;line-height:24px;letter-spacing:-.35px;color:#101828}
+.np-ucard .fee div span:first-child{white-space:nowrap}
+.np-ucard .fee div span+span{flex:1;min-width:0;text-align:right}
+.np-ucard .fee div b{flex:1;min-width:0;text-align:right;font-size:16px;font-weight:600;line-height:24px;letter-spacing:-.4px;color:#635dff}
+.np-ucard .note{width:100%;text-align:right;font-size:14px;font-weight:600;line-height:24px;letter-spacing:-.35px;color:#424242}
+.np-ucard .note span:before{content:'• '}
 
 /* ── 프로토 보조 ── */
 .np-toast{position:absolute;left:50%;bottom:24px;transform:translateX(-50%) translateY(8px);background:rgba(22,22,30,.92);color:#fff;font-size:14px;font-weight:600;padding:10px 16px;border-radius:99px;opacity:0;transition:opacity .2s,transform .2s;pointer-events:none;white-space:nowrap;z-index:5}
@@ -845,6 +895,44 @@ ul.r-l li b{font-weight:800}
       <div class="np-mfilter" id="np-mfilter" aria-label="휴대폰 필터"></div>
     </div>
     <div class="np-mlist" id="np-mlist"></div>
+  </div>
+
+
+  <!-- ─── 유픽폰 탭 (Figma [MO] NoLogin Main-유픽폰 40007048:5390) ─── -->
+  <div id="np-upicktab" style="display:none">
+    <div class="np-uhero" aria-label="유픽폰 소개">
+      <span class="cert" aria-hidden="true"><b>유모바일</b><i>인증</i></span>
+      <div class="h"><b>약정없이 더 알뜰하게</b><b>폰을 사는 방법</b></div>
+      <p class="s">철저한 품질검사를 마친 S급 휴대폰을<br>유심요금제와 함께!</p>
+      <div class="cols">
+        <div>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7"/><path d="M14 3v5h5"/><path d="M8 12h5M8 16h4"/><path d="M19.4 13.6 21 15.2l-4.6 4.6-2.2.6.6-2.2z"/></svg>
+          <b>무약정</b><span>단말+유심</span>
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5.2c0 4.4-3 7.8-7 9.8-4-2-7-5.4-7-9.8V6z"/><path d="m9 12 2.2 2.2L15.4 10"/></svg>
+          <b>인증기기</b><span>유모바일 검증</span>
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.6 1.9 1.6 2.4-.5 1 2.3 2.3 1-.5 2.4L20.7 12l-1.6 1.9.5 2.4-2.3 1-1 2.3-2.4-.5-1.9 1.6-1.9-1.6-2.4.5-1-2.3-2.3-1 .5-2.4L3.3 12l1.6-1.9-.5-2.4 2.3-1 1-2.3 2.4.5z"/><path d="M9.6 9.6h.01M14.4 14.4h.01M14.9 9.1l-5.8 5.8"/></svg>
+          <b>특별 할인가</b><span>더 알뜰하게</span>
+        </div>
+      </div>
+      <span class="dev" aria-hidden="true"></span>
+    </div>
+    <div class="np-ufilterwrap">
+      <div class="np-ufilter">
+        <div class="chips" id="np-uchips" role="tablist" aria-label="제조사"></div>
+        <span class="np-dd np-usort" id="np-usort" data-open="false">
+          <button type="button" aria-haspopup="listbox" aria-expanded="false" onclick="npUOpen()">
+            <svg class="ic" viewBox="0 0 20 20" aria-hidden="true"><path d="M2 5h5.5l5 10H18M2 15h5.5l1.6-3.2M15.6 2.6 18 5l-2.4 2.4M15.6 12.6 18 15l-2.4 2.4"/></svg>
+            <span id="np-usortlbl">인기순</span>
+          </button>
+          <span class="pop" role="listbox" aria-label="정렬" id="np-usortpop"></span>
+        </span>
+      </div>
+    </div>
+    <div class="np-ulist" id="np-ulist"></div>
   </div>
 
   <div id="np-other" class="np-tabph" style="display:none"></div>
@@ -1351,11 +1439,50 @@ var NP_DATA = {
     {mk:'삼성', ms:'미개통 전시폰', bd:[['한정판매','k-lim'],['신규','k-new'],['갓성비','k-val']], g:'5G',
      name:'(미개통 전시폰) 갤럭시 Z플립7', sp:'[휴대폰] 5G (10GB/200분)', fee:'28,500원', inst:'28,110원', was:'', now:'56,610원'},
     {mk:'삼성', ms:'새제품', bd:[['인기','k-pop'],['갓 성비','k-val']], g:'5G',
-     name:'갤럭시 S26 256G', sp:'[휴대폰] 5G (5GB/200분)', fee:'23,500원', inst:'39,850원', was:'39,800원', now:'63,350원'}
+     name:'갤럭시 S26 256G', sp:'[휴대폰] 5G (5GB/200분)', fee:'23,500원', inst:'39,850원', was:'39,800원', now:'63,350원'},
+    {mk:'애플', ms:'새제품', bd:[['신규','k-new'],['갓성비','k-val']], g:'5G',
+     name:'샘플 · 아이폰 17 256G', sp:'[휴대폰] 5G (10GB/200분)', fee:'28,500원', inst:'52,910원', was:'', now:'81,410원'},
+    {mk:'애플', ms:'중고S급', bd:[['인기','k-pop'],['S급','k-s']], g:'5G',
+     name:'샘플 · (중고폰S급) 아이폰 15 128G', sp:'[휴대폰] 5G (5GB/200분)', fee:'23,500원', inst:'21,450원', was:'52,900원', now:'44,950원'},
+    {mk:'삼성', ms:'새제품', bd:[['인기','k-pop'],['갓성비','k-val']], g:'LTE',
+     name:'샘플 · 갤럭시 와이드8 128G', sp:'[휴대폰] LTE(1GB+/통화기본)', fee:'19,400원', inst:'4,160원', was:'', now:'23,560원'},
+    {mk:'삼성', ms:'미개통 전시폰', bd:[['한정판매','k-lim'],['S급','k-s']], g:'5G',
+     name:'샘플 · (미개통 전시폰) 갤럭시 S25 256G', sp:'[휴대폰] 5G (10GB/200분)', fee:'28,500원', inst:'33,750원', was:'69,800원', now:'62,250원'},
+    {mk:'애플', ms:'중고S급', bd:[['S급','k-s']], g:'5G',
+     name:'샘플 · (중고폰S급) 아이폰 14 프로 128G', sp:'[휴대폰] 5G (10GB/200분)', fee:'28,500원', inst:'27,080원', was:'', now:'55,580원'},
+    {mk:'삼성', ms:'새제품', bd:[['신규','k-new']], g:'5G',
+     name:'샘플 · 갤럭시 Z플립7 256G', sp:'[휴대폰] 5G (5GB/200분)', fee:'23,500원', inst:'44,790원', was:'', now:'68,290원'},
+    {mk:'삼성', ms:'중고S급', bd:[['인기','k-pop'],['S급','k-s'],['갓성비','k-val']], g:'LTE',
+     name:'샘플 · (중고폰S급) 갤럭시 A54 128G', sp:'[휴대폰] LTE(1GB+/통화기본)', fee:'19,400원', inst:'8,320원', was:'31,900원', now:'27,720원'},
+    {mk:'애플', ms:'새제품', bd:[['한정판매','k-lim'],['신규','k-new']], g:'5G',
+     name:'샘플 · 아이폰 17 프로 256G', sp:'[휴대폰] 5G (10GB/200분)', fee:'28,500원', inst:'66,240원', was:'', now:'94,740원'},
+    {mk:'삼성', ms:'미개통 전시폰', bd:[['한정판매','k-lim'],['갓성비','k-val']], g:'5G',
+     name:'샘플 · (미개통 전시폰) 갤럭시 A37 128G', sp:'[휴대폰] 5G (5GB/200분)', fee:'23,500원', inst:'5,830원', was:'', now:'29,330원'},
+    {mk:'삼성', ms:'새제품', bd:[['인기','k-pop']], g:'LTE',
+     name:'샘플 · 갤럭시 점프4 128G', sp:'[휴대폰] LTE(1GB+/통화기본)', fee:'19,400원', inst:'0원', was:'22,900원', now:'19,400원'}
+  ],
+
+  /* 유픽폰 탭 — Figma 원문 카드 5장 (40007048:5390). mk(제조사) 는 상품명 기준 파생값 · v 는 정렬용 월 납부금액 */
+  upick: [
+    {mk:'삼성', name:'(유픽) S25 256G',       g:'5G', mem:'792,000원',   pay:'68,060원', v:68060, note:'단말 할부금(24개월), LTE 스페셜'},
+    {mk:'삼성', name:'(유픽) S23 256G',       g:'5G', mem:'456,000원',   pay:'53,180원', v:53180, note:'단말 할부금(24개월), LTE 스페셜'},
+    {mk:'삼성', name:'(유픽) S24 256G',       g:'5G', mem:'600,000원',   pay:'59,560원', v:59560, note:'단말 할부금(24개월), LTE 스페셜'},
+    {mk:'삼성', name:'(유픽) S25 Ultra 256g', g:'5G', mem:'1,128,000원', pay:'82,930원', v:82930, note:'단말 할부금(24개월), LTE 스페셜'},
+    {mk:'삼성', name:'(유픽) S24 Ultra256G',  g:'5G', mem:'912,000원',   pay:'73,370원', v:73370, note:'단말 할부금(24개월), LTE 스페셜'},
+    {mk:'애플', name:'샘플 · (유픽) 아이폰 15 128G',    g:'5G',  mem:'684,000원',   pay:'61,240원', v:61240, note:'단말 할부금(24개월), LTE 스페셜'},
+    {mk:'애플', name:'샘플 · (유픽) 아이폰 14 128G',    g:'5G',  mem:'540,000원',   pay:'55,760원', v:55760, note:'단말 할부금(24개월), LTE 스페셜'},
+    {mk:'삼성', name:'샘플 · (유픽) Z플립6 256G',       g:'5G',  mem:'768,000원',   pay:'66,890원', v:66890, note:'단말 할부금(24개월), LTE 스페셜'},
+    {mk:'애플', name:'샘플 · (유픽) 아이폰 16 프로 256G', g:'5G', mem:'1,044,000원', pay:'79,430원', v:79430, note:'단말 할부금(24개월), LTE 스페셜'},
+    {mk:'삼성', name:'샘플 · (유픽) S23 Ultra 256G',    g:'5G',  mem:'828,000원',   pay:'69,950원', v:69950, note:'단말 할부금(24개월), LTE 스페셜'},
+    {mk:'삼성', name:'샘플 · (유픽) A54 128G',          g:'LTE', mem:'288,000원',   pay:'41,120원', v:41120, note:'단말 할부금(24개월), LTE 스페셜'},
+    {mk:'애플', name:'샘플 · (유픽) 아이폰 SE3 128G',   g:'LTE', mem:'252,000원',   pay:'38,640원', v:38640, note:'단말 할부금(24개월), LTE 스페셜'},
+    {mk:'삼성', name:'샘플 · (유픽) Z폴드6 256G',       g:'5G',  mem:'1,368,000원', pay:'93,270원', v:93270, note:'단말 할부금(24개월), LTE 스페셜'},
+    {mk:'삼성', name:'샘플 · (유픽) S22 256G',          g:'5G',  mem:'384,000원',   pay:'47,380원', v:47380, note:'단말 할부금(24개월), LTE 스페셜'},
+    {mk:'애플', name:'샘플 · (유픽) 아이폰 13 128G',    g:'LTE', mem:'396,000원',   pay:'48,210원', v:48210, note:'단말 할부금(24개월), LTE 스페셜'}
   ]
 };
 
-var NP = { tab:'home', banner:0, cat:'인기 TOP', plan:0, phone:0, pf:'전체', mk:null, ms:null, timers:[] };
+var NP = { tab:'home', banner:0, cat:'인기 TOP', plan:0, phone:0, pf:'전체', mk:null, ms:null, uk:null, us:'인기순', timers:[] };
 
 function npEl(id){ return document.getElementById(id); }
 function npEsc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/'/g,'&#39;'); }
@@ -1371,20 +1498,22 @@ function npTab(id){
   NP.tab = id;
   var tabs = document.querySelectorAll('#np .np-menu [role=tab]');
   for(var i=0;i<tabs.length;i++) tabs[i].setAttribute('aria-selected', tabs[i].dataset.tab===id ? 'true' : 'false');
-  var home = npEl('np-home'), other = npEl('np-other'), pt = npEl('np-plantab'), mt = npEl('np-phonetab');
+  var home = npEl('np-home'), other = npEl('np-other'),
+      pt = npEl('np-plantab'), mt = npEl('np-phonetab'), ut = npEl('np-upicktab');
   home.style.display = id==='home' ? 'flex' : 'none';
   if(pt) pt.style.display = id==='plan' ? 'flex' : 'none';
   if(mt) mt.style.display = id==='phone' ? 'flex' : 'none';
+  if(ut) ut.style.display = id==='upick' ? 'flex' : 'none';
   npMClose();
-  if(id==='home' || id==='plan' || id==='phone'){
+  if(id==='home' || id==='plan' || id==='phone' || id==='upick'){
     other.style.display='none';
     if(id==='plan') npPlanTab();
     if(id==='phone') npPhoneTab();
+    if(id==='upick') npUpickTab();
   }
   else{
     other.style.display='block';
-    var nm = {upick:'유픽폰'}[id] || id;
-    other.innerHTML = '<b>'+nm+' 탭</b>화면 미정의 — 콘텐츠 미확정 (O-06)';
+    other.innerHTML = '<b>'+id+' 탭</b>화면 미정의 — 콘텐츠 미확정 (O-06)';
   }
   npTop();
 }
@@ -1676,8 +1805,7 @@ function npMOpen(k){
   }
 }
 function npMClose(){
-  var f = npEl('np-mfilter'); if(!f) return;
-  var dds = f.querySelectorAll('.np-dd');
+  var dds = document.querySelectorAll('#np .np-dd');
   for(var i=0;i<dds.length;i++){
     dds[i].dataset.open = 'false';
     dds[i].querySelector('button').setAttribute('aria-expanded','false');
@@ -1714,9 +1842,66 @@ function npPhoneList(){
   }).join('');
 }
 
+/* --- 유픽폰 탭 : 제조사 칩 · 정렬 드롭다운 · 리스트 카드 (Figma 40007048:5390)
+   Figma 칩 표기는 「전체 · LTE · 애플」 이나 레이어명은 「전체 · 삼성 · 애플」 → 제조사 단일축으로 통일
+   정렬 옵션은 Figma 미정의(트리거 「인기순」만 존재) → 샘플 3종 --- */
+var NP_UCAT  = ['전체','삼성','애플'];
+var NP_USORT = ['인기순','낮은 가격순','높은 가격순'];
+
+function npUpickTab(){ npUChips(); npUSortBtn(); npUList(); }
+function npUChips(){
+  var c = npEl('np-uchips'); if(!c) return;
+  c.innerHTML = NP_UCAT.map(function(n){
+    var on = (n==='전체') ? !NP.uk : NP.uk===n;
+    return '<button type="button" role="tab" aria-selected="'+on+'" onclick="npUCat(\''+n+'\')">'+n+'</button>';
+  }).join('');
+}
+function npUCat(n){
+  var v = (n==='전체') ? null : n;
+  if(v===NP.uk){ if(!v) npToast('이미 전체 조건입니다'); return; }
+  NP.uk = v; npUChips(); npUList();
+}
+function npUSortBtn(){
+  var p = npEl('np-usortpop'), l = npEl('np-usortlbl'); if(!p) return;
+  l.textContent = NP.us;
+  p.innerHTML = NP_USORT.map(function(o){
+    return '<button type="button" role="option" aria-selected="'+(o===NP.us)+'" onclick="npUSort(\''+o+'\')">'+o+'</button>';
+  }).join('');
+}
+function npUOpen(){
+  var d = npEl('np-usort'); if(!d) return;
+  var open = d.dataset.open !== 'true';
+  npMClose();
+  d.dataset.open = open;
+  d.querySelector('button').setAttribute('aria-expanded', open);
+}
+function npUSort(o){ NP.us = o; npMClose(); npUSortBtn(); npUList(); }
+function npUPick(){
+  var l = NP_DATA.upick.filter(function(p){ return !NP.uk || p.mk===NP.uk; }).slice();
+  if(NP.us==='낮은 가격순') l.sort(function(a,b){ return a.v-b.v; });
+  if(NP.us==='높은 가격순') l.sort(function(a,b){ return b.v-a.v; });
+  return l;
+}
+function npUList(){
+  var el = npEl('np-ulist'); if(!el) return;
+  var list = npUPick();
+  if(!list.length){ el.innerHTML = '<div class="np-pempty">조건에 맞는 샘플 유픽폰이 없습니다</div>'; return; }
+  el.innerHTML = list.map(function(p){
+    return '<div class="np-ucard" role="button" tabindex="0" onclick="npToast(\'유픽폰 상세 — '+npEsc(p.name)+' (프로토)\')">'+
+      '<div class="mid">'+
+        '<div class="im"><img src="'+NP_IMG.imgImage2+'" alt="'+npEsc(p.name)+'"></div>'+
+        '<div class="info">'+
+          '<div class="nm"><span class="t">'+p.name+'</span><span class="g">'+p.g+'</span></div>'+
+          '<div class="fee"><div><span>유모바일 회원가</span><span>'+p.mem+'</span></div>'+
+            '<div><span>월 납부금액(예상)</span><b>'+p.pay+'</b></div></div>'+
+          '<div class="note"><span>'+p.note+'</span></div>'+
+        '</div></div></div>';
+  }).join('');
+}
+
 function npInit(){
   NP.timers.forEach(clearInterval);
-  NP = { tab:'home', banner:0, cat:'인기 TOP', plan:0, phone:0, pf:'전체', mk:null, ms:null, timers:[] };
+  NP = { tab:'home', banner:0, cat:'인기 TOP', plan:0, phone:0, pf:'전체', mk:null, ms:null, uk:null, us:'인기순', timers:[] };
   npTab('home'); npBanners(); npDeals(); npChips(); npPlanCards(); npPhones();
   var biz = npEl('np-biz'); if(biz){ biz.dataset.open='false'; biz.querySelector('button').setAttribute('aria-expanded','false'); }
   var s = npEl('np-slides'); if(s) s.scrollLeft = 0;
