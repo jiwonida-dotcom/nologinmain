@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>U+유모바일 nologinMain 페이지 개편 — 통합 리포트</title>
+<style>
+/* ============================================================
+   통합 리포트 골격 — PLANLIST_20260901_V1.0 에서 리포트 크롬(r-*)만 이관.
+   프로토타입 화면 CSS는 이 파일 하단 "PROTO" 블록에 별도로 작성한다.
+   규칙: 리포트 크롬은 r- 접두사 / 프로토타입은 접두사 없음 (네임스페이스 분리)
+   ============================================================ */
+:root{
+  color-scheme:light;
+  --bg:#F3F3F8; --bg-deep:#EBEBF2; --surface:#FFFFFF; --line:#ECECF2; --line-2:#DFDEE9;
+  --text:#16161E; --ink:#16161E; --muted:#6C6C7C; --muted-2:#9C9CAB;
+  --main:#5B4BE1; --main-deep:#4638C2; --main-weak:#EFEDFD; --main-mid:#CBC3F8; --main-ghost:#F7F6FE;
+  --ok:#0F9D6B; --ok-bg:#E9F8F1;
+  --warn:#D97706; --warn-bg:#FEF6E9;
+  --err:#DC2626; --err-bg:#FDEDED;
+  --gray-btn:#C2C2CD;
+  --r:16px;
+  --shadow-s:0 1px 2px rgba(22,22,40,.05);
+  --shadow-m:0 6px 18px rgba(22,22,40,.07);
+  --shadow-l:0 18px 44px rgba(22,22,50,.14);
+  --ring:0 0 0 3px rgba(91,75,225,.14);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:"Pretendard","Apple SD Gothic Neo",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Malgun Gothic",sans-serif;background:linear-gradient(180deg,var(--bg) 0%,var(--bg-deep) 100%);min-height:100vh;color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+button{font-family:inherit;border:0;background:none;cursor:pointer;color:inherit}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* ── 헤더 ── */
+.r-head{background:var(--surface);border-bottom:1px solid var(--line)}
+.r-head-in{max-width:1280px;margin:0 auto;padding:30px 28px 24px}
+.r-kicker{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:800;letter-spacing:.06em;color:var(--main);background:var(--main-weak);border-radius:99px;padding:5px 12px}
+.r-h1{font-size:27px;font-weight:800;letter-spacing:-.03em;margin:14px 0 6px;line-height:1.25}
+.r-lead{font-size:13.5px;color:var(--muted);line-height:1.65;max-width:880px}
+.r-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.r-m{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:10px 14px;min-width:150px}
+.r-m dt{font-size:10.5px;font-weight:800;color:var(--muted-2);letter-spacing:.04em;margin-bottom:3px}
+.r-m dd{font-size:13px;font-weight:700;letter-spacing:-.01em}
+.r-m dd em{font-style:normal;color:var(--main)}
+.r-m.ok dd{color:var(--ok)}
+.r-m.todo dd{color:var(--muted-2)}
+
+/* ── 탭바 ── */
+.r-tabsbar{position:sticky;top:0;z-index:90;background:rgba(255,255,255,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.r-tabs{max-width:1280px;margin:0 auto;padding:0 28px;display:flex;gap:2px;overflow-x:auto}
+.r-tabs button{position:relative;padding:15px 18px;font-size:13.5px;font-weight:700;color:var(--muted);white-space:nowrap;transition:color .15s,background .15s;border-radius:10px 10px 0 0}
+.r-tabs button:hover{color:var(--text);background:rgba(91,75,225,.06)}
+.r-tabs button.on{color:var(--main)}
+.r-tabs button.on:hover{color:var(--main);background:rgba(91,75,225,.09)}
+.r-tabs button.on:after{content:'';position:absolute;left:14px;right:14px;bottom:-1px;height:2.5px;background:var(--main);border-radius:2px}
+.r-tabs button:focus-visible{outline:2px solid var(--main);outline-offset:2px}
+.r-tabs .n{display:inline-block;font-size:10.5px;font-weight:800;color:var(--muted-2);margin-right:6px}
+.r-tabs button.on .n{color:var(--main)}
+
+/* ── 본문 골격: 제목 → 역할 한 문장 → (있으면) KPI ── */
+.r-main{max-width:1280px;margin:0 auto;padding:34px 28px 90px}
+.r-view{display:none}
+.r-view.on{display:block;animation:fadeIn .26s ease}
+.r-top{margin-bottom:26px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.r-top h1{display:flex;align-items:center;gap:10px;font-size:22px;font-weight:800;letter-spacing:-.025em;color:var(--text);line-height:1.3;margin-bottom:8px}
+.r-top h1 .no{flex:0 0 auto;font-size:12px;font-weight:800;color:var(--main);background:var(--main-weak);border-radius:8px;padding:4px 9px;letter-spacing:.02em}
+.r-top p{font-size:13px;color:var(--muted);line-height:1.7;max-width:900px}
+.r-top p b{color:var(--text);font-weight:800}
+.r-sec{margin-bottom:44px}
+.r-sec>h2{font-size:19px;font-weight:800;letter-spacing:-.02em;display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.r-sec>h2 .no{flex-shrink:0;width:26px;height:26px;border-radius:8px;background:var(--main);color:#fff;font-size:12.5px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.r-sec>p.d{font-size:13px;color:var(--muted);line-height:1.7;margin:0 0 18px 36px;max-width:900px}
+.r-sub{font-size:14.5px;font-weight:800;letter-spacing:-.01em;margin:26px 0 10px;display:flex;align-items:center;gap:8px}
+.r-sub .g{font-size:11px;font-weight:800;color:var(--main);background:var(--main-weak);border-radius:6px;padding:2.5px 8px}
+.r-card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow-s)}
+.r-card+.r-card{margin-top:14px}
+.r-grid{display:grid;gap:14px;grid-template-columns:1fr}
+.r-g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.r-g3{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.r-kpi{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px}
+.r-kpi .v{font-size:25px;font-weight:800;letter-spacing:-.03em;line-height:1.1}
+.r-kpi .l{font-size:11.5px;color:var(--muted);font-weight:600;margin-top:6px;line-height:1.5}
+.r-kpi.warn .v{color:var(--err)}
+.r-kpi.main .v{color:var(--main)}
+.r-kpi.ok .v{color:var(--ok)}
+.r-kpi.todo{border-style:dashed;background:transparent}
+.r-kpi.todo .v{color:var(--muted-2);font-size:20px}
+
+/* ── 표 · ID 칩 ── */
+table.r-t{width:100%;border-collapse:collapse;font-size:13px;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+table.r-t th{background:#F6F6FA;text-align:left;padding:11px 14px;font-size:11.5px;font-weight:800;color:var(--muted);letter-spacing:.02em;white-space:nowrap}
+table.r-t td{padding:12px 14px;border-top:1px solid var(--line);vertical-align:top;line-height:1.6}
+table.r-t td.id{white-space:nowrap;width:1%}
+table.r-t tr:hover td{background:#FCFCFE}
+table.r-t td.empty{color:var(--muted-2);text-align:center;padding:22px 14px;font-weight:600}
+.cid{display:inline-block;font-size:10.5px;font-weight:800;color:var(--main);background:var(--main-weak);border-radius:6px;padding:2.5px 7px;white-space:nowrap}
+.cid.d{color:var(--warn);background:var(--warn-bg)}   /* 미확정 O-nn · High */
+.cid.x{color:var(--err);background:var(--err-bg)}     /* Critical */
+.cid.p{color:var(--ok);background:var(--ok-bg)}       /* 해소 · 확정 */
+.cid.n{color:var(--muted);background:var(--bg)}       /* 중립 P-nn · G-nn */
+.ev{display:inline-block;font-size:10px;font-weight:800;border-radius:5px;padding:1.5px 6px;margin-right:4px;border:1px solid currentColor;white-space:nowrap}
+.ev.obs{color:var(--ok)}   .ev.dat{color:var(--main)}   .ev.inf{color:var(--warn)}   .ev.agr{color:var(--muted)}
+
+/* ── AS-IS / TO-BE · 노트 · 경고 · 목록 ── */
+.r-ba{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:12.5px}
+.r-ba>div{padding:16px 18px;line-height:1.7}
+.r-ba .as{background:var(--err-bg)}
+.r-ba .to{background:var(--ok-bg)}
+.r-ba .t{font-size:10.5px;font-weight:800;letter-spacing:.06em;margin-bottom:7px}
+.r-ba .as .t{color:var(--err)}
+.r-ba .to .t{color:var(--ok)}
+.r-note{background:var(--main-ghost);border:1px solid var(--main-weak);border-radius:14px;padding:15px 17px;font-size:12.5px;color:var(--muted);line-height:1.75}
+.r-note b{color:var(--main-deep)}
+.r-note+.r-note{margin-top:10px}
+.r-warn{background:var(--warn-bg);border:1px solid #F3DDB4;border-radius:14px;padding:15px 17px;font-size:12.5px;color:#8A5A08;line-height:1.75}
+.r-warn b{color:#7A4E06}
+.r-todo{border:1.5px dashed var(--line-2);border-radius:14px;padding:18px;font-size:12.5px;color:var(--muted-2);text-align:center;font-weight:700;background:rgba(255,255,255,.5)}
+ul.r-l{margin:0 0 0 19px;font-size:13px;line-height:1.85}
+ul.r-l li{margin-bottom:6px}
+ul.r-l li b{font-weight:800}
+.r-steps{counter-reset:s}
+.r-steps li{list-style:none;position:relative;padding-left:30px;margin-bottom:11px;font-size:13px;line-height:1.7}
+.r-steps li:before{counter-increment:s;content:counter(s);position:absolute;left:0;top:1px;width:20px;height:20px;border-radius:6px;background:var(--main-weak);color:var(--main);font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.asis-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:12px}
+.asis{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow-s);display:flex;flex-direction:column}
+.asis figcaption{padding:13px 15px 11px;font-size:12.5px;font-weight:800;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.asis img{width:100%;display:block;background:var(--bg);border-bottom:1px solid var(--line)}
+.asis p{padding:13px 15px;font-size:12px;line-height:1.7;color:var(--muted);margin:0}
+.r-foot{max-width:1280px;margin:0 auto;padding:0 28px 60px;font-size:11.5px;color:var(--muted-2);line-height:1.8}
+
+/* ── ID 칩 호버 상세 (C-nn · O-nn · P-nn) ── */
+.cid.has-tip{cursor:pointer;border-bottom:1px dashed currentColor;transition:background .13s,color .13s,box-shadow .13s}
+.cid.has-tip:hover,.cid.has-tip:focus-visible{background:var(--main);color:#fff;border-bottom-color:transparent;box-shadow:0 2px 8px rgba(91,75,225,.3)}
+.cid.has-tip:focus-visible{outline:2px solid var(--main);outline-offset:2px}
+.fs-tip{position:fixed;z-index:9999;max-width:min(440px,calc(100vw - 24px));background:var(--surface);border:1px solid var(--line-2);border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.14);padding:12px 14px;pointer-events:none}
+.fs-tip[hidden]{display:none}
+.fs-tip b{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.03em;color:var(--main);background:var(--main-ghost);border:1px solid var(--main-weak);border-radius:6px;padding:2px 7px;margin-right:7px}
+.fs-tip i{font-style:normal;font-size:12.5px;font-weight:800;color:var(--ink)}
+.fs-tip p{margin:7px 0 0;font-size:12px;line-height:1.65;color:var(--muted)}
+
+/* ── 프로토타입 탭 크롬 (뷰 전환 · 리로드) ── */
+.refbar{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:14px 18px;font-size:12px;color:var(--muted);margin-bottom:20px;line-height:1.7;display:flex;gap:16px;align-items:center;flex-wrap:wrap;box-shadow:var(--shadow-s)}
+.refbar b{color:var(--text)}
+.refbar .kbd{display:inline-block;background:var(--main-ghost);color:var(--main);border:1px solid var(--main-mid);border-radius:6px;padding:0 7px;font-size:10px;font-weight:800;margin:0 1px}
+.navtabs{display:inline-flex;gap:4px;background:var(--bg);padding:4px;border-radius:12px;margin-bottom:20px}
+.navtabs button{padding:8px 16px;border-radius:10px;font-size:13px;font-weight:700;color:var(--muted);transition:all .15s}
+.navtabs button.on{background:var(--surface);color:var(--main);box-shadow:var(--shadow-s)}
+.reload-top{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:12px;border:1px solid var(--line-2);background:var(--surface);font-size:12px;font-weight:700;color:var(--muted);transition:all .15s;box-shadow:var(--shadow-s);margin-left:6px}
+.reload-top:hover{color:var(--main);border-color:var(--main-mid);box-shadow:var(--ring)}
+.reload-top svg{width:13px;height:13px;stroke:currentColor;stroke-width:2.4;fill:none}
+.view{display:none}
+.view.on{display:block;animation:fadeIn .25s ease}
+.solo{display:flex;justify-content:center;gap:28px;align-items:flex-start;flex-wrap:wrap}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow-s);flex:1 1 360px;max-width:560px}
+.panel h3{font-size:15px;font-weight:800;letter-spacing:-.01em;display:flex;align-items:center;gap:8px}
+.panel h3 .dot{width:7px;height:7px;border-radius:50%;background:var(--main)}
+.panel .sub{font-size:12px;color:var(--muted);margin:5px 0 15px;line-height:1.6}
+
+/* ============================================================
+   PROTO — 모바일 기기 프레임 (394×940). 이전 프로젝트 .phone 규격 그대로.
+   화면 내부(.ph-body 안) CSS는 프로토타입 작성 시 이 아래에 추가한다.
+   ============================================================ */
+.phone-col{display:flex;flex-direction:column;align-items:center;gap:12px;position:sticky;top:68px}
+.phone{width:394px;max-width:100%;height:940px;max-height:calc(100vh - 96px);min-height:660px;background:var(--surface);border:1px solid var(--line-2);border-radius:34px;box-shadow:var(--shadow-l);overflow:hidden;display:flex;flex-direction:column;position:relative}
+.notch{flex-shrink:0;height:24px;display:flex;align-items:flex-end;justify-content:center}
+.notch i{width:110px;height:9px;background:var(--bg-deep);border-radius:99px}
+.ph-status{height:22px;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:10px;color:var(--muted-2);font-weight:700;letter-spacing:.02em}
+.ph-head{flex-shrink:0;display:flex;align-items:center;padding:11px 16px;border-bottom:1px solid var(--line);font-size:15px;font-weight:800}
+.ph-head .ic{width:28px;font-size:17px;color:var(--muted);font-weight:400}
+.ph-head .t{flex:1;text-align:center;letter-spacing:-.01em}
+.ph-body{flex:1;overflow-y:auto;overflow-x:hidden;padding:18px 16px 10px;position:relative;overscroll-behavior:contain}
+.ph-empty{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;color:var(--muted-2);font-size:12.5px;font-weight:700;line-height:1.7}
+.ph-empty .big{font-size:34px;line-height:1}
+.ph-empty small{font-weight:600;color:var(--muted-2)}
+
+@media (max-width:820px){
+  .r-head-in{padding:22px 16px 18px}
+  .r-tabs{padding:0 12px}
+  .r-main{padding:24px 16px 70px}
+  .r-sec>p.d{margin-left:0}
+  .r-ba{grid-template-columns:1fr}
+  .phone-col{position:static}
+}
+@media (prefers-reduced-motion:reduce){
+  .r-view.on,.view.on{animation:none}
+}
+</style>
+</head>
+<body>
+
+<header class="r-head">
+  <div class="r-head-in">
+    <span class="r-kicker">UX 개선 프로젝트 · 통합 리포트</span>
+    <h1 class="r-h1">U+유모바일<br>nologinMain 페이지 개편</h1>
+    <p class="r-lead">비로그인 상태로 진입하는 메인 페이지(nologinMain)의 개선 목표와 요구사항을 정의하고, 동작 프로토타입으로 검증합니다. <b>본 리포트는 초기화 상태</b>이며 자료 분석과 함께 채워집니다.</p>
+    <div class="r-meta">
+      <dl class="r-m"><dt>대상 화면</dt><dd>nologinMain <em>S-00</em></dd></dl>
+      <dl class="r-m todo"><dt>개선 범위</dt><dd>정의 전</dd></dl>
+      <dl class="r-m todo"><dt>분석 기간</dt><dd>자료 수령 후 확정</dd></dl>
+      <dl class="r-m todo"><dt>근거</dt><dd>미수집</dd></dl>
+      <dl class="r-m"><dt>확정 상태</dt><dd id="r-count">확정 0 · 미확정 0 · 협의 0</dd></dl>
+      <dl class="r-m"><dt>디바이스 기준</dt><dd>모바일 <em>394px</em></dd></dl>
+    </div>
+  </div>
+</header>
+
+<div class="r-tabsbar">
+  <nav class="r-tabs" aria-label="리포트 탭">
+    <button id="rb-proto" class="on" onclick="showTab('proto')"><span class="n">01</span>프로토타입</button>
+    <button id="rb-goal" onclick="showTab('goal')"><span class="n">02</span>개선목표</button>
+    <button id="rb-req" onclick="showTab('req')"><span class="n">03</span>요구사항 정의서</button>
+  </nav>
+</div>
+
+<main class="r-main">
+
+<!-- ═══════════════════════════════ 01 프로토타입 ═══════════════════════════════ -->
+<section id="rt-proto" class="r-view on">
+  <div class="r-top"><h1><span class="no">01</span>프로토타입</h1><p>실제로 <b>동작하는 화면</b>입니다. 요구사항이 확정되면 여기서 조작으로 검증하고, 명세와 어긋나면 <b>이 화면이 기준</b>입니다. 현재는 <b>모바일 기기 프레임만 셋팅</b>된 초기 상태입니다.</p></div>
+  <div class="refbar">
+    <span><b>자유 조작</b> — 화면 구현 전. 요구사항 확정 항목(C-nn)이 생기면 그 ID를 <span class="kbd">C-nn</span> 칩으로 이 줄에 연결합니다.</span>
+  </div>
+  <div class="navtabs">
+    <button id="nav-proto" class="on" onclick="setView('proto')">자유 조작</button>
+    <button id="nav-sim" onclick="setView('sim')">시나리오 시뮬레이터</button>
+    <button class="reload-top" onclick="reloadActive()"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-2.64-6.36M21 3v6h-6"></path></svg>리로드</button>
+  </div>
+
+  <div id="v-proto" class="view on">
+    <div class="solo">
+      <div class="phone-col">
+        <div class="phone" id="ph1">
+          <div class="notch"><i></i></div>
+          <div class="ph-status"><span>LTE</span><span>오후 3:12</span><span>70%</span></div>
+          <div class="ph-head"><span class="ic">☰</span><span class="t">U+유모바일</span><span class="ic" style="text-align:right">⌕</span></div>
+          <div class="ph-body" id="body-proto">
+            <div class="ph-empty">
+              <div class="big">▢</div>
+              nologinMain 화면 미구현
+              <small>요구사항 정의서(03) 확정 후 이 영역에 화면을 구현합니다</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="v-sim" class="view">
+    <div class="solo">
+      <div class="panel">
+        <h3><span class="dot"></span>시나리오</h3>
+        <p class="sub">정상 진입 + 예외 전건을 버튼으로 재생합니다. 시나리오는 03 요구사항의 확정 사항이 생긴 뒤 정의합니다.</p>
+        <div class="r-todo">시나리오 미정의 — 요구사항 확정 후 작성</div>
+      </div>
+      <div class="panel">
+        <h3><span class="dot"></span>검증 로그</h3>
+        <p class="sub">STEP별 PASS / FAIL / SKIP</p>
+        <div class="r-todo">로그 없음</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ 02 개선목표 ═══════════════════════════════ -->
+<section id="rt-goal" class="r-view">
+  <div class="r-top"><h1><span class="no">02</span>개선목표</h1><p>이 탭은 <b>왜 개편하는가</b>를 다룹니다 — 현황 계측, 페인포인트(P-nn), 개선 원칙(G-nn), 목표 지표(M-nn). 개별 요구사항이 충돌할 때 판단하는 <b>상위 기준</b>이 여기에 있습니다. 구체적 확정 사항(C-nn)은 <b>03 요구사항 정의서</b>가 단일 출처입니다.</p></div>
+
+  <div class="r-grid r-g3">
+    <div class="r-kpi todo"><div class="v">—</div><div class="l">메인 진입 세션 (기간 미정)</div></div>
+    <div class="r-kpi todo"><div class="v">—</div><div class="l">모바일 비중</div></div>
+    <div class="r-kpi todo"><div class="v">—</div><div class="l">핵심 이탈 지표 (선정 전)</div></div>
+    <div class="r-kpi todo"><div class="v">—</div><div class="l">Dead / Rage Click</div></div>
+    <div class="r-kpi todo"><div class="v">—</div><div class="l">스크롤 심도</div></div>
+    <div class="r-kpi todo"><div class="v">—</div><div class="l">주요 CTA 클릭률</div></div>
+  </div>
+
+  <div class="r-sec" style="margin-top:34px">
+    <h2><span class="no">1</span>개선 배경 · 현황</h2>
+    <p class="d">메인 페이지가 가입 여정에서 맡는 역할과, 지금 그 역할을 어떻게 수행하고 있는지를 <b>관측과 데이터</b>로 기술합니다. 근거 등급 태그를 반드시 붙입니다.</p>
+    <div class="r-sub"><span class="g">가</span>전제 · 트래픽</div>
+    <table class="r-t">
+      <thead><tr><th>ID</th><th>항목</th><th>근거</th><th>내용 · 설계 시사점</th></tr></thead>
+      <tbody><tr><td class="empty" colspan="4">자료 분석 후 작성 — 대상 · 진입 경로 · 진입 규모 · 디바이스 · 핵심 행동 신호 · 개선 범위</td></tr></tbody>
+    </table>
+    <div class="r-sub"><span class="g">나</span>개선 전 현황 — 문제 근거</div>
+    <table class="r-t">
+      <thead><tr><th>ID</th><th>영역</th><th>근거</th><th>현황</th><th>결과</th></tr></thead>
+      <tbody><tr><td class="empty" colspan="5">실제 화면 워크스루 후 작성</td></tr></tbody>
+    </table>
+    <div class="r-sub" style="font-size:13px">개선 전 실제 화면 — 운영 중인 nologinMain 캡처</div>
+    <div class="r-todo">캡처 미첨부 — assets/captures/ 에 넣고 base64로 임베딩 (캡션 · alt 필수)</div>
+  </div>
+
+  <div class="r-sec">
+    <h2><span class="no">2</span>핵심 문제 · 개선 원칙</h2>
+    <p class="d">페인포인트는 우선순위(Critical / High / Medium)와 근거를 함께 적고, 해소 설계 열에는 <b>03 탭의 C-nn ID만 참조</b>합니다.</p>
+    <table class="r-t">
+      <thead><tr><th>ID</th><th>우선순위</th><th>페인포인트</th><th>근거</th><th>해소 설계</th><th>판정</th></tr></thead>
+      <tbody><tr><td class="empty" colspan="6">P-01 ~ 미정의</td></tr></tbody>
+    </table>
+    <div class="r-note" style="margin-top:14px"><b>우선순위 기준</b> — Critical: 모든 사용자가 매번 겪는 구조적 마찰(워크스루로 재현) · High: 데이터로 규모가 확인된 이탈 요인 · Medium: 조건부 마찰. <b>[추론]이 유일한 근거인 Critical은 두지 않는다.</b></div>
+
+    <div class="r-sub">개선 원칙 (G-nn)</div>
+    <p class="d">개별 확정 사항이 서로 충돌할 때 <b>어느 쪽을 따를지 판단하는 상위 기준</b>입니다.</p>
+    <table class="r-t">
+      <thead><tr><th>ID</th><th>원칙</th><th>내용</th></tr></thead>
+      <tbody><tr><td class="empty" colspan="3">G-01 ~ 미정의</td></tr></tbody>
+    </table>
+  </div>
+
+  <div class="r-sec">
+    <h2><span class="no">3</span>목표 지표 · 측정 기준</h2>
+    <p class="d">개선 효과를 판정하는 기준선입니다. 기존 지표와 <b>동일 조건 비교가 가능한지</b>를 먼저 명시하고, 불가하면 신규 기준선을 둡니다.</p>
+    <table class="r-t">
+      <thead><tr><th>ID</th><th>지표</th><th>현재값</th><th>목표값</th><th>측정 방법 · 도구</th></tr></thead>
+      <tbody><tr><td class="empty" colspan="5">M-01 ~ 미정의</td></tr></tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ 03 요구사항 정의서 ═══════════════════════════════ -->
+<section id="rt-req" class="r-view">
+  <div class="r-top"><h1><span class="no">03</span>요구사항 정의서</h1><p>이 탭은 <b>무엇을 만들 것인가</b>를 다룹니다. <b>확정 사항 C-nn 전건의 정의가 이 탭에 있습니다</b> — 다른 탭은 ID로 <b>참조만</b> 합니다. 미확정(O-nn)과 개발 협의(D-nn)도 여기서 관리하며, 헤더의 확정 카운터는 이 탭의 행 수와 일치해야 합니다.</p></div>
+
+  <div class="r-sec">
+    <h2><span class="no">1</span>공통 기준 (Baseline)</h2>
+    <p class="d">3개 문서(개선목표 · 요구사항 · 프로토타입)에 동일하게 적용되는 단일 진실 원천입니다. 변경이 생기면 <b>이 절을 먼저 갱신</b>하고 본문에 반영합니다. 근거 열은 <span class="ev obs">관측</span><span class="ev dat">데이터</span><span class="ev inf">추론</span><span class="ev agr">합의</span> 중 하나로 비워두지 않습니다.</p>
+
+    <div class="r-sub"><span class="g">C</span>확정 사항 (<span id="cnt-c">0</span>건)</div>
+    <table class="r-t" id="tbl-c">
+      <thead><tr><th>ID</th><th>영역</th><th>항목</th><th>근거</th><th>확정 내용</th></tr></thead>
+      <tbody><tr><td class="empty" colspan="5">C-01 ~ 미정의</td></tr></tbody>
+    </table>
+
+    <div class="r-sub"><span class="g">O</span>미확정 사항 (<span id="cnt-o">0</span>건)</div>
+    <table class="r-t" id="tbl-o">
+      <thead><tr><th>ID</th><th>항목</th><th>Owner</th><th>배경 · 확정 전까지 막히는 것</th><th>상태</th></tr></thead>
+      <tbody><tr><td class="empty" colspan="5">O-01 ~ 미정의 — 암묵 가정을 발견하면 반드시 여기에 올린다</td></tr></tbody>
+    </table>
+
+    <div class="r-sub"><span class="g">D</span>개발 협의 항목 (<span id="cnt-d">0</span>건)</div>
+    <table class="r-t" id="tbl-d">
+      <thead><tr><th>ID</th><th>항목</th><th>배경</th><th>상태</th></tr></thead>
+      <tbody><tr><td class="empty" colspan="4">D-01 ~ 미정의</td></tr></tbody>
+    </table>
+  </div>
+
+  <div class="r-sec">
+    <h2><span class="no">2</span>프로세스 · 진입 경로</h2>
+    <p class="d">nologinMain으로 들어오는 경로와 나가는 경로를 AS-IS / TO-BE로 정리합니다. 진입 경로가 여럿이면 <b>화면이 같은지 진입부만 다른지</b>를 확정합니다.</p>
+    <div class="r-ba">
+      <div class="as"><div class="t">AS-IS</div>워크스루 후 작성</div>
+      <div class="to"><div class="t">TO-BE</div>요구사항 확정 후 작성</div>
+    </div>
+  </div>
+
+  <div class="r-sec">
+    <h2><span class="no">3</span>화면 요구사항 — 영역별</h2>
+    <p class="d">화면을 영역(A · B · C …)으로 나누고 영역별 요구사항을 C-nn으로 정의합니다. 영역 구분은 워크스루 후 확정합니다.</p>
+    <div class="r-todo">영역 미정의 — 예: A 헤더 · B 히어로/배너 · C 요금제 추천 · D 프로모션 · E 푸터 · F 레이어/팝업</div>
+  </div>
+
+  <div class="r-sec">
+    <h2><span class="no">4</span>데이터 · 노출 규칙</h2>
+    <p class="d">화면에 노출되는 데이터의 소스와 노출 조건(판정식)을 정의합니다. 조건은 산문이 아니라 <b>판정식</b>으로 씁니다.</p>
+    <table class="r-t">
+      <thead><tr><th>ID</th><th>항목</th><th>소스</th><th>노출 조건 (판정식)</th><th>화면 조작 가능</th></tr></thead>
+      <tbody><tr><td class="empty" colspan="5">미정의</td></tr></tbody>
+    </table>
+  </div>
+
+  <div class="r-sec">
+    <h2><span class="no">5</span>예외 처리</h2>
+    <p class="d">예외 케이스별 발생 조건 · 상태 처리 · Alert · 이동을 매트릭스로 정의하고, 우선순위와 케이스별 처리가 다른 이유를 남깁니다.</p>
+    <table class="r-t">
+      <thead><tr><th>ID</th><th>예외 케이스</th><th>발생 조건</th><th>상태 처리</th><th>Alert 메시지</th><th>확인 시 이동</th></tr></thead>
+      <tbody><tr><td class="empty" colspan="6">EX-01 ~ 미정의</td></tr></tbody>
+    </table>
+  </div>
+
+  <div class="r-sec">
+    <h2><span class="no">6</span>공통 기준 — 레이아웃 · 접근성</h2>
+    <p class="d">이전 프로젝트에서 <b>이관 가능한 기준</b>과 이번 프로젝트에서 <b>새로 정할 기준</b>을 구분합니다. 이관 항목도 nologinMain에 맞는지 재확인 전까지는 [추론]입니다.</p>
+    <table class="r-t">
+      <thead><tr><th>구분</th><th>항목</th><th>근거</th><th>기준</th><th>상태</th></tr></thead>
+      <tbody>
+        <tr><td>이관</td><td>디바이스 프레임</td><td><span class="ev agr">합의</span></td><td>모바일 394×940 단일 프레임 (프로토타입)</td><td><span class="cid p">확정</span></td></tr>
+        <tr><td>이관 후보</td><td>터치 타깃</td><td><span class="ev inf">추론</span></td><td>상시 노출 컨트롤 44×44px 이상 — 전수 확인</td><td><span class="cid d">재확인</span></td></tr>
+        <tr><td>이관 후보</td><td>상태 표현</td><td><span class="ev inf">추론</span></td><td>색상 단독 금지 — 색상 + 형태 + 두께 삼중 단서 (WCAG 1.4.1)</td><td><span class="cid d">재확인</span></td></tr>
+        <tr><td>이관 후보</td><td>포커스</td><td><span class="ev inf">추론</span></td><td>키보드 포커스 링 표시 (WCAG 2.4.7)</td><td><span class="cid d">재확인</span></td></tr>
+        <tr><td>신규</td><td>브레이크포인트</td><td>—</td><td>메인 페이지 실측 후 확정 (이전 769px 기준은 가입신청서 팝업 전용이라 미이관)</td><td><span class="cid n">미정</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="r-sec">
+    <h2><span class="no">7</span>표준 문구</h2>
+    <p class="d">확정된 카피의 원본 목록입니다. 미확정 문구는 ⚠ 표기합니다.</p>
+    <table class="r-t">
+      <thead><tr><th>구분</th><th>확정 값</th></tr></thead>
+      <tbody><tr><td class="empty" colspan="2">미정의</td></tr></tbody>
+    </table>
+  </div>
+</section>
+
+</main>
+
+<div class="r-foot">
+  근거 문서 — docs/00_Baseline.md · docs/01_개선목표_정의서.md · docs/02_요구사항_정의서.md<br>
+  리포트 골격은 PLANLIST_20260901_V1.0(가입신청서 요금제 선택 화면 개선)에서 이관. 수치·문구·화면은 전부 초기화 상태.
+</div>
+
+<div id="fs-tip" class="fs-tip" hidden></div>
+
+<script>
+/* ===== 리포트 탭 ===== */
+var R_TABS = ['proto','goal','req'];
+function showTab(id){
+  for(var i=0;i<R_TABS.length;i++){
+    var k = R_TABS[i];
+    document.getElementById('rt-'+k).className = 'r-view' + (k===id ? ' on' : '');
+    document.getElementById('rb-'+k).className = (k===id ? 'on' : '');
+  }
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+/* ===== 프로토타입 뷰 전환 ===== */
+var P_VIEWS = ['proto','sim'];
+function setView(id){
+  for(var i=0;i<P_VIEWS.length;i++){
+    var k = P_VIEWS[i];
+    document.getElementById('v-'+k).className = 'view' + (k===id ? ' on' : '');
+    document.getElementById('nav-'+k).className = (k===id ? 'on' : '');
+  }
+}
+/* 화면 구현 시 상태(S)를 초기값으로 되돌리고 부분 렌더로 다시 그린다. 지금은 자리만 둔다 */
+function reloadActive(){ /* TODO: 상태 초기화 + 렌더 */ }
+
+/* ===== ID 칩 호버 상세 — aria-label 을 툴팁으로 노출 ===== */
+(function(){
+  var tip = document.getElementById('fs-tip'), cur = null;
+  function show(el){
+    var s = el.getAttribute('aria-label') || ''; if(!s) return;
+    var m = s.match(/^(\S+)\s+([^—]+)(?:—\s*([\s\S]*))?$/);
+    tip.innerHTML = m
+      ? '<b>'+m[1]+'</b><i>'+m[2].trim()+'</i>' + (m[3] ? '<p>'+m[3].trim()+'</p>' : '')
+      : '<p>'+s+'</p>';
+    tip.hidden = false; cur = el; place(el);
+  }
+  function place(el){
+    var r = el.getBoundingClientRect(), w = tip.offsetWidth, h = tip.offsetHeight;
+    var x = Math.min(Math.max(12, r.left), window.innerWidth - w - 12);
+    var y = r.bottom + 8; if(y + h > window.innerHeight - 12) y = r.top - h - 8;
+    tip.style.left = x + 'px'; tip.style.top = y + 'px';
+  }
+  function hide(){ tip.hidden = true; cur = null; }
+  document.addEventListener('mouseover', function(e){ var t = e.target.closest && e.target.closest('.cid.has-tip'); if(t) show(t); });
+  document.addEventListener('mouseout',  function(e){ var t = e.target.closest && e.target.closest('.cid.has-tip'); if(t && t === cur) hide(); });
+  document.addEventListener('focusin',   function(e){ var t = e.target.closest && e.target.closest('.cid.has-tip'); if(t) show(t); });
+  document.addEventListener('focusout',  function(e){ if(cur) hide(); });
+  document.addEventListener('keydown',   function(e){ if(e.key === 'Escape') hide(); });
+  window.addEventListener('scroll', function(){ if(cur) place(cur); }, {passive:true});
+})();
+
+/* ===== 확정 카운터 — Baseline 표의 실제 행 수로 헤더 카운터를 맞춘다 (빈 행 제외) ===== */
+(function(){
+  function rows(id){
+    var t = document.getElementById(id); if(!t) return 0;
+    var n = 0, tr = t.tBodies[0] ? t.tBodies[0].rows : [];
+    for(var i=0;i<tr.length;i++){ if(!tr[i].querySelector('td.empty')) n++; }
+    return n;
+  }
+  var c = rows('tbl-c'), o = rows('tbl-o'), d = rows('tbl-d');
+  document.getElementById('cnt-c').textContent = c;
+  document.getElementById('cnt-o').textContent = o;
+  document.getElementById('cnt-d').textContent = d;
+  document.getElementById('r-count').textContent = '확정 '+c+' · 미확정 '+o+' · 협의 '+d;
+})();
+</script>
+</body>
+</html>
