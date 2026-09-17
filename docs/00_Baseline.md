@@ -2,6 +2,7 @@
 
 | 문서 버전 | v0.2 (전제 C-01~C-04 기록) |
 |---|---|
+| 작성자 | DX혁신팀 허지원 책임 |
 | 작성일 | 2026-09-17 |
 | 근거 문서 | 없음 (자료 수령 후 기입) |
 | 대상 화면 | U+유모바일 비로그인 메인 (nologinMain) · 화면 ID S-00 · URL https://www.uplusumobile.com/nologrevisit |
