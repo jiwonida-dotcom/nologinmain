@@ -72,7 +72,7 @@ git diff --cached --name-only | findstr /b /c:"docs/" >nul && set "AREA=docs"
 git diff --cached --name-only | findstr /b /c:"docs/" >nul && git diff --cached --name-only | findstr /b /c:"index.html" >nul && set "AREA=docs+report"
 git diff --cached --name-only | findstr /b /c:"assets/" >nul && set "AREA=assets"
 
-set "MSG=!AREA!: !STAMP! · !SUM!(!FILES!)"
+set "MSG=!AREA!: !STAMP! - !SUM!(!FILES!)"
 
 :docommit
 echo [commit] !MSG!
