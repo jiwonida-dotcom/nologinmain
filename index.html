@@ -452,24 +452,22 @@ ul.r-l li b{font-weight:800}
 .np-cs .two{display:flex;gap:12px;height:124px}
 .np-cs .two>*{position:relative;flex:1;border-radius:20px;padding:14px 16px;display:flex;flex-direction:column;justify-content:space-between;min-width:0;text-align:left;overflow:hidden;transition:transform .15s ease}
 .np-cs .two>*:active{transform:scale(.98)}
-.np-cs .two .rv{border:1px solid #ececf1;background:linear-gradient(180deg,#fff 0%,#fbfbfd 100%);box-shadow:0 6px 18px rgba(16,24,40,.06);color:#101828}
-.np-cs .two .rv:before{content:"";position:absolute;right:-26px;bottom:-30px;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle,rgba(253,199,0,.22) 0%,rgba(253,199,0,0) 70%);pointer-events:none}
-.np-cs .two .ap{background:linear-gradient(150deg,#8a7bff 0%,#6355ff 55%,#4f3fe6 100%);color:#fff;box-shadow:0 8px 20px rgba(99,85,255,.28)}
-.np-cs .two .ap:before{content:"";position:absolute;left:-30px;top:-40px;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.28) 0%,rgba(255,255,255,0) 70%);pointer-events:none}
-.np-cs .two .ap:after{content:"";position:absolute;right:-10px;bottom:-56px;width:68px;height:104px;border-radius:16px;border:2px solid rgba(255,255,255,.16);background:rgba(255,255,255,.06);pointer-events:none}
+/* 후기 · APP 2분할 카드 — 모노톤 통일 (2026-09-18, HEO 지시)
+   카드 바디는 무채색 입체, 포인트 컬러는 아이콘 스퀘어와 다운로드 CTA 에만 한정 */
+.np-cs .two .rv,.np-cs .two .ap{background:linear-gradient(180deg,#fff 0%,#f5f5f8 100%);color:#101828;box-shadow:inset 0 0 0 1px #ececf1,0 4px 14px rgba(16,24,40,.05)}
+.np-cs .two .rv:before,.np-cs .two .ap:before,.np-cs .two .ap:after{content:none}
 .np-cs .two .r1{position:relative;display:flex;align-items:center;justify-content:space-between}
-.np-cs .two .sq{width:40px;height:40px;border-radius:14px;display:flex;align-items:center;justify-content:center}
+.np-cs .two .sq{width:38px;height:38px;border-radius:12px;display:flex;align-items:center;justify-content:center}
 .np-cs .two .sq img{width:20px;height:20px}
-.np-cs .two .rv .sq{background:linear-gradient(135deg,#ffd84d,#ffb400);box-shadow:0 4px 10px rgba(255,180,0,.32)}
-.np-cs .two .ap .sq{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3)}
-.np-cs .two .rv .arr{width:28px;height:28px;border-radius:50%;background:#f3f4f8;display:flex;align-items:center;justify-content:center;color:#424242}
-.np-cs .two .rv .arr svg{width:14px;height:14px}
-.np-cs .two .dl{display:inline-flex;align-items:center;gap:4px;padding:6px 10px 6px 12px;border-radius:99px;background:#fff;color:#5b4cff;font-size:14px;font-weight:700;line-height:20px;box-shadow:0 2px 8px rgba(0,0,0,.14)}
+.np-cs .two .rv .sq{background:linear-gradient(150deg,#ffd75c,#f0a500);box-shadow:0 3px 8px rgba(240,165,0,.3),inset 0 1px 0 rgba(255,255,255,.5)}
+.np-cs .two .ap .sq{background:linear-gradient(150deg,#7466ff,#5b4bff);box-shadow:0 3px 8px rgba(91,75,255,.3),inset 0 1px 0 rgba(255,255,255,.35)}
+.np-cs .two .rv .arr{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#4a5565;background:linear-gradient(180deg,#fcfcfd,#e6e6ec);box-shadow:inset 0 0 0 1px #dcdce4,0 2px 3px rgba(16,24,40,.14)}
+.np-cs .two .rv .arr svg{width:13px;height:13px}
+.np-cs .two .dl{display:inline-flex;align-items:center;gap:4px;padding:6px 10px 6px 12px;border-radius:99px;background:linear-gradient(150deg,#7466ff,#5b4bff);color:#fff;font-size:14px;font-weight:700;line-height:20px;box-shadow:0 3px 8px rgba(91,75,255,.28)}
 .np-cs .two .dl svg{width:14px;height:14px}
 .np-cs .two .tw{position:relative;display:flex;flex-direction:column;white-space:nowrap}
-.np-cs .two .t1{font-size:16px;font-weight:700;line-height:24px;letter-spacing:-.4px}
-.np-cs .two .t2{font-size:14px;line-height:20px;letter-spacing:-.3px;color:#6a7282;overflow:hidden;text-overflow:ellipsis}
-.np-cs .two .ap .t2{color:rgba(255,255,255,.8)}
+.np-cs .two .t1{font-size:16px;font-weight:700;line-height:24px;letter-spacing:-.4px;color:#101828}
+.np-cs .two .t2,.np-cs .two .ap .t2{font-size:14px;line-height:20px;letter-spacing:-.3px;color:#6a7282;overflow:hidden;text-overflow:ellipsis}
 
 /* ── FOOTER ── */
 .np-nav{width:430px;height:47px;display:flex;gap:4px;align-items:center;justify-content:center;border-bottom:1px solid #e0e0e0;font-size:16px;font-weight:500;color:#555;line-height:24px;letter-spacing:-.4px;align-self:center}
