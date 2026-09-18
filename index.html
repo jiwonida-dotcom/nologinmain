@@ -663,6 +663,28 @@ ul.r-l li b{font-weight:800}
   .sh{max-height:360px}
 }
 
+
+/* ── 프로모션 전체보기 레이어 팝업 (기기 프레임 직속 · zoom 영향 없음) ── */
+.np-layer{position:absolute;inset:0;z-index:50;display:none;flex-direction:column;background:rgba(18,16,38,.72);-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px)}
+.np-layer[data-open="true"]{display:flex}
+.np-layer .cl{flex-shrink:0;align-self:center;margin:16px 0 8px;width:44px;height:44px;border-radius:50%;border:1.5px solid rgba(255,255,255,.85);background:rgba(0,0,0,.18);color:#fff;font-size:19px;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.np-layer .cl:active{background:rgba(0,0,0,.35)}
+.np-layer .sheet{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:8px 16px 22px;display:flex;flex-direction:column;gap:12px}
+.np-layer .ttl{flex-shrink:0;color:#fff;font-size:15px;font-weight:700;letter-spacing:-.3px;text-align:center;padding:2px 0 6px}
+.np-layer .ttl small{display:block;font-size:12px;font-weight:600;color:rgba(255,255,255,.62);margin-top:3px}
+.np-pm{width:100%;display:flex;gap:10px;align-items:center;padding:14px;border-radius:16px;background:linear-gradient(135deg,#eceafc 0%,#f6f4ff 60%,#e9e6fb 100%);box-shadow:0 6px 18px rgba(20,16,50,.28);text-align:left;cursor:pointer}
+.np-pm .tx{flex:1;min-width:0;display:flex;flex-direction:column;gap:5px}
+.np-pm .tg{align-self:flex-start;background:rgba(99,93,255,.14);color:#5b4bff;font-size:11px;font-weight:700;letter-spacing:.4px;padding:2px 8px;border-radius:99px;line-height:16px}
+.np-pm h5{margin:0;font-size:16px;font-weight:800;line-height:22px;color:#2a2560;letter-spacing:-.4px}
+.np-pm .sb{font-size:12px;font-weight:700;line-height:17px;color:#5a5580;letter-spacing:-.2px}
+.np-pm .ln{display:block;width:32px;height:1px;background:rgba(99,93,255,.28);margin:2px 0}
+.np-pm .p1{font-size:11.5px;font-weight:700;color:#7b75ff;line-height:16px;letter-spacing:-.2px}
+.np-pm .p2{display:flex;align-items:baseline;gap:4px;flex-wrap:wrap}
+.np-pm .p2 b{font-size:14px;font-weight:800;color:#5b4bff;line-height:19px;letter-spacing:-.3px}
+.np-pm .p2 small{font-size:11.5px;font-weight:700;color:#9490ff;line-height:16px}
+.np-pm .im{flex-shrink:0;width:74px;height:74px;border-radius:14px;background:rgba(255,255,255,.55);box-shadow:0 3px 10px rgba(99,93,255,.2);overflow:hidden}
+.np-pm .im img{width:74px;height:74px;object-fit:cover;display:block}
+
 /* ── 프로토 보조 ── */
 .np-toast{position:absolute;left:50%;bottom:20px;max-width:calc(100% - 32px);transform:translateX(-50%) translateY(8px);background:rgba(22,22,30,.92);color:#fff;font-size:14px;font-weight:600;padding:10px 16px;border-radius:99px;opacity:0;transition:opacity .2s,transform .2s;pointer-events:none;white-space:nowrap;z-index:60;text-align:center}
 .np-toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
@@ -765,7 +787,7 @@ ul.r-l li b{font-weight:800}
     <div class="np-slides" id="np-slides"></div>
     <div class="foot">
       <div class="np-dots" id="np-bdots" aria-hidden="true"></div>
-      <button class="np-more" onclick="npToast('프로모션 목록 레이어 팝업 오픈')">전체보기 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAClElEQVR42u2cv2sUQRSAv0mEQ8EiCsFSIhHsg1Y2/g8WGcgPBSUhzXEQ0qQQZFEUDgXNFYmQ3OkK+icINqnE/8CQ9AqJBAKXgGQsbm3EI7PC7rxh3iv3XrF8t2+/994NZxwOjeExoggUkAJSQApIASkgBaSANMIBsmRYfmFxWOZjAmQqHTUuAs9xTP11/ROQYThKHVAPx40hn30D7mM4TrXELCtD4QBcB57gpL8Fq7y91TMzbgNN2euEKgEdez5pYNlNEdAb78wWE1i20ntJv8ZxyzO3D3SYJaeXDqDLhcnGPfN/ADMY9lNpFPeBt8zS98wfB17haKTUSef0WGODU8/8SeCpHP2b2pb2lgNajJUAC21MOsNqziXyUkBF6L/eB/kFhu0S+U0mmGY9jRL7Ew1gE8dkHPo3QX44jEj/YVwRkf7DyTQS/Zvgv80L13/4dky4/mX0q4L1b8QcfxGqfyPqfJBA/cvaCP+P/rNqv2F5K/OcHh263vlTgOVDOoAGkOZo89M7/wp30wI0iEPvTJdSiQ16nS1aXPXO/87HNCw2gLPAAh0ueOZ/AZaq66xV89GUWKOY2H3h9IuWoOIVyDkRcEaKSd23iz4F1tjgffVLNBkl1sJhS+S32SPnWhrDquWgFJwc6oITHtA06zRL7IK2i8m/xghXYpYZFuly3jN/B5jHcFLvberSXlyJCdW5DM0L1rmMEhOs8/AlJlznYQFFoPNwJRaJzsMA0iN4Z8TjeHRePyBLxs0S+R260k64Vv0EPSyp8zkERvhp/p0MnYcAtOyl85cydB7GYs9w3IlD52FK7BGGr/+4/hl4IB9OfbOYJQNWgFHgHjmbRBJG//1FusUUkAJSQApIQwEpIAWkgETGbzwE6SPqJsJtAAAAAElFTkSuQmCC" alt=""></button>
+      <button class="np-more" onclick="npPromo(true)">전체보기 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAClElEQVR42u2cv2sUQRSAv0mEQ8EiCsFSIhHsg1Y2/g8WGcgPBSUhzXEQ0qQQZFEUDgXNFYmQ3OkK+icINqnE/8CQ9AqJBAKXgGQsbm3EI7PC7rxh3iv3XrF8t2+/994NZxwOjeExoggUkAJSQApIASkgBaSANMIBsmRYfmFxWOZjAmQqHTUuAs9xTP11/ROQYThKHVAPx40hn30D7mM4TrXELCtD4QBcB57gpL8Fq7y91TMzbgNN2euEKgEdez5pYNlNEdAb78wWE1i20ntJv8ZxyzO3D3SYJaeXDqDLhcnGPfN/ADMY9lNpFPeBt8zS98wfB17haKTUSef0WGODU8/8SeCpHP2b2pb2lgNajJUAC21MOsNqziXyUkBF6L/eB/kFhu0S+U0mmGY9jRL7Ew1gE8dkHPo3QX44jEj/YVwRkf7DyTQS/Zvgv80L13/4dky4/mX0q4L1b8QcfxGqfyPqfJBA/cvaCP+P/rNqv2F5K/OcHh263vlTgOVDOoAGkOZo89M7/wp30wI0iEPvTJdSiQ16nS1aXPXO/87HNCw2gLPAAh0ueOZ/AZaq66xV89GUWKOY2H3h9IuWoOIVyDkRcEaKSd23iz4F1tjgffVLNBkl1sJhS+S32SPnWhrDquWgFJwc6oITHtA06zRL7IK2i8m/xghXYpYZFuly3jN/B5jHcFLvberSXlyJCdW5DM0L1rmMEhOs8/AlJlznYQFFoPNwJRaJzsMA0iN4Z8TjeHRePyBLxs0S+R260k64Vv0EPSyp8zkERvhp/p0MnYcAtOyl85cydB7GYs9w3IlD52FK7BGGr/+4/hl4IB9OfbOYJQNWgFHgHjmbRBJG//1FusUUkAJSQApIQwEpIAWkgETGbzwE6SPqJsJtAAAAAElFTkSuQmCC" alt=""></button>
     </div>
   </section>
 
@@ -954,6 +976,13 @@ ul.r-l li b{font-weight:800}
   <div id="np-other" class="np-tabph" style="display:none"></div>
 </div>
 </div>
+          <div class="np-layer" id="np-promo" data-open="false">
+            <button type="button" class="cl" aria-label="닫기" onclick="npPromo(false)">✕</button>
+            <div class="sheet" role="dialog" aria-modal="true" aria-label="프로모션 전체보기">
+              <div class="ttl">프로모션 전체보기<small>선택 시 링크된 페이지로 이동</small></div>
+              <div id="np-promolist"></div>
+            </div>
+          </div>
           <div class="np-toast" id="np-toast" role="status" aria-live="polite"></div>
         </div>
       </div>
@@ -2078,12 +2107,48 @@ function npUList(){
   }).join('');
 }
 
+/* --- 프로모션 전체보기 레이어 팝업 --- */
+function npPromo(open){
+  var el = npEl('np-promo'); if(!el) return;
+  if(open){
+    var l = npEl('np-promolist');
+    l.innerHTML = NP_DATA.banners.map(function(b,i){
+      return '<button type="button" class="np-pm" onclick="npPromoPick('+i+')">'+
+        '<span class="tx"><span class="tg">'+b.tag+'</span>'+
+          '<h5>'+b.h+'</h5><span class="sb">'+b.sub+'</span>'+
+          '<i class="ln"></i>'+
+          '<span class="p1">'+b.p1+'</span>'+
+          '<span class="p2"><b>'+b.p2+'</b><small>'+b.p3+'</small></span></span>'+
+        '<span class="im"><img src="'+NP_IMG.imgImageUMobile91Gb+'" alt=""></span></button>';
+    }).join('');
+    l.style.display = 'flex'; l.style.flexDirection = 'column'; l.style.gap = '12px';
+    el.querySelector('.sheet').scrollTop = 0;
+  }
+  el.dataset.open = open ? 'true' : 'false';
+}
+function npPromoPick(i){
+  npPromo(false);
+  npToast('링크된 페이지로 이동');
+}
+
 function npInit(){
   NP.timers.forEach(clearInterval);
   NP = { tab:'home', banner:0, cat:'인기 TOP', plan:0, phone:0, pf:'전체', mk:null, ms:null, uk:null, us:'인기순', timers:[] };
   npTab('home'); npBanners(); npDeals(); npChips(); npPlanCards(); npPhones(); npFootLinks();
   var biz = npEl('np-biz'); if(biz){ biz.dataset.open='false'; biz.querySelector('button').setAttribute('aria-expanded','false'); }
   var s = npEl('np-slides'); if(s) s.scrollLeft = 0;
+  npPromo(false);
+  var pm = npEl('np-promo');
+  if(pm && !pm._np){ pm._np = true;
+    pm.addEventListener('click', function(e){
+      if(e.target===pm || e.target===pm.querySelector('.sheet')) npPromo(false);
+    });
+  }
+  if(!document._npesc){ document._npesc = true;
+    document.addEventListener('keydown', function(e){
+      if(e.key==='Escape') npPromo(false);
+    });
+  }
   if(!document._npkey){ document._npkey = true;
     document.addEventListener('keydown', function(e){
       if(e.key!=='Enter' && e.key!==' ') return;
