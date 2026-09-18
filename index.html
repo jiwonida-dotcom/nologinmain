@@ -1775,6 +1775,14 @@ function npTop(){ var b = npEl('body-proto'); if(b) b.scrollTo({top:0, behavior:
 
 /* --- 홈 탭 (홈 외 3개 미정의 O-06) --- */
 function npTab(id){
+  /* 퀵메뉴가 sticky 로 상단 고정된 상태에서 다른 탭 이동 시 고정 상태 유지 (2026-09-18 HEO 지시). 같은 탭 재선택은 맨 위로 */
+  var same = NP.tab===id, body = npEl('body-proto'), mw = document.querySelector('#np .np-menuwrap'), npr = npEl('np'), stuck = false, stickTop = 0;
+  if(!same && body && mw && npr){
+    var zoom = (npr.getBoundingClientRect().width / npr.offsetWidth) || 1;
+    var pos = mw.style.position; mw.style.position = 'static';   /* sticky 중 offsetTop 은 고정 위치를 반환 → 잠시 static 으로 자연 위치 측정 */
+    stickTop = Math.round(mw.offsetTop * zoom); mw.style.position = pos;
+    stuck = body.scrollTop >= stickTop - 1;
+  }
   NP.tab = id;
   var tabs = document.querySelectorAll('#np .np-menu [role=tab]');
   for(var i=0;i<tabs.length;i++) tabs[i].setAttribute('aria-selected', tabs[i].dataset.tab===id ? 'true' : 'false');
@@ -1795,7 +1803,7 @@ function npTab(id){
     other.style.display='block';
     other.innerHTML = '<b>'+id+' 탭</b>화면 미정의 — 콘텐츠 미확정 (O-06)';
   }
-  npTop();
+  if(stuck) body.scrollTo({top:stickTop, behavior:'instant'}); else npTop();
 }
 
 
