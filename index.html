@@ -559,6 +559,9 @@ ul.r-l li b{font-weight:800}
 .np-plan .pr .o,.np-plan .pr .o em,.np-phone .pr span{font-size:14px;font-weight:500;color:#6a7282;letter-spacing:-.3px}
 .np-plan .pr .n,.np-phone .pr b{font-size:22px;font-weight:700;color:#5b4bff;letter-spacing:-.6px;font-variant-numeric:tabular-nums}
 .np-plan .pr .n small{font-size:inherit;font-weight:inherit;color:inherit;line-height:inherit;letter-spacing:inherit}
+/* 휴대폰 카드 가격 행 양끝 정렬 · 하단 카피를 요금제 .bn 규격으로 (2026-09-18, HEO 지시) */
+.np-phone .pr{width:100%;padding:0 10px}
+.np-phone .sub{padding:4px 8px;border-radius:10px;background:#f3f1ff;color:#5b4bff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .np-bundle .b{border-color:#ececf1;box-shadow:0 4px 14px rgba(16,24,40,.05)}
 .np-bundle p b{color:#5b4bff}
 .np-cs .box{background:#fff;border-color:#ececf1;box-shadow:0 4px 14px rgba(16,24,40,.05)}
@@ -1676,10 +1679,10 @@ var NP_DATA = {
   /* 추천 휴대폰 — 1번 Figma 원문, 나머지 샘플 */
   phones: [
     {bd:[['한정팡매','k1'],['S급','k2'],['BEST','k3']], g:'5G', name:'(중고S급) Galaxy S26 Ultra', price:'53,000원', sub:'단말 할부금(24개월), LTE(7GB+/통화기본)'},
-    {bd:[['S급','k2'],['BEST','k3']], g:'5G', name:'(중고S급) 아이폰 15 128G', price:'41,500원', sub:'샘플 · 단말 할부금(24개월), 5G(10GB/200분)'},
-    {bd:[['BEST','k3']], g:'LTE', name:'갤럭시 버디3 128G', price:'24,900원', sub:'샘플 · 단말 0원, LTE(1GB+/통화기본)'},
-    {bd:[['한정팡매','k1'],['S급','k2']], g:'5G', name:'(중고S급) 갤럭시 Z플립5 256G', price:'38,900원', sub:'샘플 · 단말 할부금(24개월), 5G(10GB/200분)'},
-    {bd:[['S급','k2']], g:'5G', name:'(중고S급) 아이폰 14 128G', price:'33,500원', sub:'샘플 · 단말 할부금(24개월), LTE(7GB+/통화기본)'}
+    {bd:[['S급','k2'],['BEST','k3']], g:'5G', name:'(중고S급) 아이폰 15 128G', price:'41,500원', sub:'단말 할부금(24개월), 5G(10GB/200분)'},
+    {bd:[['BEST','k3']], g:'LTE', name:'갤럭시 버디3 128G', price:'24,900원', sub:'단말 0원, LTE(1GB+/통화기본)'},
+    {bd:[['한정팡매','k1'],['S급','k2']], g:'5G', name:'(중고S급) 갤럭시 Z플립5 256G', price:'38,900원', sub:'단말 할부금(24개월), 5G(10GB/200분)'},
+    {bd:[['S급','k2']], g:'5G', name:'(중고S급) 아이폰 14 128G', price:'33,500원', sub:'단말 할부금(24개월), LTE(7GB+/통화기본)'}
   ],
 
   /* 휴대폰 탭 — Figma 원문 카드 5장 (40007048:4637). mk(제조사) · ms(휴대폰 상태) 는 필터용 파생 샘플값 */
