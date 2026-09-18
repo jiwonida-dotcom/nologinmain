@@ -648,7 +648,7 @@ ul.r-l li b{font-weight:800}
 .np-ucard .note span:before{content:'• '}
 
 /* ── 프로토 보조 ── */
-.np-toast{position:absolute;left:50%;bottom:24px;transform:translateX(-50%) translateY(8px);background:rgba(22,22,30,.92);color:#fff;font-size:14px;font-weight:600;padding:10px 16px;border-radius:99px;opacity:0;transition:opacity .2s,transform .2s;pointer-events:none;white-space:nowrap;z-index:5}
+.np-toast{position:absolute;left:50%;bottom:20px;max-width:calc(100% - 32px);transform:translateX(-50%) translateY(8px);background:rgba(22,22,30,.92);color:#fff;font-size:14px;font-weight:600;padding:10px 16px;border-radius:99px;opacity:0;transition:opacity .2s,transform .2s;pointer-events:none;white-space:nowrap;z-index:60;text-align:center}
 .np-toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
 .np-tabph{padding:60px 20px;text-align:center;color:#9c9cab;font-size:14px;font-weight:700;line-height:1.7}
 .np-tabph b{display:block;font-size:20px;color:#6a7282;margin-bottom:6px}
@@ -936,8 +936,8 @@ ul.r-l li b{font-weight:800}
 
   <div id="np-other" class="np-tabph" style="display:none"></div>
 </div>
-<div class="np-toast" id="np-toast" role="status" aria-live="polite"></div>
 </div>
+          <div class="np-toast" id="np-toast" role="status" aria-live="polite"></div>
         </div>
       </div>
     </div>
