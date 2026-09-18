@@ -316,9 +316,10 @@ ul.r-l li b{font-weight:800}
 .np-deal .head .av span:nth-child(2){left:18px;background:#e05c7a}
 .np-deal .head .av span:nth-child(3){left:37.5px;background:#4caf82}
 .np-deal .head .tt{padding:0 10px;font-size:18px;font-weight:600;line-height:28px;letter-spacing:-.45px}
-.np-deal .head .arr{width:44px;height:44px;margin:-2px;flex-shrink:0;transition:transform .25s}
-.np-deal .head .arr svg{display:block;width:44px;height:44px;overflow:visible}
-.np-deal .item[data-open="true"] .head .arr{transform:rotate(180deg)}
+.np-deal .head .arr{width:38px;height:38px;margin:-1px;flex-shrink:0}
+.np-deal .head .arr svg{display:block;width:38px;height:38px;overflow:visible}
+.np-deal .head .arr svg path{transform-origin:19px 19px;transition:transform .25s}
+.np-deal .item[data-open="true"] .head .arr svg path{transform:rotate(180deg)}
 .np-deal .body{display:none;flex-direction:column;gap:30px;padding:10px;border-radius:16px;background:#fafafa}
 .np-deal .item[data-open="true"] .body{display:flex}
 .np-deal .hero{display:flex;flex-direction:column;align-items:center}
@@ -553,7 +554,7 @@ ul.r-l li b{font-weight:800}
 .np-deal .head .ppl{color:#6a7282;justify-content:flex-start;padding-left:64px}
 .np-deal .head .av span{border-color:#fff}
 .np-deal .head .tt{color:#101828;font-weight:700}
-.np-deal .head .arr svg circle{fill:#6355ff}
+.np-deal .head .arr svg{filter:drop-shadow(0 2px 3px rgba(16,24,40,.16))}
 .np-deal .head:active{background:#f7f7fa}
 .np-deal .body{background:#f7f7fb}
 .np-sec .tit .h small{color:#6a7282;font-weight:500}
@@ -1918,9 +1919,13 @@ function npDeals(){
           '<span class="tm"><img src="'+NP_IMG.imgVector1+'" alt=""><span id="np-timer-'+i+'">'+npFmt(x.secs)+'</span></span>'+
           '<span class="ppl">'+av+'<span class="cnt">'+x.ppl+' 참여중</span></span></span>'+
         '<span class="tt">'+x.title+'</span></span>'+
-        '<span class="arr"><svg viewBox="0 0 44 44" aria-hidden="true">'+
-          '<circle cx="22" cy="22" r="20" fill="#8b7cf8"/>'+
-          '<path d="M15 19.6 22 26.2 29 19.6" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>'+
+        '<span class="arr"><svg viewBox="0 0 38 38" aria-hidden="true">'+
+          '<defs><linearGradient id="npArrF'+i+'" x1="19" y1="2" x2="19" y2="36" gradientUnits="userSpaceOnUse">'+
+            '<stop offset="0" stop-color="#fcfcfd"/><stop offset="1" stop-color="#e3e3ea"/></linearGradient>'+
+          '<linearGradient id="npArrS'+i+'" x1="19" y1="2" x2="19" y2="36" gradientUnits="userSpaceOnUse">'+
+            '<stop offset="0" stop-color="#fff"/><stop offset=".55" stop-color="#dadae2"/><stop offset="1" stop-color="#c6c6d2"/></linearGradient></defs>'+
+          '<circle cx="19" cy="19" r="16.5" fill="url(#npArrF'+i+')" stroke="url(#npArrS'+i+')" stroke-width="1"/>'+
+          '<path d="M13 17 19 22.6 25 17" fill="none" stroke="#4a5565" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>'+
         '</svg></span></button>'+
       '<div class="body" id="np-dealbody-'+i+'">'+
         '<div class="hero"><span class="pill"><img src="'+NP_IMG.imgClockIcon+'" alt="">'+x.period+'</span>'+
