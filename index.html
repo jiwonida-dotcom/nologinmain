@@ -303,20 +303,21 @@ ul.r-l li b{font-weight:800}
 .np-deal{display:flex;flex-direction:column;gap:10px}
 .np-deal .item{display:flex;flex-direction:column;gap:20px}
 .np-deal .head{display:flex;gap:12px;align-items:center;padding:16px;border-radius:16px;color:#fff;background:linear-gradient(168.43deg,#5b4bff 0%,#7c6fff 100%);box-shadow:0 4px 10px rgba(91,75,255,.28);width:100%}
-.np-deal .head .c{flex:1;display:flex;flex-direction:column;gap:2px;min-width:0}
+.np-deal .head .c{flex:1;display:flex;flex-direction:column;gap:9px;min-width:0}
 .np-deal .head .row{display:flex;align-items:center;justify-content:space-between;opacity:.8}
-.np-deal .head .tm{display:flex;align-items:center;gap:10px;font-size:16px;font-weight:600;line-height:24px;letter-spacing:-.4px}
+.np-deal .head .tm{display:flex;align-items:center;justify-content:center;min-width:122px;gap:10px;font-size:16px;font-weight:600;line-height:24px;letter-spacing:-.4px}
 .np-deal .head .tm img{width:18px;height:18px}
-.np-deal .head .ppl{width:166px;height:24px;display:flex;align-items:center;gap:6px;font-size:16px;font-weight:600;line-height:24px;letter-spacing:-.4px;white-space:nowrap}
+.np-deal .head .ppl{flex:1;height:25px;display:flex;align-items:center;gap:14px;font-size:16px;font-weight:600;line-height:24px;letter-spacing:-.4px;white-space:nowrap}
 .np-deal .head .av{position:relative;width:66px;height:25px;flex-shrink:0}
 .np-deal .head .av span{position:absolute;top:0;width:25px;height:25px;border-radius:50%;border:2px solid #7b6cf0;display:flex;align-items:center;justify-content:center}
 .np-deal .head .av span img,.np-deal .head .av span svg{width:14px;height:14px;display:block}
+.np-deal .head .ppl .cnt{display:inline-block;font-variant-numeric:tabular-nums}
 .np-deal .head .av span:nth-child(1){left:0;background:#8b7cf8}
 .np-deal .head .av span:nth-child(2){left:18px;background:#e05c7a}
 .np-deal .head .av span:nth-child(3){left:37.5px;background:#4caf82}
 .np-deal .head .tt{padding:0 10px;font-size:18px;font-weight:600;line-height:28px;letter-spacing:-.45px}
-.np-deal .head .arr{width:40px;height:40px;flex-shrink:0;transition:transform .25s}
-.np-deal .head .arr svg{display:block;width:40px;height:40px}
+.np-deal .head .arr{width:44px;height:44px;margin:-2px;flex-shrink:0;transition:transform .25s}
+.np-deal .head .arr svg{display:block;width:44px;height:44px;overflow:visible}
 .np-deal .item[data-open="true"] .head .arr{transform:rotate(180deg)}
 .np-deal .body{display:none;flex-direction:column;gap:30px;padding:10px;border-radius:16px;background:#fafafa}
 .np-deal .item[data-open="true"] .body{display:flex}
@@ -549,7 +550,7 @@ ul.r-l li b{font-weight:800}
 .np-deal .head .c,.np-deal .head .arr{position:relative}
 .np-deal .head .row{opacity:1}
 .np-deal .head .tm{color:#fff;background:linear-gradient(150deg,#7466ff,#5b4bff);box-shadow:0 3px 8px rgba(91,75,255,.28);padding:0 12px 0 8px;border-radius:99px;font-variant-numeric:tabular-nums;font-weight:700}
-.np-deal .head .ppl{color:#6a7282;justify-content:flex-end}
+.np-deal .head .ppl{color:#6a7282;justify-content:flex-start;padding-left:64px}
 .np-deal .head .av span{border-color:#fff}
 .np-deal .head .tt{color:#101828;font-weight:700}
 .np-deal .head .arr svg circle{fill:#6355ff}
@@ -1915,11 +1916,11 @@ function npDeals(){
       '<button class="head" aria-expanded="'+x.open+'" aria-controls="np-dealbody-'+i+'" onclick="npDealToggle('+i+')">'+
         '<span class="c"><span class="row">'+
           '<span class="tm"><img src="'+NP_IMG.imgVector1+'" alt=""><span id="np-timer-'+i+'">'+npFmt(x.secs)+'</span></span>'+
-          '<span class="ppl">'+av+x.ppl+' 참여중</span></span>'+
+          '<span class="ppl">'+av+'<span class="cnt">'+x.ppl+' 참여중</span></span></span>'+
         '<span class="tt">'+x.title+'</span></span>'+
-        '<span class="arr"><svg viewBox="0 0 40 40" aria-hidden="true">'+
-          '<circle cx="20" cy="20" r="20" fill="#8b7cf8"/>'+
-          '<path d="M13 17.6 20 24.2 27 17.6" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>'+
+        '<span class="arr"><svg viewBox="0 0 44 44" aria-hidden="true">'+
+          '<circle cx="22" cy="22" r="20" fill="#8b7cf8"/>'+
+          '<path d="M15 19.6 22 26.2 29 19.6" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>'+
         '</svg></span></button>'+
       '<div class="body" id="np-dealbody-'+i+'">'+
         '<div class="hero"><span class="pill"><img src="'+NP_IMG.imgClockIcon+'" alt="">'+x.period+'</span>'+

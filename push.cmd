@@ -3,6 +3,9 @@ chcp 65001 >nul
 setlocal EnableDelayedExpansion
 cd /d "%~dp0"
 
+rem 한글 파일명이 "\355\203..." 형태로 따옴표와 함께 출력되어 커밋 메시지를 깨뜨리는 문제 방지
+git config core.quotepath false
+
 echo ============================================
 echo  nologinMain - git push
 echo  repo: https://github.com/jiwonida-dotcom/nologinmain
@@ -57,8 +60,10 @@ rem first 3 file names
 set "FILES="
 set /a K=0
 for /f "usebackq delims=" %%f in (`git diff --cached --name-only`) do (
+  set "FF=%%f"
+  set FF=!FF:"=!
   if !K! lss 3 (
-    if "!FILES!"=="" (set "FILES=%%f") else (set "FILES=!FILES!, %%f")
+    if "!FILES!"=="" (set "FILES=!FF!") else (set "FILES=!FILES!, !FF!")
   )
   set /a K+=1
 )
@@ -75,6 +80,7 @@ git diff --cached --name-only | findstr /b /c:"assets/" >nul && set "AREA=assets
 set "MSG=!AREA!: !STAMP! - !SUM!(!FILES!)"
 
 :docommit
+set MSG=!MSG:"=!
 echo [commit] !MSG!
 git commit -q -m "!MSG!"
 if errorlevel 1 (
