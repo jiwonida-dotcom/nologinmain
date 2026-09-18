@@ -553,13 +553,28 @@ ul.r-l li b{font-weight:800}
 .np-phone .im{filter:drop-shadow(0 8px 14px rgba(0,0,0,.14))}
 .np-phone .nm .g{border-color:#d9d9e3;color:#4a5565}
 .np-phone .pr b{color:#5b4bff}
+/* 요금제 · 휴대폰 카드 — 상품명 · 가격 영역 스타일 통일 (2026-09-18, HEO 지시). 행간 고정으로 카드 높이 불변 */
+.np-plan .nm .t{color:#6a7282;font-weight:500}
+.np-plan .nm .d,.np-phone .nm .t{font-size:20px;font-weight:600;color:#101828;letter-spacing:-.5px}
+.np-plan .pr .o,.np-plan .pr .o em,.np-phone .pr span{font-size:14px;font-weight:500;color:#6a7282;letter-spacing:-.3px}
+.np-plan .pr .n,.np-phone .pr b{font-size:22px;font-weight:700;color:#5b4bff;letter-spacing:-.6px;font-variant-numeric:tabular-nums}
+.np-plan .pr .n small{font-size:inherit;font-weight:inherit;color:inherit;line-height:inherit;letter-spacing:inherit}
 .np-bundle .b{border-color:#ececf1;box-shadow:0 4px 14px rgba(16,24,40,.05)}
 .np-bundle p b{color:#5b4bff}
 .np-cs .box{background:#fff;border-color:#ececf1;box-shadow:0 4px 14px rgba(16,24,40,.05)}
 .np-cs .box button{border-bottom-color:#f1f1f5}
 .np-cs .ico{filter:none;box-shadow:0 3px 8px rgba(16,24,40,.12)}
 .np-totop button{border-color:#e5e5ec;filter:none;box-shadow:0 3px 8px rgba(16,24,40,.08)}
-.np-deal .code .box{background:linear-gradient(150deg,#3d3670,#2b2450);box-shadow:0 12px 28px rgba(43,36,80,.22),0 2px 6px rgba(43,36,80,.12)}
+/* 이벤트 코드 박스 — 쿠폰형 (타임딜 헤드와 구분, 2026-09-18 3차) */
+.np-deal .code .box{background:#f5f3ff;box-shadow:inset 0 0 0 1px #e2ddff,0 6px 16px rgba(91,61,245,.10)}
+.np-deal .code .cp{position:relative}
+.np-deal .code .cp:before{content:"";position:absolute;left:-12px;top:-10px;bottom:-10px;border-left:1.5px dashed #b8afff}
+.np-deal .code .box small{color:#7a72a8}
+.np-deal .code .box b{color:#2b2450}
+.np-deal .code .cp{background:linear-gradient(150deg,#6d55ff,#5b3df5);color:#fff;box-shadow:0 4px 10px rgba(91,61,245,.28)}
+.np-deal .code .cp img{filter:brightness(0) invert(1)}
+.np-deal .code .cp.done{background:#e9f8f1;color:#0f9d6b;box-shadow:none}
+.np-deal .code .cp.done img{filter:none}
 .np-deal .pt{box-shadow:0 6px 16px rgba(91,61,245,.08),0 1px 3px rgba(91,61,245,.05)}
 
 /* ── 요금제 탭 : Figma [MO] NoLogin Main-요금제 (40007051:15914)
