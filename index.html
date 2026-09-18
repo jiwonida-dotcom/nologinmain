@@ -206,7 +206,7 @@ ul.r-l li b{font-weight:800}
 .phone{width:394px;max-width:100%;height:940px;max-height:calc(100vh - 96px);min-height:660px;background:var(--surface);border:1px solid var(--line-2);border-radius:34px;box-shadow:var(--shadow-l);overflow:hidden;display:flex;flex-direction:column;position:relative}
 .notch{flex-shrink:0;height:24px;display:flex;align-items:flex-end;justify-content:center}
 .notch i{width:110px;height:9px;background:var(--bg-deep);border-radius:99px}
-.ph-status{height:22px;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:10px;color:var(--muted-2);font-weight:700;letter-spacing:.02em}
+.ph-status{height:30px;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;padding:0 26px 0 30px;font-size:14px;color:#111;font-weight:600;letter-spacing:-.01em;font-variant-numeric:tabular-nums}.ph-status .st{display:flex;align-items:center;gap:6px;color:#111}.ph-status svg{display:block;fill:currentColor}.ph-status .sig{width:17px;height:11px}.ph-status .wifi{width:15px;height:11px}.ph-status .bat{width:26px;height:12px}
 .ph-head{flex-shrink:0;display:flex;align-items:center;padding:11px 16px;border-bottom:1px solid var(--line);font-size:15px;font-weight:800}
 .ph-head .ic{width:28px;font-size:17px;color:var(--muted);font-weight:400}
 .ph-head .t{flex:1;text-align:center;letter-spacing:-.01em}
@@ -520,6 +520,9 @@ ul.r-l li b{font-weight:800}
 .np-menu button[aria-selected="true"]{color:#5b4bff;border-bottom-color:#5b4bff}
 /* 퀵메뉴 고도화 (2026-09-18, HEO 지시) — 크기 · 간격 유지 */
 .np-bar{width:100%;padding:10px 0}
+.np-top{padding-top:8px}
+.np-title .logo img{position:relative;top:-3px}
+.np-menuwrap{margin-top:-20px}
 .np-menu button:focus-visible{outline:none}
 .np-menu button:focus-visible .ic{outline:2px solid #5b4bff;outline-offset:3px;border-radius:16px}
 .np-menu button{position:relative;color:#4a5565;font-weight:500;border-bottom-color:transparent}
@@ -839,7 +842,7 @@ ul.r-l li b{font-weight:800}
       <div class="phone-col">
         <div class="phone" id="ph1">
           <div class="notch"><i></i></div>
-          <div class="ph-status"><span>LTE</span><span>오후 3:12</span><span>70%</span></div>
+          <div class="ph-status" aria-hidden="true"><span class="tm">3:12</span><span class="st"><svg class="sig" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx=".8"/><rect x="5" y="5.5" width="3" height="6.5" rx=".8"/><rect x="10" y="3" width="3" height="9" rx=".8"/><rect x="15" y="0" width="3" height="12" rx=".8"/></svg><svg class="wifi" viewBox="0 0 16 12"><path d="M8 11.2 5.8 8.9a3.1 3.1 0 0 1 4.4 0Z"/><path d="M3.6 6.7a6.2 6.2 0 0 1 8.8 0l-1.3 1.3a4.4 4.4 0 0 0-6.2 0Z"/><path d="M1.2 4.3a9.6 9.6 0 0 1 13.6 0l-1.3 1.3a7.8 7.8 0 0 0-11 0Z"/></svg><svg class="bat" viewBox="0 0 27 12"><rect x=".5" y=".5" width="22" height="11" rx="3" fill="none" stroke="currentColor" stroke-opacity=".4"/><rect x="2" y="2" width="14" height="8" rx="1.5"/><path d="M24 4v4a2 2 0 0 0 0-4Z" fill-opacity=".4"/></svg></span></div>
           <div class="ph-head"><span class="ic">☰</span><span class="t">U+유모바일</span><span class="ic" style="text-align:right">⌕</span></div>
           <div class="ph-body np-body" id="body-proto">
 <div class="np" id="np">
