@@ -123,6 +123,34 @@ table.r-t td.empty{color:var(--muted-2);text-align:center;padding:22px 14px;font
 .r-warn{background:var(--warn-bg);border:1px solid #F3DDB4;border-radius:14px;padding:15px 17px;font-size:12.5px;color:#8A5A08;line-height:1.75}
 .r-warn b{color:#7A4E06}
 .r-todo{border:1.5px dashed var(--line-2);border-radius:14px;padding:18px;font-size:12.5px;color:var(--muted-2);text-align:center;font-weight:700;background:rgba(255,255,255,.5)}
+/* ── 시나리오 시뮬레이터 — 모듈 노출 조건별 재생 · STEP 검증 ── */
+.sim-col{flex:1 1 360px;max-width:560px;display:flex;flex-direction:column;gap:22px}
+.sim-cases{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.sim-case{display:flex;flex-direction:column;align-items:flex-start;gap:1px;padding:12px 13px;border:1px solid var(--line-2);border-radius:14px;background:var(--surface);text-align:left;transition:all .15s}
+.sim-case:hover{border-color:var(--main-mid)}
+.sim-case.on{border-color:var(--main);background:var(--main-ghost);box-shadow:var(--ring)}
+.sim-case b{font-size:10.5px;font-weight:800;color:var(--main);letter-spacing:.03em}
+.sim-case span{font-size:13px;font-weight:800;color:var(--ink);line-height:1.6}
+.sim-case i{font-style:normal;font-size:11px;font-weight:700;line-height:1.75}
+.sim-case i.y{color:var(--ok)}
+.sim-case i.n{color:var(--muted-2)}
+.sim-sum{display:flex;gap:6px;margin:14px 0 0;font-size:11.5px;font-weight:800}
+.sim-sum span{padding:3px 9px;border-radius:8px}
+.sim-sum .p{color:var(--ok);background:var(--ok-bg)}
+.sim-sum .f{color:var(--err);background:var(--err-bg)}
+.sim-sum .s{color:var(--muted-2);background:var(--bg)}
+.sim-head{font-size:12.5px;font-weight:800;color:var(--ink);padding-bottom:10px;border-bottom:1px solid var(--line)}
+.sim-head em{font-style:normal;color:var(--muted);font-weight:700}
+.sim-row{display:flex;gap:10px;align-items:flex-start;padding:11px 0;border-bottom:1px solid var(--line)}
+.sim-row:last-child{border-bottom:0}
+.sim-row .st{flex-shrink:0;width:48px;text-align:center;padding:3px 0;border-radius:7px;font-size:10.5px;font-weight:800;letter-spacing:.03em}
+.sim-row .st.pass{color:var(--ok);background:var(--ok-bg)}
+.sim-row .st.fail{color:var(--err);background:var(--err-bg)}
+.sim-row .st.skip{color:var(--muted-2);background:var(--bg)}
+.sim-row .st.info{color:var(--main);background:var(--main-weak)}
+.sim-row .tx{min-width:0}
+.sim-row .tx b{display:block;font-size:12.5px;font-weight:800;color:var(--ink);line-height:1.5}
+.sim-row .tx small{display:block;font-size:11.5px;color:var(--muted);line-height:1.65;margin-top:2px}
 ul.r-l{margin:0 0 0 19px;font-size:13px;line-height:1.85}
 ul.r-l li{margin-bottom:6px}
 ul.r-l li b{font-weight:800}
@@ -838,7 +866,7 @@ ul.r-l li b{font-weight:800}
 
   <div id="v-proto" class="view on">
     <div class="solo">
-      <div class="phone-col">
+      <div class="phone-col" id="col-proto">
         <div class="phone" id="ph1">
           <div class="notch"><i></i></div>
           <div class="ph-status" aria-hidden="true"><span class="tm">3:12</span><span class="st"><svg class="sig" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx=".8"/><rect x="5" y="5.5" width="3" height="6.5" rx=".8"/><rect x="10" y="3" width="3" height="9" rx=".8"/><rect x="15" y="0" width="3" height="12" rx=".8"/></svg><svg class="wifi" viewBox="0 0 16 12"><path d="M8 11.2 5.8 8.9a3.1 3.1 0 0 1 4.4 0Z"/><path d="M3.6 6.7a6.2 6.2 0 0 1 8.8 0l-1.3 1.3a4.4 4.4 0 0 0-6.2 0Z"/><path d="M1.2 4.3a9.6 9.6 0 0 1 13.6 0l-1.3 1.3a7.8 7.8 0 0 0-11 0Z"/></svg><svg class="bat" viewBox="0 0 27 12"><rect x=".5" y=".5" width="22" height="11" rx="3" fill="none" stroke="currentColor" stroke-opacity=".4"/><rect x="2" y="2" width="14" height="8" rx="1.5"/><path d="M24 4v4a2 2 0 0 0 0-4Z" fill-opacity=".4"/></svg></span></div>
@@ -1078,15 +1106,19 @@ ul.r-l li b{font-weight:800}
 
   <div id="v-sim" class="view">
     <div class="solo">
-      <div class="panel">
-        <h3><span class="dot"></span>시나리오</h3>
-        <p class="sub">정상 진입 + 예외 전건을 버튼으로 재생합니다. 시나리오는 03 요구사항의 확정 사항이 생긴 뒤 정의합니다.</p>
-        <div class="r-todo">시나리오 미정의 — 요구사항 확정 후 작성</div>
-      </div>
-      <div class="panel">
-        <h3><span class="dot"></span>검증 로그</h3>
-        <p class="sub">STEP별 PASS / FAIL / SKIP</p>
-        <div class="r-todo">로그 없음</div>
+      <div class="phone-col" id="col-sim"></div>
+      <div class="sim-col">
+        <div class="panel">
+          <h3><span class="dot"></span>시나리오</h3>
+          <p class="sub">조건부 모듈 2종(로그인 유도 · 타임딜)의 노출 조합 4건. 선택 시 프로토타입 즉시 재생 + STEP 검증 실행.</p>
+          <div class="sim-cases" id="sim-cases"></div>
+          <div class="sim-sum" id="sim-sum"></div>
+        </div>
+        <div class="panel">
+          <h3><span class="dot"></span>검증 로그</h3>
+          <p class="sub">STEP별 PASS / FAIL / SKIP</p>
+          <div id="sim-log"><div class="r-todo">시나리오 미실행</div></div>
+        </div>
       </div>
     </div>
   </div>
@@ -1569,9 +1601,15 @@ function setView(id){
     document.getElementById('v-'+k).className = 'view' + (k===id ? ' on' : '');
     document.getElementById('nav-'+k).className = (k===id ? 'on' : '');
   }
+  /* 기기 프레임은 1개. 뷰 전환 시 DOM 을 이동시켜 상태·타이머를 그대로 승계한다 */
+  if(id==='sim'){ simMove('col-sim'); simRun(SIM.cur ? SIM.idx : 0); }
+  else { simMove('col-proto'); simReset(); }
 }
-/* 화면 구현 시 상태(S)를 초기값으로 되돌리고 부분 렌더로 다시 그린다. 지금은 자리만 둔다 */
-function reloadActive(){ /* TODO: 상태 초기화 + 렌더 */ }
+/* 상태(S)를 초기값으로 되돌리고 다시 그린다. 시뮬레이터 뷰에서는 현재 시나리오를 재실행한다 */
+function reloadActive(){
+  if(document.getElementById('v-sim').className.indexOf('on')>-1) simRun(SIM.idx);
+  else { simReset(); }
+}
 
 /* ===== ID 칩 호버 상세 — aria-label 을 툴팁으로 노출 ===== */
 (function(){
@@ -2261,6 +2299,132 @@ function npInit(){
     document.addEventListener('click', function(e){
       if(!e.target.closest || !e.target.closest('.np-dd')) npMClose();
     }, true); }
+}
+
+/* ═══════════════════ 시나리오 시뮬레이터 ═══════════════════
+   검증 대상 : 조건부 모듈 2종의 노출 조합
+     · 로그인 유도 모듈 (.np-login) — 비로그인 진입 시 노출
+     · 타임딜 모듈 (#np-deal)       — 진행 중 딜 존재 시 노출
+   상시 모듈(배너 · 추천 요금제 · 추천 휴대폰 · 혜택과 서비스 · 고객 지원)은 전 케이스 공통.
+   ※ 시나리오는 03 요구사항 확정 전 기준. 확정 항목(C-nn) 연결 시 이 표에 ID 를 붙인다. */
+var SIM_CASES = [
+  { id:'SC-01', nm:'기본',              login:true,  deal:true  },
+  { id:'SC-02', nm:'로그인 없음',        login:false, deal:true  },
+  { id:'SC-03', nm:'타임딜 없음',        login:true,  deal:false },
+  { id:'SC-04', nm:'로그인·타임딜 없음',  login:false, deal:false }
+];
+var SIM = { cur:null, idx:0, base:null };
+var SIM_Z = 0.87;   /* .np zoom — 측정값을 CSS px 로 환산 */
+var SIM_GAP = 30;   /* 홈 탭 flex gap 기본값 — 실제 값은 computed style 에서 읽는다 */
+
+function simE(id){ return document.getElementById(id); }
+function simVis(el){ return !!(el && el.offsetParent !== null && el.getBoundingClientRect().height > 1); }
+function simPx(el){ return Math.round(el.getBoundingClientRect().height / SIM_Z); }
+function simMove(colId){
+  var ph = simE('ph1'), col = simE(colId);
+  if(ph && col && ph.parentNode !== col) col.appendChild(ph);
+}
+
+/* 케이스 적용 — 초기화 후 조건부 모듈만 토글 */
+function simApply(c){
+  npInit();
+  var np = simE('np'); if(!np) return;
+  var lg = np.querySelector('.np-login'), dl = simE('np-deal');
+  if(lg) lg.style.display = c.login ? '' : 'none';
+  if(dl){
+    dl.style.display = c.deal ? '' : 'none';
+    if(!c.deal){ NP.timers.forEach(clearInterval); NP.timers = []; dl.innerHTML = ''; }
+  }
+  var b = simE('body-proto'); if(b) b.scrollTop = 0;
+}
+
+/* 초기 상태 복귀 — 자유 조작 뷰용 */
+function simReset(){
+  var np = simE('np'); if(!np) return;
+  var lg = np.querySelector('.np-login'), dl = simE('np-deal');
+  if(lg) lg.style.display = '';
+  if(dl) dl.style.display = '';
+  npInit();
+}
+
+/* STEP 검증 */
+function simVerify(c){
+  var np = simE('np'), home = simE('np-home'), r = [];
+  var lg = np.querySelector('.np-login'), dl = simE('np-deal'), bn = np.querySelector('.np-banner');
+  var secs = home.querySelectorAll(':scope > .np-sec');
+  var gap = parseFloat(getComputedStyle(home).rowGap) || SIM_GAP;
+  function row(s,n,t,m){ r.push({ s:s, n:n, t:t, m:m }); }
+
+  row('STEP 1','홈 진입 · 상시 모듈 렌더',
+      (simVis(bn) && secs.length >= 4) ? 'PASS' : 'FAIL',
+      '오퍼 배너 ' + (simVis(bn) ? '노출' : '미노출') + ' · 상시 섹션 ' + secs.length + '종');
+
+  var lv = simVis(lg);
+  row('STEP 2','로그인 유도 모듈', lv === c.login ? 'PASS' : 'FAIL',
+      '기대 ' + (c.login ? '노출' : '미노출') + ' / 실제 ' + (lv ? '노출' : '미노출'));
+
+  var dv = simVis(dl), n = dl ? dl.querySelectorAll('.item').length : 0;
+  row('STEP 3','타임딜 모듈', dv === c.deal ? 'PASS' : 'FAIL',
+      '기대 ' + (c.deal ? '노출' : '미노출') + ' / 실제 ' + (dv ? '노출 · ' + n + '건' : '미노출'));
+
+  if(!c.deal) row('STEP 4','타임딜 카운트다운 구동','SKIP','타임딜 미노출 — 검증 대상 없음');
+  else row('STEP 4','타임딜 카운트다운 구동', (n > 0 && NP.timers.length === n) ? 'PASS' : 'FAIL',
+           '타이머 ' + NP.timers.length + '개 / 딜 카드 ' + n + '건');
+
+  var kids = [], ch = home.children, i;
+  for(i=0;i<ch.length;i++) if(simVis(ch[i])) kids.push(ch[i]);
+  var worst = 0, wp = '';
+  for(i=0;i<kids.length-1;i++){
+    var g = (kids[i+1].getBoundingClientRect().top - kids[i].getBoundingClientRect().bottom) / SIM_Z;
+    var d = Math.abs(g - gap);
+    if(d > worst){ worst = d; wp = (kids[i].getAttribute('aria-label') || '섹션') + ' → ' + (kids[i+1].getAttribute('aria-label') || '섹션'); }
+  }
+  row('STEP 5','모듈 제거 후 섹션 연속성', worst <= 2 ? 'PASS' : 'FAIL',
+      '노출 블록 ' + kids.length + '개 · 간격 기준 ' + gap + 'px · 최대 편차 ' + worst.toFixed(1) + 'px' + (worst > 2 ? ' (' + wp + ')' : ''));
+
+  var tot = simPx(np);
+  var dt = (SIM.base === null) ? '기준 미측정'
+         : (tot === SIM.base ? '기준 동일' : (tot - SIM.base > 0 ? '+' : '') + (tot - SIM.base).toLocaleString() + 'px');
+  row('STEP 6','총 높이 측정','INFO', tot.toLocaleString() + 'px · SC-01 대비 ' + dt);
+  return r;
+}
+
+/* 케이스 버튼 */
+function simCases(){
+  var h = '';
+  for(var i=0;i<SIM_CASES.length;i++){
+    var c = SIM_CASES[i], on = (SIM.cur && SIM.cur.id === c.id);
+    h += '<button class="sim-case' + (on ? ' on' : '') + '" onclick="simRun(' + i + ')">' +
+         '<b>' + c.id + '</b><span>' + c.nm + '</span>' +
+         '<i class="' + (c.login ? 'y' : 'n') + '">로그인 유도 ' + (c.login ? '노출' : '미노출') + '</i>' +
+         '<i class="' + (c.deal ? 'y' : 'n') + '">타임딜 ' + (c.deal ? '노출' : '미노출') + '</i></button>';
+  }
+  simE('sim-cases').innerHTML = h;
+}
+
+function simPaint(c, r){
+  simCases();
+  var p = 0, f = 0, k = 0, h = '<div class="sim-head">' + c.id + ' <em>' + c.nm + '</em></div>', i;
+  for(i=0;i<r.length;i++){
+    if(r[i].t === 'PASS') p++; else if(r[i].t === 'FAIL') f++; else if(r[i].t === 'SKIP') k++;
+    h += '<div class="sim-row"><span class="st ' + r[i].t.toLowerCase() + '">' + r[i].t + '</span>' +
+         '<div class="tx"><b>' + r[i].s + ' · ' + r[i].n + '</b><small>' + r[i].m + '</small></div></div>';
+  }
+  simE('sim-log').innerHTML = h;
+  simE('sim-sum').innerHTML = '<span class="p">PASS ' + p + '</span><span class="f">FAIL ' + f + '</span><span class="s">SKIP ' + k + '</span>';
+}
+
+/* 실행 — SC-01 총 높이를 기준값으로 먼저 확보한다 */
+function simRun(idx){
+  var c = SIM_CASES[idx]; if(!c) return;
+  simMove('col-sim');
+  if(SIM.base === null){
+    simApply(SIM_CASES[0]);
+    SIM.base = simPx(simE('np'));
+  }
+  simApply(c);
+  SIM.cur = c; SIM.idx = idx;
+  simPaint(c, simVerify(c));
 }
 
 npInit();
