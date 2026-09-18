@@ -518,6 +518,17 @@ ul.r-l li b{font-weight:800}
 .np-menu button .ic{background:#f4f4f8;transition:background .15s,box-shadow .15s}
 .np-menu button[aria-selected="true"] .ic{background:linear-gradient(150deg,#8a7bff,#6355ff);box-shadow:0 6px 14px rgba(99,85,255,.28)}
 .np-menu button[aria-selected="true"]{color:#5b4bff;border-bottom-color:#5b4bff}
+/* 퀵메뉴 고도화 (2026-09-18, HEO 지시) — 크기 · 간격 유지 */
+.np-menuwrap{box-shadow:0 1px 0 #f1f1f5}
+.np-menu button{position:relative;color:#4a5565;font-weight:500;border-bottom-color:transparent}
+.np-menu button .ic{background:#f5f5f9;box-shadow:inset 0 0 0 1px #ececf1;transition:background .15s,box-shadow .15s,transform .15s}
+.np-menu button .ic img{opacity:.85;transition:opacity .15s}
+.np-menu button:active .ic{transform:scale(.94)}
+.np-menu button[aria-selected="true"]{color:#5b4bff;font-weight:700;border-bottom-color:transparent}
+.np-menu button[aria-selected="true"] .ic{background:linear-gradient(150deg,#8a7bff,#5b4bff);box-shadow:0 6px 14px rgba(99,85,255,.3),inset 0 1px 0 rgba(255,255,255,.25)}
+.np-menu button[aria-selected="true"] .ic img{opacity:1}
+.np-menu button:after{content:"";position:absolute;left:50%;bottom:-3px;width:0;height:3px;border-radius:2px;background:linear-gradient(90deg,#8a7bff,#5b4bff);transform:translateX(-50%);transition:width .2s}
+.np-menu button[aria-selected="true"]:after{width:24px}
 .np-banner{box-shadow:0 10px 28px rgba(99,93,255,.14),0 1px 3px rgba(99,93,255,.08);background:linear-gradient(154.15deg,#f1f0ff 0%,#e4e2ff 60%,#d8d4fe 100%)}
 .np-slide .tag{background:rgba(255,255,255,.75);color:#5b4bff;box-shadow:0 1px 2px rgba(99,93,255,.12)}
 .np-slide .img{background:rgba(255,255,255,.55);box-shadow:0 6px 18px rgba(99,93,255,.18)}
